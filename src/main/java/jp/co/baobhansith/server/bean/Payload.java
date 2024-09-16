@@ -1,26 +1,17 @@
 package jp.co.baobhansith.server.bean;
 
 import javax.xml.bind.annotation.XmlElement;
+import java.util.List;
 
 public class Payload {
-    private ParentTag parentTag;
-    private Tag2 tag2;
+    private List<Info> infoList;
 
-    @XmlElement(name = "ParentTag")
-    public ParentTag getParentTag() {
-        return parentTag;
+    @XmlElement(name = "Info")
+    public List<Info> getInfoList() {
+        return infoList;
     }
 
-    public void setParentTag(ParentTag parentTag) {
-        this.parentTag = parentTag;
-    }
-
-    @XmlElement(name = "Tag2")
-    public Tag2 getTag2() {
-        return tag2;
-    }
-
-    public void setTag2(Tag2 tag2) {
-        this.tag2 = tag2;
+    public void setInfoList(List<Info> infoList) {
+        this.infoList = infoList;
     }
 }

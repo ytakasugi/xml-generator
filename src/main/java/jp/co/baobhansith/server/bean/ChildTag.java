@@ -3,7 +3,6 @@ package jp.co.baobhansith.server.bean;
 import javax.xml.bind.annotation.XmlElement;
 
 public class ChildTag {
-
     private String enabled;
     private String enabledDate;
     private String version;

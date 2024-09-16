@@ -4,7 +4,6 @@ import javax.xml.bind.annotation.XmlElement;
 import java.util.List;
 
 public class Names {
-
     private List<Name> nameList;
 
     @XmlElement(name = "Name")

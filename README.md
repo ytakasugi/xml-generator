@@ -35,3 +35,52 @@ mvn archetype:generate -DgroupId=jp.co.baobhansith.server -DartifactId=baobhansi
     </Payload>
 </Root>
 ```
+
+--
+
+以下のような繰り返し構造を出力できるようにしてください。
+
+```xml
+<Root>
+    <Payload>
+        <Info>
+            <ParentTag>
+                <ChildTag>
+                    <Enabled>true</Enabled>
+                    <EnabledDate>2024-09-01</EnabledDate>
+                </ChildTag>
+                <ChildTag>
+                    <Version>1.0.0</Version>
+                    <VersionName>Version-1.0.0</VersionName>
+                </ChildTag>
+            </ParentTag>
+            <Tag2>
+                <Names>
+                    <Name>
+                        <Id>F000000001</Id>
+                    </Name>
+                </Names>
+            </Tag2>
+        </Info>
+        <Info>
+            <ParentTag>
+                <ChildTag>
+                    <Enabled>true</Enabled>
+                    <EnabledDate>2024-09-01</EnabledDate>
+                </ChildTag>
+                <ChildTag>
+                    <Version>1.0.0</Version>
+                    <VersionName>Version-1.0.0</VersionName>
+                </ChildTag>
+            </ParentTag>
+            <Tag2>
+                <Names>
+                    <Name>
+                        <Id>F000000002</Id>
+                    </Name>
+                </Names>
+            </Tag2>
+        </Info>
+    </Payload>
+</Root>
+```
