@@ -4,16 +4,18 @@ import javax.xml.bind.annotation.adapters.XmlAdapter;
 
 public class GeneratorAdapter extends XmlAdapter<String, String> {
     @Override
-    public String marshal(String value) {
-        if (value == null) {
-            // null の場合は空の文字列として出力
-            return "";
+    public String unmarshal(String v) throws Exception {
+        if (v == null || v.trim().isEmpty()) {
+            return null;
         }
-        return value;
+        return v;
     }
 
     @Override
-    public String unmarshal(String value) {
-        return value;
+    public String marshal(String v) throws Exception {
+        if (v == null || v.trim().isEmpty()) {
+            return null;
+        }
+        return v;
     }
 }

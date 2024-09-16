@@ -4,9 +4,9 @@ import javax.xml.bind.annotation.XmlElement;
 import java.util.List;
 
 public class Payload {
+    @XmlElement(name = "Info")
     private List<Info> infoList;
 
-    @XmlElement(name = "Info")
     public List<Info> getInfoList() {
         return infoList;
     }

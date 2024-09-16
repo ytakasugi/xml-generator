@@ -11,7 +11,7 @@ public class CustomMarshaller {
         JAXBContext context = JAXBContext.newInstance(jaxbElement.getClass());
         Marshaller marshaller = context.createMarshaller();
         marshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, Boolean.FALSE);
-        marshaller.setProperty(Marshaller.JAXB_FRAGMENT, Boolean.TRUE); // XML宣言を出力しないように設定
+        marshaller.setProperty(Marshaller.JAXB_FRAGMENT, Boolean.TRUE);
 
         StringWriter writer = new StringWriter();
         if (xmlDeclaration != null && !xmlDeclaration.isEmpty()) {

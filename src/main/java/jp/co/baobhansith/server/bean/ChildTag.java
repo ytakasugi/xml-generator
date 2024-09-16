@@ -1,46 +1,80 @@
 package jp.co.baobhansith.server.bean;
 
 import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlAccessType;
 
+@XmlAccessorType(XmlAccessType.FIELD)
 public class ChildTag {
+    @XmlElement(name = "Enabled")
     private String enabled;
+
+    @XmlElement(name = "EnabledDate")
     private String enabledDate;
+
+    @XmlElement(name = "EnabledDate")
     private String version;
+    
+    @XmlElement(name = "VersionName")
     private String versionName;
 
-    @XmlElement(name = "Enabled")
     public String getEnabled() {
         return enabled;
     }
 
     public void setEnabled(String enabled) {
-        this.enabled = enabled;
+        if (enabled == null || enabled.trim().isEmpty()) {
+            this.enabled = null;
+        } else {
+            this.enabled = enabled;
+        }
     }
 
-    @XmlElement(name = "EnabledDate")
     public String getEnabledDate() {
         return enabledDate;
     }
 
     public void setEnabledDate(String enabledDate) {
-        this.enabledDate = enabledDate;
+        if (enabledDate == null || enabledDate.trim().isEmpty()) {
+            this.enabledDate = null;
+        } else {
+            this.enabledDate = enabledDate;
+        }
     }
 
-    @XmlElement(name = "Version")
     public String getVersion() {
         return version;
     }
 
     public void setVersion(String version) {
-        this.version = version;
+        if (version == null || version.trim().isEmpty()) {
+            this.version = null;
+        } else {
+            this.version = version;
+        }
     }
 
-    @XmlElement(name = "VersionName")
     public String getVersionName() {
         return versionName;
     }
 
     public void setVersionName(String versionName) {
-        this.versionName = versionName;
+        if (versionName == null || versionName.trim().isEmpty()) {
+            this.versionName = null;
+        } else {
+            this.versionName = versionName;
+        }
+    }
+
+    // すべてのフィールドがnullまたは空かを確認するメソッド
+    public boolean isAllFieldsNullOrEmpty() {
+        return (isNullOrEmpty(enabled) &&
+                isNullOrEmpty(enabledDate) &&
+                isNullOrEmpty(version) &&
+                isNullOrEmpty(versionName));
+    }
+
+    private boolean isNullOrEmpty(String value) {
+        return value == null || value.trim().isEmpty();
     }
 }

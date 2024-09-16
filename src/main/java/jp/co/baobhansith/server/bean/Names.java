@@ -4,9 +4,9 @@ import javax.xml.bind.annotation.XmlElement;
 import java.util.List;
 
 public class Names {
+    @XmlElement(name = "Name")
     private List<Name> nameList;
 
-    @XmlElement(name = "Name")
     public List<Name> getNameList() {
         return nameList;
     }
