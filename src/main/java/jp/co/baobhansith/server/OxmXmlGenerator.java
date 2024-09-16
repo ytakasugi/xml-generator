@@ -28,13 +28,6 @@ public class OxmXmlGenerator {
 
         // JAXBを使用してオブジェクトをXMLに変換
         try {
-            // Jaxb2Marshaller marshaller = new Jaxb2Marshaller();
-            // marshaller.setClassesToBeBound(Root.class, Payload.class, Info.class, ParentTag.class, ChildTag.class,
-            //         Tag2.class, Names.class, Name.class);
-
-            // StringWriter writer = new StringWriter();
-            // marshaller.marshal(root, new StreamResult(writer));
-            // System.out.println(writer.toString());
             String xmlOutput = CustomMarshaller.marshal(root, XML_DECLARATION);
             System.out.println(xmlOutput);
         } catch (Exception e) {
