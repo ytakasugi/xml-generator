@@ -45,8 +45,8 @@ public class Dom4jXmlGenerator {
         // addElementIfNotEmpty(childTag1, "Enabled", "true");
         // addElementIfNotEmpty(childTag1, "EnabledDate", "2024-09-01");
 
-        addElementIfNotEmpty(childTag1, "Enabled", "");
-        addElementIfNotEmpty(childTag1, "EnabledDate", "");
+        addElementIfNotEmpty(childTag1, "Enabled", " ");
+        addElementIfNotEmpty(childTag1, "EnabledDate", " ");
 
         // ChildTag2
         Element childTag2 = createElementWithChildren(parentTag, "ChildTag");
@@ -83,7 +83,7 @@ public class Dom4jXmlGenerator {
         }
 
         // 子要素がなく、テキストも空の場合はこの要素を削除
-        if (element.elements().isEmpty() && (element.getTextTrim().isEmpty() || element.getTextTrim() == null)) {
+        if (element.elements().isEmpty() && (element.getText().isEmpty() || element.getText() == null)) {
             element.detach();  // この要素を親から削除
         }
     }

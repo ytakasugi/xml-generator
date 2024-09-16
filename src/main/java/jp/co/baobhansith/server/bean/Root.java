@@ -5,9 +5,9 @@ import javax.xml.bind.annotation.XmlRootElement;
 
 @XmlRootElement(name = "Root")
 public class Root {
-    @XmlElement(name = "Payload")
     private Payload payload;
 
+    @XmlElement(name = "Payload")
     public Payload getPayload() {
         return payload;
     }

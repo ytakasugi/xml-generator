@@ -47,7 +47,7 @@ public class ChildTag {
     }
 
     public void setVersion(String version) {
-        if (version == null || version.trim().isEmpty()) {
+        if (version == null || version.isEmpty()) {
             this.version = null;
         } else {
             this.version = version;
@@ -59,7 +59,7 @@ public class ChildTag {
     }
 
     public void setVersionName(String versionName) {
-        if (versionName == null || versionName.trim().isEmpty()) {
+        if (versionName == null || versionName.isEmpty()) {
             this.versionName = null;
         } else {
             this.versionName = versionName;
@@ -75,6 +75,6 @@ public class ChildTag {
     }
 
     private boolean isNullOrEmpty(String value) {
-        return value == null || value.trim().isEmpty();
+        return value == null || value.isEmpty();
     }
 }

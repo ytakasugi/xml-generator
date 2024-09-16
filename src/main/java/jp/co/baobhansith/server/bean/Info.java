@@ -3,11 +3,10 @@ package jp.co.baobhansith.server.bean;
 import javax.xml.bind.annotation.XmlElement;
 
 public class Info {
-    @XmlElement(name = "ParentTag")
     private ParentTag parentTag;
-    @XmlElement(name = "Tag2")
     private Tag2 tag2;
 
+    @XmlElement(name = "ParentTag")
     public ParentTag getParentTag() {
         return parentTag;
     }
@@ -20,6 +19,7 @@ public class Info {
         }
     }
 
+    @XmlElement(name = "Tag2")
     public Tag2 getTag2() {
         return tag2;
     }

@@ -4,9 +4,9 @@ import javax.xml.bind.annotation.XmlElement;
 import java.util.List;
 
 public class ParentTag {
-    @XmlElement(name = "ChildTag")
     private List<ChildTag> childTags;
 
+    @XmlElement(name = "ChildTag")
     public List<ChildTag> getChildTags() {
         return childTags;
     }
