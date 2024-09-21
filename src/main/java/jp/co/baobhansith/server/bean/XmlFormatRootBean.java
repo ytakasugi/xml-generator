@@ -116,11 +116,11 @@ public class XmlFormatRootBean extends AbstractXmlFormat {
         public Info() {
         }
 
-        public Tag1 getParentTag() {
+        public Tag1 getTag1() {
             return tag1;
         }
 
-        public void setParentTag(Tag1 tag1) {
+        public void setTag1(Tag1 tag1) {
             this.tag1 = tag1;
         }
 
@@ -158,7 +158,7 @@ public class XmlFormatRootBean extends AbstractXmlFormat {
         @XmlElement(name = "EnabledDate")
         private String enabledDate;
 
-        @XmlElement(name = "EnabledDate")
+        @XmlElement(name = "Version")
         private String version;
 
         @XmlElement(name = "VersionName")
@@ -180,6 +180,7 @@ public class XmlFormatRootBean extends AbstractXmlFormat {
         }
 
         public void setEnabledDate(String enabledDate) {
+            this.enabledDate = enabledDate;
         }
 
         public String getVersion() {
@@ -232,8 +233,8 @@ public class XmlFormatRootBean extends AbstractXmlFormat {
 
     @XmlAccessorType(XmlAccessType.FIELD)
     public static class Name {
-        @XmlElement(name = "Id")
         @NonNull
+        @XmlElement(name = "Id")
         private String id;
 
         public Name() {

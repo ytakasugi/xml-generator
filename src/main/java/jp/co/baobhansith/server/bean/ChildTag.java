@@ -12,7 +12,7 @@ public class ChildTag {
     @XmlElement(name = "EnabledDate")
     private String enabledDate;
 
-    @XmlElement(name = "EnabledDate")
+    @XmlElement(name = "Version")
     private String version;
     
     @XmlElement(name = "VersionName")

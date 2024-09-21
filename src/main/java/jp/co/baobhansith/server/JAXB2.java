@@ -8,10 +8,14 @@ import java.io.StringWriter;
 
 public class JAXB2 {
     public static void main(String[] args) throws Exception {
+        // 対象のBeanクラスをここで動的に設定できるようにする（例: XmlFormatRootBean）
         Class<?> clazz = Class.forName("jp.co.baobhansith.server.bean.XmlFormatRootBean");
+
+        // 対象のBeanクラスのインスタンスを生成する
         ConversionIF conversion = (ConversionIF) clazz.getConstructor().newInstance();
 
         Jaxb2Marshaller marshaller = new Jaxb2Marshaller();
+        // 複数のクラスを対象にできるように、ここにクラスを設定
         marshaller.setClassesToBeBound(clazz);
 
         // データの作成
@@ -26,15 +30,18 @@ public class JAXB2 {
 
         System.out.println(bean.toString());
 
+        // 対象のBeanクラスにデータをセットする
         conversion.setData(bean);
 
+        // XMLの出力
         StringWriter writer = new StringWriter();
         StreamResult result = new StreamResult(writer);
 
+        // 対象のBeanをマーシャルする
         marshaller.marshal(conversion, result);
 
+        // XML結果を出力
         String xmlOutput = writer.toString();
-
         System.out.println(xmlOutput);
     }
 }

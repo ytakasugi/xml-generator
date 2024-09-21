@@ -18,6 +18,8 @@ import jp.co.baobhansith.server.common.bean.CommonBean;
 import jp.co.baobhansith.server.interfaces.ConversionIF;
 
 public abstract class AbstractXmlFormat implements ConversionIF {
+    private XmlFormatRootBean root;
+    private Header header;
     private String project;
     private String timestamp;
     private String version;
@@ -33,35 +35,15 @@ public abstract class AbstractXmlFormat implements ConversionIF {
         this.version = "1.0.0";
         this.messageId = "MessageId";
 
-        Header header = new Header(this.project, this.timestamp, this.version, this.messageId);
+        this.root = new XmlFormatRootBean();
+        this.header = new Header(this.project, this.timestamp, this.version, this.messageId);
 
-        List<Info> infoList = generator(bean.getDataList(), Info.class);
+        List<Info> infoList = new ArrayList<>();
 
-        Payload payload = new Payload();
-        payload.setInfoList(infoList);
+        for (String csv : bean.getDataList()) {
+            String[] values = csv.split(",");
 
-        XmlFormatRootBean root = new XmlFormatRootBean();
-        root.setHeader(header);
-        root.setPayload(payload);
-    }
-
-    @Override
-    public String getData(CommonBean bean) {
-        return StringUtils.EMPTY;
-    }
-
-
-    public static <T> List<T> generator(String[] csvArray, Class<T> clazz) {
-        List<T> list = new ArrayList<>();
-        for (String csv : csvArray) {
-            list.add(parse(csv, clazz));
-        }
-        return list;
-    }
-
-    private static <T> T parse(String csv, Class<T> clazz) {
-        String[] values = csv.split(",");
-        if (clazz == Info.class) {
+            // ChildTagにデータを設定
             ChildTag childTag1 = new ChildTag();
             childTag1.setEnabled(values[0]);
             childTag1.setEnabledDate(values[1]);
@@ -70,11 +52,11 @@ public abstract class AbstractXmlFormat implements ConversionIF {
             childTag2.setVersion(values[2]);
             childTag2.setVersionName(values[3]);
 
-            Tag1 parentTag = new Tag1();
+            Tag1 tag1 = new Tag1();
             List<ChildTag> childTags = new ArrayList<>();
             childTags.add(childTag1);
             childTags.add(childTag2);
-            parentTag.setChildTags(childTags);
+            tag1.setChildTags(childTags);
 
             Name name = new Name();
             name.setId(values[4]);
@@ -88,11 +70,21 @@ public abstract class AbstractXmlFormat implements ConversionIF {
             tag2.setNames(names);
 
             Info info = new Info();
-            info.setParentTag(parentTag);
+            info.setTag1(tag1);
             info.setTag2(tag2);
 
-            return clazz.cast(info);
+            infoList.add(info);
         }
-        throw new IllegalArgumentException("Unsupported class: " + clazz);
+
+        Payload payload = new Payload();
+        payload.setInfoList(infoList);
+
+        root.setHeader(header);
+        root.setPayload(payload);
+    }
+
+    @Override
+    public String getData(CommonBean bean) {
+        return StringUtils.EMPTY;
     }
 }
