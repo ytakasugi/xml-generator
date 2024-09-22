@@ -38,7 +38,7 @@ public class JAXB2 {
         StreamResult result = new StreamResult(writer);
 
         // 対象のBeanをマーシャルする
-        marshaller.marshal(conversion, result);
+        marshaller.marshal(conversion.getRoot(), result);
 
         // XML結果を出力
         String xmlOutput = writer.toString();

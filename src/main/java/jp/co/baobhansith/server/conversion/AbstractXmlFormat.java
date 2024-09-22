@@ -84,6 +84,11 @@ public abstract class AbstractXmlFormat implements ConversionIF {
     }
 
     @Override
+    public XmlFormatRootBean getRoot() {
+        return root;
+    }
+
+    @Override
     public String getData(CommonBean bean) {
         return StringUtils.EMPTY;
     }

@@ -6,6 +6,7 @@ import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlType;
 
 import org.springframework.lang.NonNull;
 
@@ -13,6 +14,7 @@ import jp.co.baobhansith.server.conversion.AbstractXmlFormat;
 
 @XmlRootElement(name = "Root")
 @XmlAccessorType(XmlAccessType.FIELD)
+@XmlType(propOrder = { "header", "payload" }) 
 public class XmlFormatRootBean extends AbstractXmlFormat {
     @XmlElement(name = "Payload")
     private Payload payload;
