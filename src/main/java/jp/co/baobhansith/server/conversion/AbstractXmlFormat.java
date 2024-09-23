@@ -84,7 +84,7 @@ public abstract class AbstractXmlFormat implements ConversionIF {
     }
 
     @Override
-    public XmlFormatRootBean getRoot() {
+    public Object getXmlObject() {
         return root;
     }
 

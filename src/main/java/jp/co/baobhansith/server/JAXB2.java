@@ -3,45 +3,84 @@ package jp.co.baobhansith.server;
 import org.springframework.oxm.jaxb.Jaxb2Marshaller;
 import jp.co.baobhansith.server.common.bean.CommonBean;
 import jp.co.baobhansith.server.interfaces.ConversionIF;
+
+import javax.xml.bind.Marshaller;
 import javax.xml.transform.stream.StreamResult;
+
+import java.io.FileWriter;
 import java.io.StringWriter;
+// import java.nio.file.Files;
+// import java.nio.file.Paths;
+// import java.util.HashMap;
+// import java.util.List;
+import java.util.Map;
 
 public class JAXB2 {
-    public static void main(String[] args) throws Exception {
-        // 対象のBeanクラスをここで動的に設定できるようにする（例: XmlFormatRootBean）
-        Class<?> clazz = Class.forName("jp.co.baobhansith.server.bean.XmlFormatRootBean");
 
-        // 対象のBeanクラスのインスタンスを生成する
-        ConversionIF conversion = (ConversionIF) clazz.getConstructor().newInstance();
+    public void convert(CommonBean bean) {
+        Jaxb2Marshaller marshaller = null;
 
-        Jaxb2Marshaller marshaller = new Jaxb2Marshaller();
-        // 複数のクラスを対象にできるように、ここにクラスを設定
-        marshaller.setClassesToBeBound(clazz);
+        try {
+            // 対象のBeanクラスをここで動的に設定できるようにする
+            Class<?> clazz = Class.forName("jp.co.baobhansith.server.bean.XmlFormatRootBean");
+            // 対象のBeanクラスのインスタンスを生成する
+            ConversionIF conversion = (ConversionIF) clazz.getConstructor().newInstance();
+            marshaller = new Jaxb2Marshaller();
+            marshaller.setClassesToBeBound(clazz);
+            // フォーマットされた出力を有効にする
+            marshaller.setMarshallerProperties(Map.of(
+                    Marshaller.JAXB_FORMATTED_OUTPUT, true));
+            conversion.setData(bean);
 
-        // データの作成
-        String csv1 = "true,2024-09-01,1.0.0,Version-1.0.0,F000000001";
-        String csv2 = "true,2024-09-01,1.0.0,Version-1.0.0,F000000002";
-        String csv3 = ",,,,F000000003";
-        String csv4 = "true,2024-09-01, , ,F000000004";
-        String[] arr = { csv1, csv2, csv3, csv4 };
+            // XMLの出力
+            StringWriter writer = new StringWriter();
+            StreamResult result = new StreamResult(writer);
 
-        CommonBean bean = new CommonBean();
-        bean.setDataList(arr);
+            // 対象のBeanをマーシャルする
+            marshaller.marshal(conversion.getXmlObject(), result);
 
-        System.out.println(bean.toString());
+            // XML結果を出力
+            String xmlOutput = writer.toString();
+            xmlOutput = xmlOutput.replace("\n", "\r\n");
 
-        // 対象のBeanクラスにデータをセットする
-        conversion.setData(bean);
+            StringBuffer outputFileName = new StringBuffer();
+            outputFileName.append("output");
+            outputFileName.append("_");
+            outputFileName.append(bean.getId());
+            outputFileName.append("_");
+            outputFileName.append(bean.getCreated());
+            outputFileName.append("_");
+            outputFileName.append(bean.getSeq());
+            outputFileName.append(".xml");
 
-        // XMLの出力
-        StringWriter writer = new StringWriter();
-        StreamResult result = new StreamResult(writer);
+            // ファイルに出力
+            try (FileWriter fileWriter = new FileWriter(outputFileName.toString())) {
+                fileWriter.write(xmlOutput);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
 
-        // 対象のBeanをマーシャルする
-        marshaller.marshal(conversion.getRoot(), result);
-
-        // XML結果を出力
-        String xmlOutput = writer.toString();
-        System.out.println(xmlOutput);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
+
+    /**
+     * CSVファイルを読み込んで設定をマップに格納するメソッド
+     */
+    // private static Map<String, String> readConfigFile(String filePath) throws Exception {
+    //     List<String> lines = Files.readAllLines(Paths.get(filePath));
+    //     Map<String, String> configMap = new HashMap<>();
+
+    //     // 1行目はヘッダーとして扱い、2行目の内容を設定に読み取る
+    //     if (lines.size() > 1) {
+    //         String[] headers = lines.get(0).split(",");
+    //         String[] values = lines.get(1).split(",");
+
+    //         for (int i = 0; i < headers.length; i++) {
+    //             configMap.put(headers[i], values[i]);
+    //         }
+    //     }
+    //     return configMap;
+    // }
 }
