@@ -8,8 +8,6 @@ import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlType;
 
-import org.springframework.lang.NonNull;
-
 import jp.co.baobhansith.server.conversion.AbstractXmlFormat;
 
 @XmlRootElement(name = "Root")
@@ -85,7 +83,7 @@ public class XmlFormatRootBean extends AbstractXmlFormat {
         public String getMessageId() {
             return messageId;
         }
-
+        
         public void setMessageId(String messageId) {
             this.messageId = messageId;
         }
@@ -235,7 +233,6 @@ public class XmlFormatRootBean extends AbstractXmlFormat {
 
     @XmlAccessorType(XmlAccessType.FIELD)
     public static class Name {
-        @NonNull
         @XmlElement(name = "Id")
         private String id;
 

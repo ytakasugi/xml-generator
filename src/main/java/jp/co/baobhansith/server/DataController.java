@@ -5,9 +5,14 @@ import java.time.format.DateTimeFormatter;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.atomic.AtomicInteger;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 import jp.co.baobhansith.server.common.bean.CommonBean;
 
 public class DataController {
+    private static final Logger logger = LogManager.getLogger(DataController.class);
+
     private static final ConcurrentHashMap<String, String> createdMap = new ConcurrentHashMap<>();
     private static final ConcurrentHashMap<String, AtomicInteger> seqMap = new ConcurrentHashMap<>();
     private static String globalCreated;
@@ -27,9 +32,11 @@ public class DataController {
             bean.setCreated(created);
 
             // JAXB2クラスに引き渡してXML化
-            JAXB2 jaxb2 = new JAXB2();
+            JAXB2 jaxb2 = new JAXB2(bean);
             try {
-                jaxb2.convert(bean);
+                if (!jaxb2.convertFormat()) {
+                    logger.error("Failed to write to file");
+                };
             } catch (Exception e) {
                 e.printStackTrace();
             }

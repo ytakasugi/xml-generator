@@ -2,6 +2,7 @@ package jp.co.baobhansith.server.conversion;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.UUID;
 
 import org.apache.commons.lang3.StringUtils;
 
@@ -29,18 +30,19 @@ public abstract class AbstractXmlFormat implements ConversionIF {
     }
 
     @Override
-    public void setData(CommonBean bean) {
+    public void setData(String[] message, String convertTimeWithTimeZone) {
         this.project = "SampleProject";
-        this.timestamp = "2024-09-01T00:00:00+09:00";
+        this.timestamp = convertTimeWithTimeZone;
         this.version = "1.0.0";
-        this.messageId = "MessageId";
+        this.messageId = UUID.randomUUID().toString();
+        this.messageId = null;
 
         this.root = new XmlFormatRootBean();
         this.header = new Header(this.project, this.timestamp, this.version, this.messageId);
 
         List<Info> infoList = new ArrayList<>();
 
-        for (String csv : bean.getDataList()) {
+        for (String csv : message) {
             String[] values = csv.split(",");
 
             // ChildTagにデータを設定
@@ -85,11 +87,16 @@ public abstract class AbstractXmlFormat implements ConversionIF {
 
     @Override
     public Object getXmlObject() {
-        return root;
+        return this.root;
     }
 
     @Override
-    public String getData(CommonBean bean) {
+    public String getData(String[] message) {
         return StringUtils.EMPTY;
+    }
+
+    @Override
+    public String getFormat() {
+        return "xml";
     }
 }
