@@ -17,7 +17,7 @@ import jp.co.baobhansith.server.bean.XmlFormatRootBean.Name;
 import jp.co.baobhansith.server.bean.XmlFormatRootBean.Info;
 import jp.co.baobhansith.server.interfaces.ConversionIF;
 
-public abstract class AbstractXmlFormat implements ConversionIF {
+public class AbstractXmlFormat implements ConversionIF<XmlFormatRootBean> {
     private XmlFormatRootBean root;
     private Header header;
     private String project;
@@ -29,7 +29,7 @@ public abstract class AbstractXmlFormat implements ConversionIF {
     }
 
     @Override
-    public void setData(String[] message, String convertTimeWithTimeZone) {
+    public void setData(ConversionIF<?> oxm, String[] message, String convertTimeWithTimeZone) {
         this.project = "SampleProject";
         this.timestamp = convertTimeWithTimeZone;
         this.version = "1.0.0";

@@ -20,6 +20,8 @@ import java.time.ZoneId;
 import java.time.ZonedDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
+import java.util.concurrent.atomic.AtomicInteger;
 
 import jp.co.baobhansith.server.util.ConversionException;
 
@@ -29,8 +31,9 @@ public class JAXB2 {
     // ######################################################################################
     // ## クラス定数
     // ######################################################################################
-    private static final String DATE_FORMAT = "yyyyMMddHHmmss";
+    private static final String DATE_FORMAT = "yyyyMMdd'T'HHmmss";
     private static final String DATE_FORMAT_WITH_TIMEZONE = "yyyy-MM-dd'T'HH:mm:ssXXX";
+    private static final String FILE_NAME_ZERO_PADDING = "0";
 
     // ######################################################################################
     // ## メンバ変数
@@ -43,19 +46,34 @@ public class JAXB2 {
     private String convertTimeWithTimeZone;
     private String convertMessage;
     private String classPath;
+    private static ConcurrentHashMap<String, Long> timeStampMap = new ConcurrentHashMap<>();
+    private static final ConcurrentHashMap<String, AtomicInteger> timestampCounterMap = new ConcurrentHashMap<>();
 
     public JAXB2(CommonBean bean) {
         this.message = bean.getDataList();
         this.id = bean.getId();
         this.seq = bean.getSeq();
-        this.timestamp = new Timestamp(System.currentTimeMillis());
+        this.timestamp = bean.getCreated();
+        // this.timestamp = System.currentTimeMillis();
+
+        // synchronized (this) {
+        //     if (!timeStampMap.containsKey(bean.getId())) {
+        //         timeStampMap.put(bean.getId(), System.currentTimeMillis());
+        //     } else {
+        //         long lastTimestamp = timeStampMap.get(bean.getId());
+        //         if (this.timestamp <= lastTimestamp) {
+        //             this.timestamp = this.timestamp + 1000;
+        //         }
+        //         timeStampMap.put(id, this.timestamp);
+        //     }
+        // }
         this.classPath = "jp.co.baobhansith.server.bean.XmlFormatRootBean";
     }
 
     private void setConvertTime() {
         // yyyyMMddHHmmss形式に変換
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern(DATE_FORMAT);
-        LocalDateTime localDateTime = this.timestamp.toLocalDateTime();
+        LocalDateTime localDateTime = timestamp.toLocalDateTime();
         this.convertTime = localDateTime.format(formatter);
 
         // ISO8601形式に変換
@@ -88,7 +106,7 @@ public class JAXB2 {
             // 対象のBeanクラスをここで動的に設定できるようにする
             Class<?> clazz = Class.forName(this.classPath);
             // 対象のBeanクラスのインスタンスを生成する
-            ConversionIF conversion = (ConversionIF) clazz.getConstructor().newInstance();
+            ConversionIF<?> conversion = (ConversionIF<?>) clazz.getConstructor().newInstance();
 
             if (conversion.getFormat().equals("xml")) {
                 StringWriter writer = new StringWriter();
@@ -100,7 +118,7 @@ public class JAXB2 {
                 // フォーマットされた出力を有効にする
                 marshaller.setMarshallerProperties(Map.of(
                         Marshaller.JAXB_FORMATTED_OUTPUT, true));
-                conversion.setData(this.message, this.convertTimeWithTimeZone);
+                conversion.setData(conversion, this.message, this.convertTimeWithTimeZone);
                 // 対象のBeanをマーシャルする
                 marshaller.marshal(conversion.getXmlObject(), result);
 
@@ -159,25 +177,42 @@ public class JAXB2 {
         }
     }
 
-    private void output(String convertMessage) {
-        String outputFileName = generateOutputFileName();
-        // ファイルに出力
-        try (FileWriter fileWriter = new FileWriter(outputFileName.toString())) {
-            fileWriter.write(this.convertMessage);
-        } catch (IOException e) {
+    private synchronized void output(String convertMessage) {
+        String outputFileName = null;
+
+        try {
+            outputFileName = generateOutputFileName();
+
+            // if (this.id.equals("0000_00_000_1")) {
+            //     Thread.sleep(1000);
+            //     this.timestamp = new Timestamp(System.currentTimeMillis());
+            //     setConvertTime();
+            //     outputFileName = generateOutputFileName();
+            // }
+
+            // ファイルに出力
+            try (FileWriter fileWriter = new FileWriter(outputFileName.toString())) {
+                fileWriter.write(this.convertMessage);
+            } catch (IOException e) {
+                logger.error("Failed to write to file" + outputFileName, e);
+            }
+        } catch (Exception e) {
             logger.error("Failed to write to file" + outputFileName, e);
+        } finally {
+            outputFileName = null;
         }
     }
 
     private String generateOutputFileName() {
         StringBuffer outputFileName = new StringBuffer();
         outputFileName.append("output");
-        outputFileName.append("_");
+        outputFileName.append("-");
         outputFileName.append(this.id);
-        outputFileName.append("_");
+        outputFileName.append("-");
         outputFileName.append(this.convertTime);
-        outputFileName.append("_");
+        outputFileName.append("-");
         outputFileName.append(this.seq);
+        outputFileName.append(FILE_NAME_ZERO_PADDING);
         outputFileName.append(".xml");
         return outputFileName.toString();
     }

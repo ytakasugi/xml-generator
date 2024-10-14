@@ -1,11 +1,12 @@
 package jp.co.baobhansith.server.common.bean;
 
 import java.util.Arrays;
+import java.sql.Timestamp;
 
 public class CommonBean {
     private String id;
     private String seq;
-    private String created;
+    private Timestamp created;
     private String[] dataList;
 
     public CommonBean() {
@@ -27,11 +28,11 @@ public class CommonBean {
         this.seq = seq;
     }
 
-    public String getCreated() {
+    public Timestamp getCreated() {
         return created;
     }
 
-    public void setCreated(String created) {
+    public void setCreated(Timestamp created) {
         this.created = created;
     }
 

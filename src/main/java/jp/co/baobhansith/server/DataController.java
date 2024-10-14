@@ -1,7 +1,6 @@
 package jp.co.baobhansith.server;
 
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
+import java.sql.Timestamp;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.atomic.AtomicInteger;
 
@@ -13,30 +12,47 @@ import jp.co.baobhansith.server.common.bean.CommonBean;
 public class DataController {
     private static final Logger logger = LogManager.getLogger(DataController.class);
 
-    private static final ConcurrentHashMap<String, String> createdMap = new ConcurrentHashMap<>();
-    private static final ConcurrentHashMap<String, AtomicInteger> seqMap = new ConcurrentHashMap<>();
-    private static String globalCreated;
+    private static final int INIT_FILE_SEQUENCE = 0;
+    private static Long timestamp = null;
+    private static ConcurrentHashMap<String, AtomicInteger> seqMap = new ConcurrentHashMap<>();
+    private static ConcurrentHashMap<String, Long> timeStampMap = new ConcurrentHashMap<>();
 
     public DataController() {
-        // AppXmlGeneratorクラスが起動されるごとに新しい値を生成
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyyMMddHHmmss");
-        globalCreated = LocalDateTime.now().format(formatter);
     }
 
     public void processData(CommonBean bean) {
         new Thread(() -> {
-            String created = createdMap.computeIfAbsent(bean.getId(), k -> globalCreated);
-            AtomicInteger seq = seqMap.computeIfAbsent(bean.getId(), k -> new AtomicInteger(0));
-            String seqStr = String.format("%04d", seq.incrementAndGet());
-            bean.setSeq(seqStr);
-            bean.setCreated(created);
+            synchronized (this) {
+                // timeStampMapにIDが含まれていない場合は、新たに設定する。
+                if (!timeStampMap.containsKey(bean.getId())) {
+                    timeStampMap.put(bean.getId(), System.currentTimeMillis());
+                // 含まれている場合・・・
+                } else {
+                    // timeStampMapからタイムスタンプを取得
+                    long lastTimestamp = timeStampMap.get(bean.getId());
+                    timestamp = System.currentTimeMillis();
+                    if (timestamp - lastTimestamp <= 1000) {
+                        try {
+                            Thread.sleep(1000);
+                            timestamp = System.currentTimeMillis();
+                        } catch (InterruptedException e) {
+                            e.printStackTrace();
+                        }
+                    }
+                    timeStampMap.put(bean.getId(), timestamp);
+                }
+            }
+            bean.setCreated(new Timestamp(timestamp));
+            AtomicInteger seq = seqMap.computeIfAbsent(bean.getId(), k -> new AtomicInteger(INIT_FILE_SEQUENCE));
+            bean.setSeq(String.format("%04d", seq.incrementAndGet()));
 
             // JAXB2クラスに引き渡してXML化
             JAXB2 jaxb2 = new JAXB2(bean);
             try {
                 if (!jaxb2.convertFormat()) {
                     logger.error("Failed to write to file");
-                };
+                }
+                ;
             } catch (Exception e) {
                 e.printStackTrace();
             }
