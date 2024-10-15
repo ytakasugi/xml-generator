@@ -20,19 +20,23 @@ public class Register {
 
     private static int sequenceNumbering(String id, String timestamp) {
         sequenceMap.compute(id, (k, value) -> {
+            // [分岐][パラメータ]IDに対応するSequenceManagerオブジェクトが存在しない場合
             // [パラメータ]IDに対応するSequenceManagerオブジェクトが存在しない場合、新規作成
             if (value == null) {
+                // SequenceManagerオブジェクトを生成し、タイムスタンプと初期シーケンス値を設定
                 value = new SequenceManager(timestamp, INIT_SEQUENCE_VALUE);
+            // [分岐][パラメータ]IDに対応するSequenceManagerインスタンスが存在する場合
             } else {
-                // [パラメータ]IDに対応するSequenceManagerオブジェクトが存在する場合
-                // [処理]タイムスタンプが異なる場合、タイムスタンプを更新、シーケンスを初期化
+                // [分岐]タイムスタンプが異なる場合
                 if (!value.timestamp.equals(timestamp)) {
+                    // [処理]Sequenceオブジェクトに[パラメータ]タイムスタンプを設定し、シーケンスを初期化
                     value.timestamp = timestamp;
                     value.sequence = INIT_SEQUENCE_VALUE;
+                // [分岐]タイムスタンプが同じ場合
                 } else {
-                    // [処理]タイムスタンプが同じ場合
-                    // [処理]シーケンスが最大値に達した場合、初期化
+                    // [分岐]シーケンスが最大値に達した場合
                     if (value.sequence >= MAX_SEQUENCE_VALUE) {
+                        // [処理]シーケンスを初期化
                         value.sequence = INIT_SEQUENCE_VALUE;
                     }
                 }
@@ -40,7 +44,7 @@ public class Register {
             // [処理]シーケンスをインクリメント
             value.sequence++;
             // [戻り値]更新後のSequenceManagerオブジェクトを返却し、Mapに格納
-            // [補足]ラムダ式の戻り値をMapに格納する
+            // [補足]computeメソッドの戻り値をMapに格納する
             return value;
         });
         // [戻り値]シーケンスを返却
