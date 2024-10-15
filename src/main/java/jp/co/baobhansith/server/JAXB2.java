@@ -20,8 +20,6 @@ import java.time.ZoneId;
 import java.time.ZonedDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.Map;
-import java.util.concurrent.ConcurrentHashMap;
-import java.util.concurrent.atomic.AtomicInteger;
 
 import jp.co.baobhansith.server.util.ConversionException;
 
@@ -46,27 +44,12 @@ public class JAXB2 {
     private String convertTimeWithTimeZone;
     private String convertMessage;
     private String classPath;
-    private static ConcurrentHashMap<String, Long> timeStampMap = new ConcurrentHashMap<>();
-    private static final ConcurrentHashMap<String, AtomicInteger> timestampCounterMap = new ConcurrentHashMap<>();
 
     public JAXB2(CommonBean bean) {
         this.message = bean.getDataList();
         this.id = bean.getId();
         this.seq = bean.getSeq();
         this.timestamp = bean.getCreated();
-        // this.timestamp = System.currentTimeMillis();
-
-        // synchronized (this) {
-        //     if (!timeStampMap.containsKey(bean.getId())) {
-        //         timeStampMap.put(bean.getId(), System.currentTimeMillis());
-        //     } else {
-        //         long lastTimestamp = timeStampMap.get(bean.getId());
-        //         if (this.timestamp <= lastTimestamp) {
-        //             this.timestamp = this.timestamp + 1000;
-        //         }
-        //         timeStampMap.put(id, this.timestamp);
-        //     }
-        // }
         this.classPath = "jp.co.baobhansith.server.bean.XmlFormatRootBean";
     }
 
