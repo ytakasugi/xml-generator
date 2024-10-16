@@ -34,8 +34,10 @@ public class JAXB2 {
     private static final String DATE_FORMAT_WITH_TIMEZONE = "yyyy-MM-dd'T'HH:mm:ssXXX";
     private static final int INIT_SEQUENCE_VALUE = 0;
     private static final int MAX_SEQUENCE_VALUE = 9999;
-    private static String SEQUENCE_FORMAT = "%04d";
+    private static final String SEQUENCE_FORMAT = "%04d";
     private static final String FILE_NAME_ZERO_PADDING = "0";
+    private static final String HOST_NAME = "localhost";
+    private static final String HYPYEN = "-";
 
     // ######################################################################################
     // ## メンバ変数
@@ -230,14 +232,15 @@ public class JAXB2 {
 
     private String generateOutputFileName() {
         StringBuffer outputFileName = new StringBuffer();
-        outputFileName.append("output");
-        outputFileName.append("-");
+        
         outputFileName.append(this.id);
-        outputFileName.append("-");
+        outputFileName.append(HYPYEN);
         outputFileName.append(this.convertTime);
-        outputFileName.append("-");
+        outputFileName.append(HYPYEN);
         outputFileName.append(this.seq);
         outputFileName.append(FILE_NAME_ZERO_PADDING);
+        outputFileName.append(HYPYEN);
+        outputFileName.append(HOST_NAME);
         outputFileName.append(".xml");
         return outputFileName.toString();
     }

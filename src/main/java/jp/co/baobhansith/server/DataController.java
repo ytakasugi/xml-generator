@@ -1,6 +1,5 @@
 package jp.co.baobhansith.server;
 
-import java.sql.Time;
 import java.sql.Timestamp;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.atomic.AtomicInteger;

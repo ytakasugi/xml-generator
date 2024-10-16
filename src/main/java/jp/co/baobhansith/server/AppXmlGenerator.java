@@ -39,7 +39,7 @@ public class AppXmlGenerator {
                 // CommonBeanにCSVレコードを設定
                 CommonBean commonBean = new CommonBean();
                 commonBean.setDataList(csvRecords.toArray(new String[0]));
-                commonBean.setId("0000_00_000_1");
+                commonBean.setId("X00_00_000_1");
 
                 // JAXB2クラスに引き渡してXML化
                 DataController controller = new DataController();
