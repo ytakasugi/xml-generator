@@ -218,7 +218,7 @@ public class JAXB2 {
         try {
             outputFileName = generateOutputFileName();
             // ファイルに出力
-            try (FileWriter fileWriter = new FileWriter(outputFileName.toString())) {
+            try (FileWriter fileWriter = new FileWriter("./pre/" + outputFileName.toString())) {
                 fileWriter.write(this.convertMessage);
             } catch (IOException e) {
                 logger.error("Failed to write to file" + outputFileName, e);
