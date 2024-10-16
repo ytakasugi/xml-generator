@@ -68,3 +68,73 @@ java.lang.NullPointerException: Cannot invoke "java.sql.Timestamp.toLocalDateTim
 	at jp.co.baobhansith.server.DataController.lambda$0(DataController.java:28) ~[classes/:?]
 	at java.lang.Thread.run(Thread.java:1583) [?:?]
 2024-10-14 16:39:54 ERROR DataController:29 - Failed to write to file
+2024-10-16 21:20:58 ERROR JAXB2:86 - convertMessage failed.
+java.lang.NullPointerException: Cannot invoke "java.sql.Timestamp.toLocalDateTime()" because "this.timestamp" is null
+	at jp.co.baobhansith.server.JAXB2.setConvertTime(JAXB2.java:94) ~[classes/:?]
+	at jp.co.baobhansith.server.JAXB2.convertFormat(JAXB2.java:73) ~[classes/:?]
+	at jp.co.baobhansith.server.DataController.lambda$0(DataController.java:34) ~[classes/:?]
+	at java.lang.Thread.run(Thread.java:1583) [?:?]
+2024-10-16 21:20:58 ERROR JAXB2:86 - convertMessage failed.
+java.lang.NullPointerException: Cannot invoke "java.sql.Timestamp.toLocalDateTime()" because "this.timestamp" is null
+	at jp.co.baobhansith.server.JAXB2.setConvertTime(JAXB2.java:94) ~[classes/:?]
+	at jp.co.baobhansith.server.JAXB2.convertFormat(JAXB2.java:73) ~[classes/:?]
+	at jp.co.baobhansith.server.DataController.lambda$0(DataController.java:34) ~[classes/:?]
+	at java.lang.Thread.run(Thread.java:1583) [?:?]
+2024-10-16 21:20:58 ERROR JAXB2:86 - convertMessage failed.
+java.lang.NullPointerException: Cannot invoke "java.sql.Timestamp.toLocalDateTime()" because "this.timestamp" is null
+	at jp.co.baobhansith.server.JAXB2.setConvertTime(JAXB2.java:94) ~[classes/:?]
+	at jp.co.baobhansith.server.JAXB2.convertFormat(JAXB2.java:73) ~[classes/:?]
+	at jp.co.baobhansith.server.DataController.lambda$0(DataController.java:34) ~[classes/:?]
+	at java.lang.Thread.run(Thread.java:1583) [?:?]
+2024-10-16 21:20:58 ERROR DataController:35 - Failed to write to file
+2024-10-16 21:20:58 ERROR DataController:35 - Failed to write to file
+2024-10-16 21:20:58 ERROR JAXB2:86 - convertMessage failed.
+java.lang.NullPointerException: Cannot invoke "java.sql.Timestamp.toLocalDateTime()" because "this.timestamp" is null
+	at jp.co.baobhansith.server.JAXB2.setConvertTime(JAXB2.java:94) ~[classes/:?]
+	at jp.co.baobhansith.server.JAXB2.convertFormat(JAXB2.java:73) ~[classes/:?]
+	at jp.co.baobhansith.server.DataController.lambda$0(DataController.java:34) ~[classes/:?]
+	at java.lang.Thread.run(Thread.java:1583) [?:?]
+2024-10-16 21:20:58 ERROR JAXB2:86 - convertMessage failed.
+java.lang.NullPointerException: Cannot invoke "java.sql.Timestamp.toLocalDateTime()" because "this.timestamp" is null
+	at jp.co.baobhansith.server.JAXB2.setConvertTime(JAXB2.java:94) ~[classes/:?]
+	at jp.co.baobhansith.server.JAXB2.convertFormat(JAXB2.java:73) ~[classes/:?]
+	at jp.co.baobhansith.server.DataController.lambda$0(DataController.java:34) ~[classes/:?]
+	at java.lang.Thread.run(Thread.java:1583) [?:?]
+2024-10-16 21:20:58 ERROR DataController:35 - Failed to write to file
+2024-10-16 21:20:58 ERROR JAXB2:86 - convertMessage failed.
+java.lang.NullPointerException: Cannot invoke "java.sql.Timestamp.toLocalDateTime()" because "this.timestamp" is null
+	at jp.co.baobhansith.server.JAXB2.setConvertTime(JAXB2.java:94) ~[classes/:?]
+	at jp.co.baobhansith.server.JAXB2.convertFormat(JAXB2.java:73) ~[classes/:?]
+	at jp.co.baobhansith.server.DataController.lambda$0(DataController.java:34) ~[classes/:?]
+	at java.lang.Thread.run(Thread.java:1583) [?:?]
+2024-10-16 21:20:58 ERROR DataController:35 - Failed to write to file
+2024-10-16 21:20:58 ERROR JAXB2:86 - convertMessage failed.
+java.lang.NullPointerException: Cannot invoke "java.sql.Timestamp.toLocalDateTime()" because "this.timestamp" is null
+	at jp.co.baobhansith.server.JAXB2.setConvertTime(JAXB2.java:94) ~[classes/:?]
+	at jp.co.baobhansith.server.JAXB2.convertFormat(JAXB2.java:73) ~[classes/:?]
+	at jp.co.baobhansith.server.DataController.lambda$0(DataController.java:34) ~[classes/:?]
+	at java.lang.Thread.run(Thread.java:1583) [?:?]
+2024-10-16 21:20:58 ERROR JAXB2:86 - convertMessage failed.
+java.lang.NullPointerException: Cannot invoke "java.sql.Timestamp.toLocalDateTime()" because "this.timestamp" is null
+	at jp.co.baobhansith.server.JAXB2.setConvertTime(JAXB2.java:94) ~[classes/:?]
+	at jp.co.baobhansith.server.JAXB2.convertFormat(JAXB2.java:73) ~[classes/:?]
+	at jp.co.baobhansith.server.DataController.lambda$0(DataController.java:34) ~[classes/:?]
+	at java.lang.Thread.run(Thread.java:1583) [?:?]
+2024-10-16 21:20:58 ERROR JAXB2:86 - convertMessage failed.
+java.lang.NullPointerException: Cannot invoke "java.sql.Timestamp.toLocalDateTime()" because "this.timestamp" is null
+	at jp.co.baobhansith.server.JAXB2.setConvertTime(JAXB2.java:94) ~[classes/:?]
+	at jp.co.baobhansith.server.JAXB2.convertFormat(JAXB2.java:73) ~[classes/:?]
+	at jp.co.baobhansith.server.DataController.lambda$0(DataController.java:34) ~[classes/:?]
+	at java.lang.Thread.run(Thread.java:1583) [?:?]
+2024-10-16 21:20:58 ERROR JAXB2:86 - convertMessage failed.
+java.lang.NullPointerException: Cannot invoke "java.sql.Timestamp.toLocalDateTime()" because "this.timestamp" is null
+	at jp.co.baobhansith.server.JAXB2.setConvertTime(JAXB2.java:94) ~[classes/:?]
+	at jp.co.baobhansith.server.JAXB2.convertFormat(JAXB2.java:73) ~[classes/:?]
+	at jp.co.baobhansith.server.DataController.lambda$0(DataController.java:34) ~[classes/:?]
+	at java.lang.Thread.run(Thread.java:1583) [?:?]
+2024-10-16 21:20:58 ERROR DataController:35 - Failed to write to file
+2024-10-16 21:20:58 ERROR DataController:35 - Failed to write to file
+2024-10-16 21:20:58 ERROR DataController:35 - Failed to write to file
+2024-10-16 21:20:58 ERROR DataController:35 - Failed to write to file
+2024-10-16 21:20:58 ERROR DataController:35 - Failed to write to file
+2024-10-16 21:20:58 ERROR DataController:35 - Failed to write to file

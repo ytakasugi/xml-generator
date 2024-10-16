@@ -20,6 +20,7 @@ import java.time.ZoneId;
 import java.time.ZonedDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
 
 import jp.co.baobhansith.server.util.ConversionException;
 
@@ -31,6 +32,9 @@ public class JAXB2 {
     // ######################################################################################
     private static final String DATE_FORMAT = "yyyyMMdd'T'HHmmss";
     private static final String DATE_FORMAT_WITH_TIMEZONE = "yyyy-MM-dd'T'HH:mm:ssXXX";
+    private static final int INIT_SEQUENCE_VALUE = 0;
+    private static final int MAX_SEQUENCE_VALUE = 9999;
+    private static String SEQUENCE_FORMAT = "%04d";
     private static final String FILE_NAME_ZERO_PADDING = "0";
 
     // ######################################################################################
@@ -44,6 +48,7 @@ public class JAXB2 {
     private String convertTimeWithTimeZone;
     private String convertMessage;
     private String classPath;
+    private static ConcurrentHashMap<String, SequenceManager> sequenceMap = new ConcurrentHashMap<>();
 
     public JAXB2(CommonBean bean) {
         this.message = bean.getDataList();
@@ -51,6 +56,36 @@ public class JAXB2 {
         this.seq = bean.getSeq();
         this.timestamp = bean.getCreated();
         this.classPath = "jp.co.baobhansith.server.bean.XmlFormatRootBean";
+    }
+
+    private static class SequenceManager {
+        private String timestamp;
+        private int sequence;
+
+        private SequenceManager(String timestamp, int sequence) {
+            this.timestamp = timestamp;
+            this.sequence = sequence;
+        }
+    }
+
+    public boolean convertFormat() throws ConversionException {
+        try {
+            setConvertTime();
+
+            sequenceNumbering(this.id, this.convertTime);
+
+            if (!convertMessage()) {
+                return false;
+            }
+            output(this.convertMessage);
+            return true;
+        } catch (ConversionException e) {
+            logger.error("convertMessage failed.", e);
+            return false;
+        } catch (Exception e) {
+            logger.error("convertMessage failed.", e);
+            return false;
+        }
     }
 
     private void setConvertTime() {
@@ -65,21 +100,36 @@ public class JAXB2 {
         this.convertTimeWithTimeZone = zonedDateTime.format(isoFormatter);
     }
 
-    public boolean convertFormat() throws ConversionException {
-        try {
-            setConvertTime();
-            if (!convertMessage()) {
-                return false;
+    private synchronized void sequenceNumbering(String id, String timestamp) {
+        sequenceMap.compute(this.id, (k, value) -> {
+            // [分岐][パラメータ]IDに対応するSequenceManagerオブジェクトが存在しない場合
+            // [パラメータ]IDに対応するSequenceManagerオブジェクトが存在しない場合、新規作成
+            if (value == null) {
+                // SequenceManagerオブジェクトを生成し、タイムスタンプと初期シーケンス値を設定
+                value = new SequenceManager(this.convertTime, INIT_SEQUENCE_VALUE);
+            // [分岐][パラメータ]IDに対応するSequenceManagerインスタンスが存在する場合
+            } else {
+                // [分岐]タイムスタンプが異なる場合
+                if (!value.timestamp.equals(this.convertTime)) {
+                    // [処理]Sequenceオブジェクトに[パラメータ]タイムスタンプを設定し、シーケンスを初期化
+                    value.timestamp = this.convertTime;
+                    value.sequence = INIT_SEQUENCE_VALUE;
+                // [分岐]タイムスタンプが同じ場合
+                } else {
+                    // [分岐]シーケンスが最大値に達した場合
+                    if (value.sequence >= MAX_SEQUENCE_VALUE) {
+                        // [処理]シーケンスを初期化
+                        value.sequence = INIT_SEQUENCE_VALUE;
+                    }
+                }
             }
-            output(this.convertMessage);
-            return true;
-        } catch (ConversionException e) {
-            logger.error("convertMessage failed.", e);
-            return false;
-        } catch (Exception e) {
-            logger.error("convertMessage failed.", e);
-            return false;
-        }
+            // [処理]シーケンスをインクリメント
+            value.sequence++;
+            // [戻り値]更新後のSequenceManagerオブジェクトを返却し、Mapに格納
+            // [補足]computeメソッドの戻り値をMapに格納する
+            return value;
+        });
+        this.seq = String.format(SEQUENCE_FORMAT, sequenceMap.get(id).sequence);
     }
 
     public boolean convertMessage() throws ConversionException {
@@ -165,14 +215,6 @@ public class JAXB2 {
 
         try {
             outputFileName = generateOutputFileName();
-
-            // if (this.id.equals("0000_00_000_1")) {
-            //     Thread.sleep(1000);
-            //     this.timestamp = new Timestamp(System.currentTimeMillis());
-            //     setConvertTime();
-            //     outputFileName = generateOutputFileName();
-            // }
-
             // ファイルに出力
             try (FileWriter fileWriter = new FileWriter(outputFileName.toString())) {
                 fileWriter.write(this.convertMessage);

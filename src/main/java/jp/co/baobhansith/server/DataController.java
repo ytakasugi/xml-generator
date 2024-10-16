@@ -1,5 +1,6 @@
 package jp.co.baobhansith.server;
 
+import java.sql.Time;
 import java.sql.Timestamp;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.atomic.AtomicInteger;
@@ -13,36 +14,14 @@ public class DataController {
     private static final Logger logger = LogManager.getLogger(DataController.class);
 
     private static final int INIT_FILE_SEQUENCE = 0;
-    private static Long timestamp = null;
     private static ConcurrentHashMap<String, AtomicInteger> seqMap = new ConcurrentHashMap<>();
-    private static ConcurrentHashMap<String, Long> timeStampMap = new ConcurrentHashMap<>();
 
     public DataController() {
     }
 
     public void processData(CommonBean bean) {
         new Thread(() -> {
-            synchronized (this) {
-                // timeStampMapにIDが含まれていない場合は、新たに設定する。
-                if (!timeStampMap.containsKey(bean.getId())) {
-                    timeStampMap.put(bean.getId(), System.currentTimeMillis());
-                // 含まれている場合・・・
-                } else {
-                    // timeStampMapからタイムスタンプを取得
-                    long lastTimestamp = timeStampMap.get(bean.getId());
-                    timestamp = System.currentTimeMillis();
-                    if (timestamp - lastTimestamp <= 1000) {
-                        try {
-                            Thread.sleep(1000);
-                            timestamp = System.currentTimeMillis();
-                        } catch (InterruptedException e) {
-                            e.printStackTrace();
-                        }
-                    }
-                    timeStampMap.put(bean.getId(), timestamp);
-                }
-            }
-            bean.setCreated(new Timestamp(timestamp));
+            bean.setCreated(new Timestamp(System.currentTimeMillis()));
             AtomicInteger seq = seqMap.computeIfAbsent(bean.getId(), k -> new AtomicInteger(INIT_FILE_SEQUENCE));
             bean.setSeq(String.format("%04d", seq.incrementAndGet()));
 
