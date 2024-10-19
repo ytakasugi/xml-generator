@@ -22,7 +22,7 @@ import java.time.format.DateTimeFormatter;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
-import jp.co.baobhansith.server.util.ConversionException;
+import jp.co.baobhansith.server.util.BaobhansithException;
 
 public class JAXB2 {
     private static final Logger logger = LogManager.getLogger(JAXB2.class);
@@ -70,7 +70,7 @@ public class JAXB2 {
         }
     }
 
-    public boolean convertFormat() throws ConversionException {
+    public boolean convertFormat() throws BaobhansithException {
         try {
             setConvertTime();
 
@@ -81,7 +81,7 @@ public class JAXB2 {
             }
             output(this.convertMessage);
             return true;
-        } catch (ConversionException e) {
+        } catch (BaobhansithException e) {
             logger.error("convertMessage failed.", e);
             return false;
         } catch (Exception e) {
@@ -134,7 +134,7 @@ public class JAXB2 {
         this.seq = String.format(SEQUENCE_FORMAT, sequenceMap.get(id).sequence);
     }
 
-    public boolean convertMessage() throws ConversionException {
+    public boolean convertMessage() throws BaobhansithException {
         Jaxb2Marshaller marshaller = null;
 
         try {
@@ -169,33 +169,33 @@ public class JAXB2 {
         } catch (NoSuchMethodException e) {
             // メソッドが存在しない場合の処理
             logger.error("指定したメソッドが見つかりません: " + e.getMessage());
-            throw new ConversionException("指定したメソッドが見つかりません。", e);
+            throw new BaobhansithException("指定したメソッドが見つかりません。", e);
 
         } catch (SecurityException e) {
             // セキュリティ違反が発生した場合の処理
             logger.error("セキュリティエラーが発生しました: " + e.getMessage());
-            throw new ConversionException("セキュリティエラーが発生しました。", e);
+            throw new BaobhansithException("セキュリティエラーが発生しました。", e);
 
         } catch (InstantiationException e) {
             // インスタンス化に失敗した場合の処理
             logger.error("インスタンス化に失敗しました。抽象クラスまたはインターフェースの可能性があります。: " + e.getMessage());
-            throw new ConversionException("インスタンス化に失敗しました。", e);
+            throw new BaobhansithException("インスタンス化に失敗しました。", e);
 
         } catch (IllegalAccessException e) {
             // アクセス権がない場合の処理
             logger.error("アクセスできません: " + e.getMessage());
-            throw new ConversionException("アクセス権限エラーが発生しました。", e);
+            throw new BaobhansithException("アクセス権限エラーが発生しました。", e);
 
         } catch (IllegalArgumentException e) {
             // 不正な引数が渡された場合の処理
             logger.error("不正な引数が渡されました: " + e.getMessage());
-            throw new ConversionException("不正な引数が渡されました。", e);
+            throw new BaobhansithException("不正な引数が渡されました。", e);
 
         } catch (InvocationTargetException e) {
             // 呼び出したメソッドが例外をスローした場合の処理
             Throwable cause = e.getCause();
             logger.error("メソッド呼び出し中に例外が発生しました: " + cause.getMessage());
-            throw new ConversionException("メソッド呼び出し中に例外が発生しました。", cause);
+            throw new BaobhansithException("メソッド呼び出し中に例外が発生しました。", cause);
 
         } catch (ClassNotFoundException e) {
             // クラスが見つからない場合の処理

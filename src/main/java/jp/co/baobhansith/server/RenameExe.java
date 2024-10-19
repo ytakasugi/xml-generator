@@ -5,9 +5,13 @@ import java.nio.file.Files;
 import java.nio.file.StandardCopyOption;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
+
+import jp.co.baobhansith.server.util.BaobhansithException;
+import jp.co.baobhansith.server.util.BaobhansithUtility;
 
 public class RenameExe {
     private static final String DIRECTORY = "/pre";
@@ -28,14 +32,18 @@ public class RenameExe {
 
     }
 
-    public static List<Path> getFileList(String directory) throws IOException {
+    public static List<Path> getFileList(String directory) throws BaobhansithException {
+        List<Path> fileList = new ArrayList<>();
+        
         // 指定されたディレクトリ直下のファイルの絶対パスを取得
         try (Stream<Path> paths = Files.list(Paths.get(directory))) { // ディレクトリ直下のファイルのみを取得
-            return paths.filter(Files::isRegularFile) // 通常のファイルのみをフィルタ
+            fileList = paths.filter(Files::isRegularFile) // 通常のファイルのみをフィルタ
                     .map(Path::toAbsolutePath) // ファイルの絶対パスに変換
-                    // .map(Path::toString) // PathをStringに変換
                     .collect(Collectors.toList()); // List<String>に収集
+        } catch(IOException e) {
+            throw new BaobhansithException("Failed to get file list", e);
         }
+        return fileList;
     }
 
     // ファイルをリネームするメソッド
