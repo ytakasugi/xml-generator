@@ -10,10 +10,13 @@ import jp.co.baobhansith.server.interfaces.ConversionIF;
 import javax.xml.bind.Marshaller;
 import javax.xml.transform.stream.StreamResult;
 
-import java.io.FileWriter;
+import java.io.BufferedWriter;
 import java.io.IOException;
 import java.io.StringWriter;
 import java.lang.reflect.InvocationTargetException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.sql.Timestamp;
 import java.time.LocalDateTime;
 import java.time.ZoneId;
@@ -23,6 +26,7 @@ import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
 import jp.co.baobhansith.server.util.BaobhansithException;
+import jp.co.baobhansith.server.util.BaobhansithUtility;
 
 public class JAXB2 {
     private static final Logger logger = LogManager.getLogger(JAXB2.class);
@@ -38,6 +42,8 @@ public class JAXB2 {
     private static final String FILE_NAME_ZERO_PADDING = "0";
     private static final String HOST_NAME = "localhost";
     private static final String HYPYEN = "-";
+    private static final String CONFIG_PATH = "/home/ytakasugi/java-workspace/baobhansith/config.csv";
+    private static final int OUTPUT_DIR_INDEX = 1;
 
     // ######################################################################################
     // ## メンバ変数
@@ -50,6 +56,7 @@ public class JAXB2 {
     private String convertTimeWithTimeZone;
     private String convertMessage;
     private String classPath;
+    private String outputDirectory;
     private static ConcurrentHashMap<String, SequenceManager> sequenceMap = new ConcurrentHashMap<>();
 
     public JAXB2(CommonBean bean) {
@@ -75,6 +82,8 @@ public class JAXB2 {
             setConvertTime();
 
             sequenceNumbering(this.id, this.convertTime);
+
+            getOutputDirectory();
 
             if (!convertMessage()) {
                 return false;
@@ -109,14 +118,14 @@ public class JAXB2 {
             if (value == null) {
                 // SequenceManagerオブジェクトを生成し、タイムスタンプと初期シーケンス値を設定
                 value = new SequenceManager(this.convertTime, INIT_SEQUENCE_VALUE);
-            // [分岐][パラメータ]IDに対応するSequenceManagerインスタンスが存在する場合
+                // [分岐][パラメータ]IDに対応するSequenceManagerインスタンスが存在する場合
             } else {
                 // [分岐]タイムスタンプが異なる場合
                 if (!value.timestamp.equals(this.convertTime)) {
                     // [処理]Sequenceオブジェクトに[パラメータ]タイムスタンプを設定し、シーケンスを初期化
                     value.timestamp = this.convertTime;
                     value.sequence = INIT_SEQUENCE_VALUE;
-                // [分岐]タイムスタンプが同じ場合
+                    // [分岐]タイムスタンプが同じ場合
                 } else {
                     // [分岐]シーケンスが最大値に達した場合
                     if (value.sequence >= MAX_SEQUENCE_VALUE) {
@@ -134,7 +143,11 @@ public class JAXB2 {
         this.seq = String.format(SEQUENCE_FORMAT, sequenceMap.get(id).sequence);
     }
 
-    public boolean convertMessage() throws BaobhansithException {
+    private void getOutputDirectory() throws IOException {
+        this.outputDirectory = BaobhansithUtility.getValueByKey(CONFIG_PATH, this.id, OUTPUT_DIR_INDEX);
+    }
+
+    private boolean convertMessage() throws BaobhansithException {
         Jaxb2Marshaller marshaller = null;
 
         try {
@@ -212,14 +225,16 @@ public class JAXB2 {
         }
     }
 
-    private synchronized void output(String convertMessage) {
+    private void output(String convertMessage) {
         String outputFileName = null;
 
         try {
             outputFileName = generateOutputFileName();
+            Path outputFilePath = Paths.get(this.outputDirectory, outputFileName);
+            
             // ファイルに出力
-            try (FileWriter fileWriter = new FileWriter("./pre/" + outputFileName.toString())) {
-                fileWriter.write(this.convertMessage);
+            try (BufferedWriter bufferWriter = Files.newBufferedWriter(outputFilePath)) {
+                bufferWriter.write(this.convertMessage);
             } catch (IOException e) {
                 logger.error("Failed to write to file" + outputFileName, e);
             }
@@ -232,7 +247,7 @@ public class JAXB2 {
 
     private String generateOutputFileName() {
         StringBuffer outputFileName = new StringBuffer();
-        
+
         outputFileName.append(this.id);
         outputFileName.append(HYPYEN);
         outputFileName.append(this.convertTime);
