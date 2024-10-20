@@ -49,7 +49,7 @@ public class RenameExe {
             // ファイル取得元ディレクトリとファイル移動先ディレクトリの取得
             // ----------------------------------------------------------
             directoryArray = getDirectory(id);
-            // 配列が空の場合
+            // [分岐]配列が空の場合
             if (ArrayUtils.isEmpty(directoryArray)) {
                 // ログ出力
                 logger.error("Failed to get directory");
@@ -60,7 +60,7 @@ public class RenameExe {
             sourceDirectory = directoryArray[1];
             // ファイル移動先ディレクトリを取得
             destinationDirectory = directoryArray[2];
-            // ファイル取得元ディレクトリまたはファイル移動先ディレクトリが空の場合
+            // [分岐]ファイル取得元ディレクトリまたはファイル移動先ディレクトリが空の場合
             if (isEmptyDirectories(sourceDirectory, destinationDirectory)) {
                 // ログ出力
                 logger.error("Invalid directory. Source Directroy : {}, Destination Directroy : {}",
@@ -90,10 +90,24 @@ public class RenameExe {
         }
     }
 
+    /**
+     * <dd> 指定されたIDに対応するディレクトリ情報を取得
+     * 
+     * @param id
+     * @return
+     * @throws IOException
+     */
     private static String[] getDirectory(String id) throws IOException {
         return BaobhansithUtility.getRowByKey(CONFIG_PATH, id);
     }
 
+    /**
+     * <dd> ディレクトリが空かどうかを判定
+     * 
+     * @param sourceDirectory
+     * @param destinationDirectory
+     * @return
+     */
     private static boolean isEmptyDirectories(String sourceDirectory, String destinationDirectory) {
         return StringUtils.isEmpty(sourceDirectory) || StringUtils.isEmpty(destinationDirectory);
     }
@@ -146,7 +160,7 @@ public class RenameExe {
      * @param destinationDirectory
      * @throws IOException
      */
-    public static void moveFile(Path filePath, String destinationDirectory) throws IOException {
+    public static void move(Path filePath, String destinationDirectory) throws IOException {
         Path destinationDir = Paths.get(destinationDirectory); // 移動先ディレクトリを指定
         Path destinationPath = destinationDir.resolve(filePath.getFileName()); // 移動先のファイルパス
 
@@ -162,7 +176,7 @@ public class RenameExe {
      * @param destinationDirectory
      * @throws IOException
      */
-    public static void copyFile(Path filePath, String destinationDirectory) throws IOException {
+    public static void copy(Path filePath, String destinationDirectory) throws IOException {
         Path destinationDir = Paths.get(destinationDirectory); // コピー先ディレクトリを指定
         Path destinationPath = destinationDir.resolve(filePath.getFileName()); // コピー先のファイルパス
 
@@ -171,7 +185,12 @@ public class RenameExe {
         System.out.println("Copied: " + filePath + " to " + destinationPath);
     }
 
-    // ファイルをリネームして指定されたディレクトリに移動するメソッド
+    /**
+     * <dd> ファイルをリネームして指定されたディレクトリに移動
+     * 
+     * @param filePaths
+     * @param destinationDirectory
+     */
     public static void renameAndMoveFiles(List<Path> filePaths, String destinationDirectory) {
         Path destinationDir = Paths.get(destinationDirectory); // 移動先ディレクトリを指定
 
@@ -194,7 +213,12 @@ public class RenameExe {
         }
     }
 
-    // ファイルをリネームして指定されたディレクトリにコピーするメソッド
+    /**
+     * <dd> ファイルをリネームして指定されたディレクトリにコピー
+     * 
+     * @param filePaths
+     * @param destinationDirectory
+     */
     public static void renameAndCopyFiles(List<Path> filePaths, String destinationDirectory) {
         Path destinationDir = Paths.get(destinationDirectory); // コピー先ディレクトリを指定
 
