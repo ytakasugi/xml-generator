@@ -81,8 +81,16 @@ public class RenameExe {
                 // プロセスを終了
                 return;
             }
-
+            
+            // ----------------------------------------------------------
+            // デバッグ用
+            // ----------------------------------------------------------
             fileList.forEach(System.out::println);
+
+            // ----------------------------------------------------------
+            // ファイルをリネームして指定されたディレクトリに移動
+            // ----------------------------------------------------------
+            execute(fileList, destinationDirectory);
 
         } catch (IOException e) {
             logger.error("Failed to get directory", e.getMessage());
@@ -91,10 +99,10 @@ public class RenameExe {
     }
 
     /**
-     * <dd> 指定されたIDに対応するディレクトリ情報を取得
+     * <dd>指定されたIDに対応するディレクトリ情報を取得
      * 
      * @param id
-     * @return
+     * @return String[]
      * @throws IOException
      */
     private static String[] getDirectory(String id) throws IOException {
@@ -102,7 +110,7 @@ public class RenameExe {
     }
 
     /**
-     * <dd> ディレクトリが空かどうかを判定
+     * <dd>ディレクトリが空かどうかを判定
      * 
      * @param sourceDirectory
      * @param destinationDirectory
@@ -113,7 +121,7 @@ public class RenameExe {
     }
 
     /**
-     * <dd> 指定されたディレクトリ内のファイルの絶対パスを取得する
+     * <dd>指定されたディレクトリ内のファイルの絶対パスを取得する
      * 
      * @param directory
      * @return List<Path>
@@ -126,7 +134,7 @@ public class RenameExe {
         try (Stream<Path> paths = Files.list(Paths.get(directory))) {
             fileList = paths.filter(Files::isRegularFile)
                     .map(Path::toAbsolutePath)
-                    .collect(Collectors.toList()); 
+                    .collect(Collectors.toList());
         } catch (IOException e) {
             throw new BaobhansithException("Failed to get file list", e);
         }
@@ -134,110 +142,60 @@ public class RenameExe {
     }
 
     /**
-     * <dd> ファイルをリネームするメソッド
+     * <dd>ファイルをリネームするメソッド
      * 
      * @param filePathList
+     * @return List<Path>
+     * @throws BaobhansithException
      */
-    public static void rename(List<Path> filePathList) {
+    public static List<Path> rename(List<Path> filePathList) throws BaobhansithException {
+        List<Path> renamedFilePathList = new ArrayList<>();
+
         for (Path filePath : filePathList) {
             try {
                 Path newFileName = filePath.resolveSibling("renamed_" + filePath.getFileName().toString());
-
                 Files.move(filePath, newFileName);
-
-                System.out.println("Renamed: " + filePath + " to " + newFileName);
+                renamedFilePathList.add(newFileName);
             } catch (IOException e) {
-                System.err.println("Failed to rename: " + filePath);
-                e.printStackTrace();
+                throw new BaobhansithException("Failed to rename: " + filePath, e);
             }
         }
+        return renamedFilePathList;
     }
 
     /**
-     * <dd> ファイルを移動する
+     * <dd>ファイルを移動する
      * 
      * @param filePath
      * @param destinationDirectory
-     * @throws IOException
+     * @throws BaobhansithException
      */
-    public static void move(Path filePath, String destinationDirectory) throws IOException {
-        Path destinationDir = Paths.get(destinationDirectory); // 移動先ディレクトリを指定
-        Path destinationPath = destinationDir.resolve(filePath.getFileName()); // 移動先のファイルパス
-
-        // ファイルを移動
-        Files.move(filePath, destinationPath, StandardCopyOption.REPLACE_EXISTING);
-        System.out.println("Moved: " + filePath + " to " + destinationPath);
-    }
-
-    /**
-     * <dd> ファイルをコピーする
-     * 
-     * @param filePath
-     * @param destinationDirectory
-     * @throws IOException
-     */
-    public static void copy(Path filePath, String destinationDirectory) throws IOException {
-        Path destinationDir = Paths.get(destinationDirectory); // コピー先ディレクトリを指定
-        Path destinationPath = destinationDir.resolve(filePath.getFileName()); // コピー先のファイルパス
-
-        // ファイルをコピー (同じファイルが存在する場合は上書き)
-        Files.copy(filePath, destinationPath, StandardCopyOption.REPLACE_EXISTING);
-        System.out.println("Copied: " + filePath + " to " + destinationPath);
-    }
-
-    /**
-     * <dd> ファイルをリネームして指定されたディレクトリに移動
-     * 
-     * @param filePaths
-     * @param destinationDirectory
-     */
-    public static void renameAndMoveFiles(List<Path> filePaths, String destinationDirectory) {
-        Path destinationDir = Paths.get(destinationDirectory); // 移動先ディレクトリを指定
-
-        for (Path filePath : filePaths) {
+    public static void move(List<Path> filePathList, String destinationDirectory) throws BaobhansithException {
+        for (Path filePath : filePathList) {
             try {
-                // 新しいファイル名を作成（元のファイル名に "renamed_" を付加）
-                String newFileName = "renamed_" + filePath.getFileName().toString();
-
-                // 移動先ディレクトリ内に新しいファイルパスを作成
-                Path destinationPath = destinationDir.resolve(newFileName);
-
-                // ファイルをリネームして移動
+                Path destinationDir = Paths.get(destinationDirectory);
+                Path destinationPath = destinationDir.resolve(filePath.getFileName());
                 Files.move(filePath, destinationPath, StandardCopyOption.REPLACE_EXISTING);
-
-                System.out.println("Moved and Renamed: " + filePath + " to " + destinationPath);
             } catch (IOException e) {
-                System.err.println("Failed to rename and move: " + filePath);
-                e.printStackTrace();
+                throw new BaobhansithException("Failed to move: " + filePath, e);
             }
         }
     }
 
     /**
-     * <dd> ファイルをリネームして指定されたディレクトリにコピー
+     * <dd>ファイルをリネームして指定されたディレクトリに移動
      * 
      * @param filePaths
      * @param destinationDirectory
      */
-    public static void renameAndCopyFiles(List<Path> filePaths, String destinationDirectory) {
-        Path destinationDir = Paths.get(destinationDirectory); // コピー先ディレクトリを指定
+    public static void execute(List<Path> filePathList, String destinationDirectory) {
+        try {
+            List<Path> renamedFilePathList = rename(filePathList);
+            move(renamedFilePathList, destinationDirectory);
 
-        for (Path filePath : filePaths) {
-            try {
-                // 新しいファイル名を作成（元のファイル名に "renamed_" を付加）
-                String newFileName = "renamed_" + filePath.getFileName().toString();
-
-                // コピー先ディレクトリ内に新しいファイルパスを作成
-                Path destinationPath = destinationDir.resolve(newFileName);
-
-                // ファイルをコピー (同じファイルがある場合は上書き)
-                Files.copy(filePath, destinationPath, StandardCopyOption.REPLACE_EXISTING);
-
-                System.out.println("Copied and Renamed: " + filePath + " to " + destinationPath);
-            } catch (IOException e) {
-                System.err.println("Failed to copy and rename: " + filePath);
-                e.printStackTrace();
-            }
+        } catch (BaobhansithException e) {
+            logger.error("Failed to rename files", e);
+            return;
         }
     }
 }
