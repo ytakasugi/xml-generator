@@ -11,7 +11,6 @@ import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 import org.apache.commons.lang3.StringUtils;
-import org.apache.commons.lang3.ArrayUtils;
 import org.apache.commons.collections4.CollectionUtils;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -29,15 +28,18 @@ public class RenameExe {
     // ----------------------------------------------------------
     // ロガー
     // ----------------------------------------------------------
-    private static final Logger logger = LogManager.getLogger(RenameExe.class);
+    private static final Logger Logger = LogManager.getLogger(RenameExe.class);
 
     public static void main(String[] args) throws Exception {
         // ----------------------------------------------------------
         // ローカル変数の宣言
         // ----------------------------------------------------------
         String id = null;
+        // ファイル取得元ディレクトリとファイル移動先ディレクトリの配列
         String[] directoryArray = null;
+        // ファイル取得元ディレクトリ
         String sourceDirectory = null;
+        // ファイル移動先ディレクトリ
         String destinationDirectory = null;
 
         try {
@@ -49,21 +51,14 @@ public class RenameExe {
             // ファイル取得元ディレクトリとファイル移動先ディレクトリの取得
             // ----------------------------------------------------------
             directoryArray = getDirectory(id);
-            // [分岐]配列が空の場合
-            if (ArrayUtils.isEmpty(directoryArray)) {
-                // ログ出力
-                logger.error("Failed to get directory");
-                // プロセスを終了
-                return;
-            }
             // ファイル取得元ディレクトリを取得
             sourceDirectory = directoryArray[1];
             // ファイル移動先ディレクトリを取得
             destinationDirectory = directoryArray[2];
             // [分岐]ファイル取得元ディレクトリまたはファイル移動先ディレクトリが空の場合
-            if (isEmptyDirectories(sourceDirectory, destinationDirectory)) {
+            if (isDirectoriesEmpty(sourceDirectory, destinationDirectory)) {
                 // ログ出力
-                logger.error("Invalid directory. Source Directroy : {}, Destination Directroy : {}",
+                Logger.error("Invalid directory. Source Directroy : {}, Destination Directroy : {}",
                         sourceDirectory,
                         destinationDirectory);
                 // プロセスを終了
@@ -77,11 +72,11 @@ public class RenameExe {
             // ファイルリストが空の場合
             if (CollectionUtils.isEmpty(fileList)) {
                 // ログ出力
-                logger.error("File list is empty");
+                Logger.info("File list is empty");
                 // プロセスを終了
                 return;
             }
-            
+
             // ----------------------------------------------------------
             // デバッグ用
             // ----------------------------------------------------------
@@ -93,7 +88,7 @@ public class RenameExe {
             execute(fileList, destinationDirectory);
 
         } catch (IOException e) {
-            logger.error("Failed to get directory", e.getMessage());
+            Logger.error("Failed to get directory", e.getMessage());
             return;
         }
     }
@@ -114,9 +109,9 @@ public class RenameExe {
      * 
      * @param sourceDirectory
      * @param destinationDirectory
-     * @return
+     * @return boolean
      */
-    private static boolean isEmptyDirectories(String sourceDirectory, String destinationDirectory) {
+    private static boolean isDirectoriesEmpty(String sourceDirectory, String destinationDirectory) {
         return StringUtils.isEmpty(sourceDirectory) || StringUtils.isEmpty(destinationDirectory);
     }
 
@@ -194,7 +189,7 @@ public class RenameExe {
             move(renamedFilePathList, destinationDirectory);
 
         } catch (BaobhansithException e) {
-            logger.error("Failed to rename files", e);
+            Logger.error("Failed to rename files", e);
             return;
         }
     }
