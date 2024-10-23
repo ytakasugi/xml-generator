@@ -19,25 +19,25 @@ public class App {
         String value3 = values[3];
 
         if(value1 == null) {
-            System.out.println("null");
+            System.out.println("value1 is null");
         } else if (value1.isEmpty()) {
-            System.out.println("empty");
+            System.out.println("value1 is empty");
         } else {
             System.out.println(value1);
         }
 
         if(value2 == null) {
-            System.out.println("null");
+            System.out.println("value2 is null");
         } else if (value2.isEmpty()) {
-            System.out.println("empty");
+            System.out.println("value2 is empty");
         } else {
             System.out.println(value2);
         }
 
         if(value3 == null) {
-            System.out.println("null");
+            System.out.println("value3 is null");
         } else if (value3.isEmpty()) {
-            System.out.println("empty");
+            System.out.println("value3 is empty");
         } else {
             System.out.println(value3);
         } 
