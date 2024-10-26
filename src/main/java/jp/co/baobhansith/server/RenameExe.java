@@ -85,7 +85,7 @@ public class RenameExe {
             // ----------------------------------------------------------
             // ファイルをリネームして指定されたディレクトリに移動
             // ----------------------------------------------------------
-            execute(fileList, destinationDirectory);
+            execute(fileList, Paths.get(destinationDirectory));
 
         } catch (IOException e) {
             Logger.error("Failed to get directory", e.getMessage());
@@ -137,6 +137,26 @@ public class RenameExe {
     }
 
     /**
+     * <dd>ファイルをリネームして指定されたディレクトリに移動する
+     * 
+     * @param filePathList
+     * @param destinationDirectory
+     */
+    public static void execute(List<Path> filePathList, Path destinationDirectory) {
+        try {
+            
+            for (Path filePath : filePathList) {
+                String fileName = "RENAMED_" + filePath.getFileName().toString();
+                Path newFileName = destinationDirectory.resolve(Paths.get(fileName));
+                Files.move(filePath, newFileName);
+            }
+        } catch (IOException e) {
+            Logger.error("Failed to rename files", e);
+            
+        }
+    }
+
+    /**
      * <dd>ファイルをリネームするメソッド
      * 
      * @param filePathList
@@ -174,23 +194,6 @@ public class RenameExe {
             } catch (IOException e) {
                 throw new BaobhansithException("Failed to move: " + filePath, e);
             }
-        }
-    }
-
-    /**
-     * <dd>ファイルをリネームして指定されたディレクトリに移動
-     * 
-     * @param filePaths
-     * @param destinationDirectory
-     */
-    public static void execute(List<Path> filePathList, String destinationDirectory) {
-        try {
-            List<Path> renamedFilePathList = rename(filePathList);
-            move(renamedFilePathList, destinationDirectory);
-
-        } catch (BaobhansithException e) {
-            Logger.error("Failed to rename files", e);
-            return;
         }
     }
 }
