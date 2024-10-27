@@ -43,7 +43,6 @@ public class JAXB2 {
     private static final String HOST_NAME = "localhost";
     private static final String HYPYEN = "-";
     private static final String CONFIG_PATH = "/home/ytakasugi/java-workspace/baobhansith/config.csv";
-    private static final int OUTPUT_DIR_INDEX = 1;
 
     // ######################################################################################
     // ## メンバ変数
@@ -85,9 +84,8 @@ public class JAXB2 {
 
             getOutputDirectory();
 
-            if (!convertMessage()) {
-                return false;
-            }
+            convertMessage();
+
             output(this.convertMessage);
             return true;
         } catch (BaobhansithException e) {
@@ -150,7 +148,7 @@ public class JAXB2 {
         this.outputDirectory = Paths.get(record[0]);
     }
 
-    private boolean convertMessage() throws BaobhansithException {
+    private void convertMessage() throws BaobhansithException {
         Jaxb2Marshaller marshaller = null;
 
         try {
@@ -176,10 +174,8 @@ public class JAXB2 {
                 // XML結果を出力
                 this.convertMessage = writer.toString();
                 this.convertMessage = this.convertMessage.replace("\n", "\r\n");
-                return true;
             } else {
-                // フォーマットがxml以外の場合は処理を行わない
-                return true;
+                // フォーマットがxml以外の場合
             }
 
         } catch (NoSuchMethodException e) {
@@ -216,12 +212,10 @@ public class JAXB2 {
         } catch (ClassNotFoundException e) {
             // クラスが見つからない場合の処理
             logger.error("対象のクラスがみつかりません。" + this.classPath);
-            return false;
 
         } catch (XmlMappingException e) {
             // XMLマッピングに失敗した場合の処理
             logger.error("XMLのマッピングに失敗しました。" + this.id);
-            return false;
 
         } finally {
             marshaller = null;
@@ -234,7 +228,7 @@ public class JAXB2 {
         try {
             outputFileName = generateOutputFileName();
             Path outputFilePath = this.outputDirectory.resolve(outputFileName);
-            
+
             // ファイルに出力
             try (BufferedWriter bufferWriter = Files.newBufferedWriter(outputFilePath)) {
                 bufferWriter.write(this.convertMessage);

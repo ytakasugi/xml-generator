@@ -3,6 +3,9 @@ package jp.co.baobhansith.server;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.StandardCopyOption;
+import java.sql.Timestamp;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
@@ -10,7 +13,6 @@ import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
-import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.collections4.CollectionUtils;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -24,6 +26,13 @@ public class RenameExe {
     // ----------------------------------------------------------
     private static final String TARGET_ID = "X00_00_000_1";
     private static final String CONFIG_PATH = "/home/ytakasugi/java-workspace/baobhansith/config.csv";
+    private static final String DATE_FORMAT = "yyyyMMdd'T'HHmmss";
+    private static final int INIT_SEQUENCE_VALUE = 0;
+    private static final int MAX_SEQUENCE_VALUE = 9999;
+    private static final String SEQUENCE_FORMAT = "%04d";
+    private static final String FILE_NAME_ZERO_PADDING = "0";
+    private static final String HOST_NAME = "localhost";
+    private static final String HYPYEN = "-";
 
     // ----------------------------------------------------------
     // ロガー
@@ -36,11 +45,13 @@ public class RenameExe {
         // ----------------------------------------------------------
         String id = null;
         // ファイル取得元ディレクトリとファイル移動先ディレクトリの配列
-        String[] directoryArray = null;
+        Path[] directoryArray = null;
         // ファイル取得元ディレクトリ
-        String sourceDirectory = null;
+        Path sourceDirectory = null;
         // ファイル移動先ディレクトリ
-        String destinationDirectory = null;
+        Path destinationDirectory = null;
+        // エラーディレクトリ
+        Path errorDirectory = null;
 
         try {
             // ----------------------------------------------------------
@@ -52,18 +63,11 @@ public class RenameExe {
             // ----------------------------------------------------------
             directoryArray = getDirectory(id);
             // ファイル取得元ディレクトリを取得
-            sourceDirectory = directoryArray[1];
+            sourceDirectory = directoryArray[0];
             // ファイル移動先ディレクトリを取得
-            destinationDirectory = directoryArray[2];
-            // [分岐]ファイル取得元ディレクトリまたはファイル移動先ディレクトリが空の場合
-            if (isDirectoriesEmpty(sourceDirectory, destinationDirectory)) {
-                // ログ出力
-                Logger.error("Invalid directory. Source Directroy : {}, Destination Directroy : {}",
-                        sourceDirectory,
-                        destinationDirectory);
-                // プロセスを終了
-                return;
-            }
+            destinationDirectory = directoryArray[1];
+            // エラーディレクトリを取得
+            errorDirectory = directoryArray[2];
             // ----------------------------------------------------------
             // ファイルリストの取得
             // ----------------------------------------------------------
@@ -85,7 +89,7 @@ public class RenameExe {
             // ----------------------------------------------------------
             // ファイルをリネームして指定されたディレクトリに移動
             // ----------------------------------------------------------
-            execute(fileList, Paths.get(destinationDirectory));
+            execute(fileList, destinationDirectory, errorDirectory, id);
 
         } catch (IOException e) {
             Logger.error("Failed to get directory", e.getMessage());
@@ -100,19 +104,15 @@ public class RenameExe {
      * @return String[]
      * @throws IOException
      */
-    private static String[] getDirectory(String id) throws IOException {
-        return BaobhansithUtility.getRowByKey(CONFIG_PATH, id);
-    }
+    private static Path[] getDirectory(String id) throws IOException {
+        String[] record = null;
+        Path[] pathArray = null;
 
-    /**
-     * <dd>ディレクトリが空かどうかを判定
-     * 
-     * @param sourceDirectory
-     * @param destinationDirectory
-     * @return boolean
-     */
-    private static boolean isDirectoriesEmpty(String sourceDirectory, String destinationDirectory) {
-        return StringUtils.isEmpty(sourceDirectory) || StringUtils.isEmpty(destinationDirectory);
+        record = BaobhansithUtility.getRowByKey(CONFIG_PATH, id);
+        record = BaobhansithUtility.getNonEmptyElement(record, 3);
+        pathArray = BaobhansithUtility.getDirectoryPathArray(record);
+
+        return pathArray;
     }
 
     /**
@@ -122,11 +122,11 @@ public class RenameExe {
      * @return List<Path>
      * @throws BaobhansithException
      */
-    public static List<Path> getFileList(String directory) throws BaobhansithException {
+    public static List<Path> getFileList(Path directory) throws BaobhansithException {
         List<Path> fileList = new ArrayList<>();
 
         // 指定されたディレクトリ直下のファイルの絶対パスを取得
-        try (Stream<Path> paths = Files.list(Paths.get(directory))) {
+        try (Stream<Path> paths = Files.list(directory)) {
             fileList = paths.filter(Files::isRegularFile)
                     .map(Path::toAbsolutePath)
                     .collect(Collectors.toList());
@@ -142,11 +142,22 @@ public class RenameExe {
      * @param filePathList
      * @param destinationDirectory
      */
-    public static void execute(List<Path> filePathList, Path destinationDirectory) {
+    public static void execute(List<Path> filePathList, Path destinationDirectory, Path errorDirectory, String id) {
+        String fileName = null;
+        String convertTime = null;
+        int seq = INIT_SEQUENCE_VALUE;
+        String fileSequence = null;
         try {
-            
+            convertTime = setConvertTime();
+
             for (Path filePath : filePathList) {
-                String fileName = "RENAMED_" + filePath.getFileName().toString();
+                seq++;
+                if (seq > MAX_SEQUENCE_VALUE) {
+                    seq = INIT_SEQUENCE_VALUE;
+                }
+                fileSequence = String.format(SEQUENCE_FORMAT, seq);
+                fileName = generateOutputFileName(id, convertTime, fileSequence);
+                
                 Path newFileName = destinationDirectory.resolve(Paths.get(fileName));
                 Files.move(filePath, newFileName);
             }
@@ -195,5 +206,28 @@ public class RenameExe {
                 throw new BaobhansithException("Failed to move: " + filePath, e);
             }
         }
+    }
+
+    private static String setConvertTime() {
+        // yyyyMMddHHmmss形式に変換
+        Timestamp timestamp = new Timestamp(System.currentTimeMillis());
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern(DATE_FORMAT);
+        LocalDateTime localDateTime = timestamp.toLocalDateTime();
+        return localDateTime.format(formatter);
+    }
+
+    private static String generateOutputFileName(String id, String convertTime, String seq) {
+        StringBuffer outputFileName = new StringBuffer();
+
+        outputFileName.append(id);
+        outputFileName.append(HYPYEN);
+        outputFileName.append(convertTime);
+        outputFileName.append(HYPYEN);
+        outputFileName.append(seq);
+        outputFileName.append(FILE_NAME_ZERO_PADDING);
+        outputFileName.append(HYPYEN);
+        outputFileName.append(HOST_NAME);
+        outputFileName.append(".xml");
+        return outputFileName.toString();
     }
 }

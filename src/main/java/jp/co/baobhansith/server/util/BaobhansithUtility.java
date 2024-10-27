@@ -9,7 +9,6 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
-import java.util.Optional;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
@@ -231,6 +230,19 @@ public class BaobhansithUtility {
     public static Path[] getDirectoryPathArray(String[] record, int[] indexArray) {
         return IntStream.of(indexArray)
                 .mapToObj(index -> Paths.get(record[index]))
+                .toArray(Path[]::new);
+    }
+
+        /**
+     * ディレクトリパス配列を取得するメソッド
+     * 
+     * @param record
+     * @param indexArray
+     * @return
+     */
+    public static Path[] getDirectoryPathArray(String[] record) {
+        return Arrays.stream(record)
+                .map(Paths::get)
                 .toArray(Path[]::new);
     }
 
