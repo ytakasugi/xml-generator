@@ -153,17 +153,20 @@ public class RenameExe {
             for (Path filePath : filePathList) {
                 seq++;
                 if (seq > MAX_SEQUENCE_VALUE) {
-                    seq = INIT_SEQUENCE_VALUE;
+                    Path errorFileName = errorDirectory.resolve(filePath.getFileName());
+                    Files.move(filePath, errorFileName);
+                    Logger.error("Sequence limit reached. Moved file to error directory: " + filePath);
+                    continue;
                 }
                 fileSequence = String.format(SEQUENCE_FORMAT, seq);
                 fileName = generateOutputFileName(id, convertTime, fileSequence);
-                
+
                 Path newFileName = destinationDirectory.resolve(Paths.get(fileName));
                 Files.move(filePath, newFileName);
             }
         } catch (IOException e) {
-            Logger.error("Failed to rename files", e);
-            
+            Logger.error("Failed to rename file. Moved file to error. ", e);
+
         }
     }
 
