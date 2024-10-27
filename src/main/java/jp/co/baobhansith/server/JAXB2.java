@@ -56,7 +56,7 @@ public class JAXB2 {
     private String convertTimeWithTimeZone;
     private String convertMessage;
     private String classPath;
-    private String outputDirectory;
+    private Path outputDirectory;
     private static ConcurrentHashMap<String, SequenceManager> sequenceMap = new ConcurrentHashMap<>();
 
     public JAXB2(CommonBean bean) {
@@ -144,7 +144,10 @@ public class JAXB2 {
     }
 
     private void getOutputDirectory() throws IOException {
-        this.outputDirectory = BaobhansithUtility.getValueByKey(CONFIG_PATH, this.id, OUTPUT_DIR_INDEX);
+        String[] record = BaobhansithUtility.getRowByKey(CONFIG_PATH, this.id);
+        record = BaobhansithUtility.getNonEmptyElement(record, 3);
+
+        this.outputDirectory = Paths.get(record[0]);
     }
 
     private boolean convertMessage() throws BaobhansithException {
@@ -230,7 +233,7 @@ public class JAXB2 {
 
         try {
             outputFileName = generateOutputFileName();
-            Path outputFilePath = Paths.get(this.outputDirectory, outputFileName);
+            Path outputFilePath = this.outputDirectory.resolve(outputFileName);
             
             // ファイルに出力
             try (BufferedWriter bufferWriter = Files.newBufferedWriter(outputFilePath)) {

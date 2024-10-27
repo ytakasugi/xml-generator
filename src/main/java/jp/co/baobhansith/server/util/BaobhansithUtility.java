@@ -112,7 +112,7 @@ public class BaobhansithUtility {
      * @throws Exception
      */
     public static List<String[]> getRowsByKey(String filePath, String keys, int... positions) throws Exception {
-        return getRowsByKey(filePath, new String[] {keys}, positions);
+        return getRowsByKey(filePath, new String[] { keys }, positions);
     }
 
     /**
@@ -132,7 +132,7 @@ public class BaobhansithUtility {
                     .collect(Collectors.toList());
         }
     }
-    
+
     public static List<String[]> getRowsByKey(String filePath, String key, int position) throws IOException {
         Path path = Paths.get(filePath);
         List<String[]> rows = new ArrayList<>();
@@ -156,6 +156,7 @@ public class BaobhansithUtility {
 
     /**
      * レコードから空の要素を削除するメソッド
+     * 
      * @param record
      * @return
      */
@@ -172,16 +173,31 @@ public class BaobhansithUtility {
      * @return
      */
     public static String getFirstNonEmptyElement(String[] record, int skipNumber) {
-        Optional<String> value = Arrays.stream(record)
+        return Arrays.stream(record)
                 .skip(skipNumber)
                 .filter(v -> StringUtils.isNotEmpty(v))
-                .findFirst();
-
-        return value.orElse(StringUtils.EMPTY);
+                .findFirst()
+                .orElse(StringUtils.EMPTY);
     }
 
     /**
-     *　ディレクトリが存在するかどうかを判定するメソッド
+     * レコードから指定した位置のディレクトリを取得するメソッド
+     * 
+     * @param record
+     * @param skipNumber
+     * @param limit
+     * @return
+     */
+    public static String[] getNonEmptyElement(String[] record, int skipNumber) {
+        return Arrays.stream(record)
+                .skip(skipNumber)
+                .filter(v -> StringUtils.isNotEmpty(v))
+                .toArray(String[]::new);
+    }
+
+    /**
+     * ディレクトリが存在するかどうかを判定するメソッド
+     * 
      * @param directory
      * @return
      */
