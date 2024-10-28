@@ -4,6 +4,10 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.oxm.XmlMappingException;
 import org.springframework.oxm.jaxb.Jaxb2Marshaller;
+import javax.xml.bind.Marshaller;
+import javax.xml.bind.JAXBContext;
+
+import jp.co.baobhansith.server.bean.Root;
 import jp.co.baobhansith.server.common.bean.CommonBean;
 import jp.co.baobhansith.server.interfaces.ConversionIF;
 
@@ -42,6 +46,11 @@ public class JAXB2 {
     private static final String FILE_NAME_ZERO_PADDING = "0";
     private static final String HOST_NAME = "localhost";
     private static final String HYPYEN = "-";
+    private static final String ROOT_NAMESPACE = "http://www.w3.org/XML/1998/namespace";
+    private static final String XSD_NAMESPACE = "http://www.w3.org/2001/XMLSchema";
+    private static final String XSI_NAMESPACE = "http://www.w3.org/2001/XMLSchema-instance";
+    private static final String INFO_NAMESPACE = "http://www.w3.org/XML/1998/Info#";
+    private static final String BLANK = " ";
     private static final String CONFIG_PATH = "/home/ytakasugi/java-workspace/baobhansith/config.csv";
 
     // ######################################################################################
@@ -161,18 +170,26 @@ public class JAXB2 {
                 StringWriter writer = new StringWriter();
                 StreamResult result = new StreamResult(writer);
                 marshaller = new Jaxb2Marshaller();
-
                 marshaller.setClassesToBeBound(clazz);
 
                 // フォーマットされた出力を有効にする
                 marshaller.setMarshallerProperties(Map.of(
-                        Marshaller.JAXB_FORMATTED_OUTPUT, true));
+                        Marshaller.JAXB_FORMATTED_OUTPUT, true,
+                        Marshaller.JAXB_FRAGMENT, true // ここでXML宣言を削除
+                ));
+
                 conversion.setData(conversion, this.message, this.convertTimeWithTimeZone);
                 // 対象のBeanをマーシャルする
                 marshaller.marshal(conversion.getXmlObject(), result);
 
                 // XML結果を出力
                 this.convertMessage = writer.toString();
+
+                String[] record = BaobhansithUtility
+                        .getRowByKey("/home/ytakasugi/java-workspace/baobhansith/namespaceConfig.csv", this.id);
+                this.convertMessage = this.convertMessage.replaceFirst(record[1], record[2]);
+                this.convertMessage = this.convertMessage.replaceFirst(record[3], record[4]);
+
                 this.convertMessage = this.convertMessage.replace("\n", "\r\n");
             } else {
                 // フォーマットがxml以外の場合
@@ -216,6 +233,8 @@ public class JAXB2 {
         } catch (XmlMappingException e) {
             // XMLマッピングに失敗した場合の処理
             logger.error("XMLのマッピングに失敗しました。" + this.id);
+        } catch (Exception e) {
+            logger.error("convertMessage failed.", e);
 
         } finally {
             marshaller = null;

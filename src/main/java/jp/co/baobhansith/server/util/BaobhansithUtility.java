@@ -14,6 +14,8 @@ import java.util.stream.IntStream;
 
 import org.apache.commons.lang3.StringUtils;
 
+import jp.co.baobhansith.server.bean.FileSettingBean;
+
 public class BaobhansithUtility {
     /**
      * 指定されたCSVファイルを読み込み、指定されたキーに一致する値を返却するメソッド
@@ -233,7 +235,7 @@ public class BaobhansithUtility {
                 .toArray(Path[]::new);
     }
 
-        /**
+    /**
      * ディレクトリパス配列を取得するメソッド
      * 
      * @param record
@@ -292,5 +294,27 @@ public class BaobhansithUtility {
         // "指定したディレクトリが存在しないか、ディレクトリではありません。{}", directory
         return Arrays.stream(directory)
                 .allMatch(path -> Files.exists(path) && Files.isDirectory(path));
+    }
+
+    public static List<FileSettingBean> getFileSetting(String filePath, String key) throws IOException {
+        Path path = Paths.get(filePath);
+        List<FileSettingBean> rows = new ArrayList<>();
+
+        try (BufferedReader br = Files.newBufferedReader(path)) {
+            String line;
+            while ((line = br.readLine()) != null) {
+                // CSVの行をカンマで分割
+                String[] columns = line.split(",", -1);
+
+                String id = columns[0].trim();
+                String tag = columns[1].trim();
+                String prefix = columns[2].trim();
+                String namespace = columns[3].trim();
+                rows.add(new FileSettingBean(id, tag, prefix, namespace));
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return rows;
     }
 }
