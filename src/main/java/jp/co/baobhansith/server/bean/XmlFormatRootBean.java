@@ -4,7 +4,9 @@ import java.util.List;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlElements;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlType;
 
@@ -12,13 +14,20 @@ import jp.co.baobhansith.server.conversion.AbstractXmlFormat;
 
 @XmlRootElement(name = "Root")
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(propOrder = { "header", "payload" }) 
+@XmlType(propOrder = { "header", "payload" })
 public class XmlFormatRootBean extends AbstractXmlFormat {
+    @XmlAttribute(name = "xmlns:xsd")
+    private String xsdNamespace = "http://www.w3.org/2001/XMLSchema";
+    @XmlAttribute(name = "xmlns:xsi")
+    private String xsiNamespace = "http://www.w3.org/2001/XMLSchema-instance";
+    @XmlAttribute(name = "xmlns:xml")
+    private String defaultNamespace = "http://www.w3.org/XML/1998/namespace";
+
     @XmlElement(name = "Payload")
     private Payload payload;
     @XmlElement(name = "Header")
     private Header header;
-    
+
     public XmlFormatRootBean() {
     }
 
@@ -83,7 +92,7 @@ public class XmlFormatRootBean extends AbstractXmlFormat {
         public String getMessageId() {
             return messageId;
         }
-        
+
         public void setMessageId(String messageId) {
             this.messageId = messageId;
         }
@@ -91,7 +100,11 @@ public class XmlFormatRootBean extends AbstractXmlFormat {
 
     @XmlAccessorType(XmlAccessType.FIELD)
     public static class Payload {
-        @XmlElement(name = "Info")
+        // @XmlElement(name = "Info")
+        @XmlElements({
+                @XmlElement(name = "Info", type = InfoWithNamespace.class),
+                @XmlElement(name = "Info", type = Info.class)
+        })
         private List<Info> infoList;
 
         public Payload() {
@@ -131,6 +144,16 @@ public class XmlFormatRootBean extends AbstractXmlFormat {
         public void setTag2(Tag2 tag2) {
             this.tag2 = tag2;
         }
+    }
+
+    @XmlAccessorType(XmlAccessType.FIELD)
+    public static class InfoWithNamespace extends Info {
+        @XmlAttribute(name = "xmlns:xsd")
+        private String xsdNamespace = "http://www.w3.org/2001/XMLSchema";
+        @XmlAttribute(name = "xmlns:xsi")
+        private String xsiNamespace = "http://www.w3.org/2001/XMLSchema-instance";
+        @XmlAttribute(name = "xmlns")
+        private String defaultNamespace = "http://www.w3.org/XML/1998/Info#";
     }
 
     @XmlAccessorType(XmlAccessType.FIELD)

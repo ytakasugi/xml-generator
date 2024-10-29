@@ -15,6 +15,7 @@ import jp.co.baobhansith.server.bean.XmlFormatRootBean.ChildTag;
 import jp.co.baobhansith.server.bean.XmlFormatRootBean.Names;
 import jp.co.baobhansith.server.bean.XmlFormatRootBean.Name;
 import jp.co.baobhansith.server.bean.XmlFormatRootBean.Info;
+import jp.co.baobhansith.server.bean.XmlFormatRootBean.InfoWithNamespace;
 import jp.co.baobhansith.server.interfaces.ConversionIF;
 
 public class AbstractXmlFormat implements ConversionIF<XmlFormatRootBean> {
@@ -41,8 +42,8 @@ public class AbstractXmlFormat implements ConversionIF<XmlFormatRootBean> {
 
         List<Info> infoList = new ArrayList<>();
 
-        for (String csv : message) {
-            String[] values = csv.split(",");
+        for (int i = 0; i < message.length; i++) {
+            String[] values = message[i].split(",");
 
             // ChildTagにデータを設定
             ChildTag childTag1 = new ChildTag();
@@ -69,13 +70,57 @@ public class AbstractXmlFormat implements ConversionIF<XmlFormatRootBean> {
 
             Tag2 tag2 = new Tag2();
             tag2.setNames(names);
+            
+            if (i == 0) {
+                InfoWithNamespace info = new InfoWithNamespace();
+                info.setTag1(tag1);
+                info.setTag2(tag2);
 
-            Info info = new Info();
-            info.setTag1(tag1);
-            info.setTag2(tag2);
+                infoList.add(info);
+            } else {
+                Info info = new Info();
+                info.setTag1(tag1);
+                info.setTag2(tag2);
 
-            infoList.add(info);
+                infoList.add(info);
+            }
         }
+
+        // for (String csv : message) {
+        //     String[] values = csv.split(",");
+
+        //     // ChildTagにデータを設定
+        //     ChildTag childTag1 = new ChildTag();
+        //     childTag1.setEnabled(values[0]);
+        //     childTag1.setEnabledDate(values[1]);
+
+        //     ChildTag childTag2 = new ChildTag();
+        //     childTag2.setVersion(values[2]);
+        //     childTag2.setVersionName(values[3]);
+
+        //     Tag1 tag1 = new Tag1();
+        //     List<ChildTag> childTags = new ArrayList<>();
+        //     childTags.add(childTag1);
+        //     childTags.add(childTag2);
+        //     tag1.setChildTags(childTags);
+
+        //     Name name = new Name();
+        //     name.setId(values[4]);
+
+        //     Names names = new Names();
+        //     List<Name> nameList = new ArrayList<>();
+        //     nameList.add(name);
+        //     names.setNameList(nameList);
+
+        //     Tag2 tag2 = new Tag2();
+        //     tag2.setNames(names);
+            
+        //     Info info = new Info();
+        //     info.setTag1(tag1);
+        //     info.setTag2(tag2);
+
+        //     infoList.add(info);
+        // }
 
         Payload payload = new Payload();
         payload.setInfoList(infoList);
