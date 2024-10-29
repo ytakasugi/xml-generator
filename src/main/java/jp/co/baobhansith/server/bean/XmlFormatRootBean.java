@@ -100,11 +100,7 @@ public class XmlFormatRootBean extends AbstractXmlFormat {
 
     @XmlAccessorType(XmlAccessType.FIELD)
     public static class Payload {
-        // @XmlElement(name = "Info")
-        @XmlElements({
-                @XmlElement(name = "Info", type = InfoWithNamespace.class),
-                @XmlElement(name = "Info", type = Info.class)
-        })
+        @XmlElement(name = "Info")
         private List<Info> infoList;
 
         public Payload() {
@@ -121,12 +117,42 @@ public class XmlFormatRootBean extends AbstractXmlFormat {
 
     @XmlAccessorType(XmlAccessType.FIELD)
     public static class Info {
+        @XmlAttribute(name = "xmlns:xsd")
+        private String xsdNamespace;
+        @XmlAttribute(name = "xmlns:xsi")
+        private String xsiNamespace ;
+        @XmlAttribute(name = "xmlns")
+        private String defaultNamespace;
         @XmlElement(name = "Tag1")
         private Tag1 tag1;
         @XmlElement(name = "Tag2")
         private Tag2 tag2;
 
         public Info() {
+        }
+
+        public String getXsdNamespace() {
+            return xsdNamespace;
+        }
+
+        public void setXsdNamespace(String xsdNamespace) {
+            this.xsdNamespace = xsdNamespace;
+        }
+
+        public String getXsiNamespace() {
+            return xsiNamespace;
+        }
+
+        public void setXsiNamespace(String xsiNamespace) {
+            this.xsiNamespace = xsiNamespace;
+        }
+
+        public String getDefaultNamespace() {
+            return defaultNamespace;
+        }
+
+        public void setDefaultNamespace(String defaultNamespace) {
+            this.defaultNamespace = defaultNamespace;
         }
 
         public Tag1 getTag1() {
@@ -144,16 +170,6 @@ public class XmlFormatRootBean extends AbstractXmlFormat {
         public void setTag2(Tag2 tag2) {
             this.tag2 = tag2;
         }
-    }
-
-    @XmlAccessorType(XmlAccessType.FIELD)
-    public static class InfoWithNamespace extends Info {
-        @XmlAttribute(name = "xmlns:xsd")
-        private String xsdNamespace = "http://www.w3.org/2001/XMLSchema";
-        @XmlAttribute(name = "xmlns:xsi")
-        private String xsiNamespace = "http://www.w3.org/2001/XMLSchema-instance";
-        @XmlAttribute(name = "xmlns")
-        private String defaultNamespace = "http://www.w3.org/XML/1998/Info#";
     }
 
     @XmlAccessorType(XmlAccessType.FIELD)
