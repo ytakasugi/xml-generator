@@ -9,10 +9,10 @@ import jp.co.baobhansith.server.common.bean.CommonBean;
 
 public class AppXmlGenerator {
     public static void main(String[] args) {
-        List<DataBean> dataList = generateData(100);
+        List<DataBean> dataList = generateData(3000000);
         List<LinkingBean> linkingBeanList = new ArrayList<>();
         List<String> csvRecords = new ArrayList<>();
-        int batchSize = 10;
+        int batchSize = 10000;
 
         for (DataBean data : dataList) {
             LinkingBean linkingBean = new LinkingBean();
