@@ -60,7 +60,7 @@ public class JAXB2 {
         this.message = bean.getDataList();
         this.id = bean.getId();
         this.seq = bean.getSeq();
-        this.timestamp = bean.getCreated();
+        this.timestamp = new Timestamp(System.currentTimeMillis());
         this.classPath = "jp.co.baobhansith.server.bean.XmlFormatRootBean";
     }
 
@@ -174,56 +174,12 @@ public class JAXB2 {
                 // XML結果を出力
                 this.convertMessage = writer.toString();
 
-                // String[] record = BaobhansithUtility
-                //         .getRowByKey("/home/ytakasugi/java-workspace/baobhansith/namespaceConfig.csv", this.id);
-                // this.convertMessage = this.convertMessage.replaceFirst(record[1], record[2]);
-                // this.convertMessage = this.convertMessage.replaceFirst(record[3], record[4]);
-
                 this.convertMessage = this.convertMessage.replace("\n", "\r\n");
             } else {
                 // フォーマットがxml以外の場合
             }
-
-        } catch (NoSuchMethodException e) {
-            // メソッドが存在しない場合の処理
-            logger.error("指定したメソッドが見つかりません: " + e.getMessage());
-            throw new BaobhansithException("指定したメソッドが見つかりません。", e);
-
-        } catch (SecurityException e) {
-            // セキュリティ違反が発生した場合の処理
-            logger.error("セキュリティエラーが発生しました: " + e.getMessage());
-            throw new BaobhansithException("セキュリティエラーが発生しました。", e);
-
-        } catch (InstantiationException e) {
-            // インスタンス化に失敗した場合の処理
-            logger.error("インスタンス化に失敗しました。抽象クラスまたはインターフェースの可能性があります。: " + e.getMessage());
-            throw new BaobhansithException("インスタンス化に失敗しました。", e);
-
-        } catch (IllegalAccessException e) {
-            // アクセス権がない場合の処理
-            logger.error("アクセスできません: " + e.getMessage());
-            throw new BaobhansithException("アクセス権限エラーが発生しました。", e);
-
-        } catch (IllegalArgumentException e) {
-            // 不正な引数が渡された場合の処理
-            logger.error("不正な引数が渡されました: " + e.getMessage());
-            throw new BaobhansithException("不正な引数が渡されました。", e);
-
-        } catch (InvocationTargetException e) {
-            // 呼び出したメソッドが例外をスローした場合の処理
-            Throwable cause = e.getCause();
-            logger.error("メソッド呼び出し中に例外が発生しました: " + cause.getMessage());
-            throw new BaobhansithException("メソッド呼び出し中に例外が発生しました。", cause);
-
-        } catch (ClassNotFoundException e) {
-            // クラスが見つからない場合の処理
-            logger.error("対象のクラスがみつかりません。" + this.classPath);
-
-        } catch (XmlMappingException e) {
-            // XMLマッピングに失敗した場合の処理
-            logger.error("XMLのマッピングに失敗しました。" + this.id);
         } catch (Exception e) {
-            logger.error("convertMessage failed.", e);
+            throw new BaobhansithException("Failed to convert message.", e);
 
         } finally {
             marshaller = null;

@@ -1,323 +1,600 @@
-2024-10-20 20:31:29 INFO  RenameExe:80 - File list is empty
-2024-10-20 20:37:14 INFO  RenameExe:84 - File list is empty
-2024-10-20 20:37:25 ERROR RenameExe:70 - Invalid directory. Source Directroy : /home/ytakasugi/java-workspace/baobhansith/out, Destination Directroy : 
-2024-10-29 20:32:26 ERROR JAXB2:235 - XMLのマッピングに失敗しました。X00_00_000_1
-2024-10-29 20:32:26 ERROR JAXB2:235 - XMLのマッピングに失敗しました。X00_00_000_1
-2024-10-29 20:32:26 ERROR JAXB2:235 - XMLのマッピングに失敗しました。X00_00_000_1
-2024-10-29 20:32:26 ERROR JAXB2:235 - XMLのマッピングに失敗しました。X00_00_000_1
-2024-10-29 20:32:26 ERROR JAXB2:235 - XMLのマッピングに失敗しました。X00_00_000_1
-2024-10-29 20:32:26 ERROR JAXB2:235 - XMLのマッピングに失敗しました。X00_00_000_1
-2024-10-29 20:32:26 ERROR JAXB2:235 - XMLのマッピングに失敗しました。X00_00_000_1
-2024-10-29 20:32:26 ERROR JAXB2:235 - XMLのマッピングに失敗しました。X00_00_000_1
-2024-10-29 20:32:26 ERROR JAXB2:235 - XMLのマッピングに失敗しました。X00_00_000_1
-2024-10-29 20:32:26 ERROR JAXB2:235 - XMLのマッピングに失敗しました。X00_00_000_1
-2024-10-29 20:32:26 ERROR JAXB2:258 - Failed to write to fileX00_00_000_1-20241029T203226-00020-localhost.xml
-java.lang.NullPointerException: Cannot invoke "String.length()" because "str" is null
-	at java.io.Writer.write(Writer.java:278) ~[?:?]
-	at jp.co.baobhansith.server.JAXB2.output(JAXB2.java:253) ~[classes/:?]
-	at jp.co.baobhansith.server.JAXB2.convertFormat(JAXB2.java:98) ~[classes/:?]
-	at jp.co.baobhansith.server.DataController.lambda$0(DataController.java:30) ~[classes/:?]
-	at java.lang.Thread.run(Thread.java:1583) [?:?]
-2024-10-29 20:32:26 ERROR JAXB2:258 - Failed to write to fileX00_00_000_1-20241029T203226-00020-localhost.xml
-java.lang.NullPointerException: Cannot invoke "String.length()" because "str" is null
-	at java.io.Writer.write(Writer.java:278) ~[?:?]
-	at jp.co.baobhansith.server.JAXB2.output(JAXB2.java:253) ~[classes/:?]
-	at jp.co.baobhansith.server.JAXB2.convertFormat(JAXB2.java:98) ~[classes/:?]
-	at jp.co.baobhansith.server.DataController.lambda$0(DataController.java:30) ~[classes/:?]
-	at java.lang.Thread.run(Thread.java:1583) [?:?]
-2024-10-29 20:32:26 ERROR JAXB2:258 - Failed to write to fileX00_00_000_1-20241029T203226-00040-localhost.xml
-java.lang.NullPointerException: Cannot invoke "String.length()" because "str" is null
-	at java.io.Writer.write(Writer.java:278) ~[?:?]
-	at jp.co.baobhansith.server.JAXB2.output(JAXB2.java:253) ~[classes/:?]
-	at jp.co.baobhansith.server.JAXB2.convertFormat(JAXB2.java:98) ~[classes/:?]
-	at jp.co.baobhansith.server.DataController.lambda$0(DataController.java:30) ~[classes/:?]
-	at java.lang.Thread.run(Thread.java:1583) [?:?]
-2024-10-29 20:32:26 ERROR JAXB2:258 - Failed to write to fileX00_00_000_1-20241029T203226-00050-localhost.xml
-java.lang.NullPointerException: Cannot invoke "String.length()" because "str" is null
-	at java.io.Writer.write(Writer.java:278) ~[?:?]
-	at jp.co.baobhansith.server.JAXB2.output(JAXB2.java:253) ~[classes/:?]
-	at jp.co.baobhansith.server.JAXB2.convertFormat(JAXB2.java:98) ~[classes/:?]
-	at jp.co.baobhansith.server.DataController.lambda$0(DataController.java:30) ~[classes/:?]
-	at java.lang.Thread.run(Thread.java:1583) [?:?]
-2024-10-29 20:32:26 ERROR JAXB2:258 - Failed to write to fileX00_00_000_1-20241029T203226-00070-localhost.xml
-java.lang.NullPointerException: Cannot invoke "String.length()" because "str" is null
-	at java.io.Writer.write(Writer.java:278) ~[?:?]
-	at jp.co.baobhansith.server.JAXB2.output(JAXB2.java:253) ~[classes/:?]
-	at jp.co.baobhansith.server.JAXB2.convertFormat(JAXB2.java:98) ~[classes/:?]
-	at jp.co.baobhansith.server.DataController.lambda$0(DataController.java:30) ~[classes/:?]
-	at java.lang.Thread.run(Thread.java:1583) [?:?]
-2024-10-29 20:32:26 ERROR JAXB2:258 - Failed to write to fileX00_00_000_1-20241029T203226-00090-localhost.xml
-java.lang.NullPointerException: Cannot invoke "String.length()" because "str" is null
-	at java.io.Writer.write(Writer.java:278) ~[?:?]
-	at jp.co.baobhansith.server.JAXB2.output(JAXB2.java:253) ~[classes/:?]
-	at jp.co.baobhansith.server.JAXB2.convertFormat(JAXB2.java:98) ~[classes/:?]
-	at jp.co.baobhansith.server.DataController.lambda$0(DataController.java:30) ~[classes/:?]
-	at java.lang.Thread.run(Thread.java:1583) [?:?]
-2024-10-29 20:32:26 ERROR JAXB2:258 - Failed to write to fileX00_00_000_1-20241029T203226-00100-localhost.xml
-java.lang.NullPointerException: Cannot invoke "String.length()" because "str" is null
-	at java.io.Writer.write(Writer.java:278) ~[?:?]
-	at jp.co.baobhansith.server.JAXB2.output(JAXB2.java:253) ~[classes/:?]
-	at jp.co.baobhansith.server.JAXB2.convertFormat(JAXB2.java:98) ~[classes/:?]
-	at jp.co.baobhansith.server.DataController.lambda$0(DataController.java:30) ~[classes/:?]
-	at java.lang.Thread.run(Thread.java:1583) [?:?]
-2024-10-29 20:32:26 ERROR JAXB2:258 - Failed to write to fileX00_00_000_1-20241029T203226-00080-localhost.xml
-java.lang.NullPointerException: Cannot invoke "String.length()" because "str" is null
-	at java.io.Writer.write(Writer.java:278) ~[?:?]
-	at jp.co.baobhansith.server.JAXB2.output(JAXB2.java:253) ~[classes/:?]
-	at jp.co.baobhansith.server.JAXB2.convertFormat(JAXB2.java:98) ~[classes/:?]
-	at jp.co.baobhansith.server.DataController.lambda$0(DataController.java:30) ~[classes/:?]
-	at java.lang.Thread.run(Thread.java:1583) [?:?]
-2024-10-29 20:32:26 ERROR JAXB2:258 - Failed to write to fileX00_00_000_1-20241029T203226-00030-localhost.xml
-java.lang.NullPointerException: Cannot invoke "String.length()" because "str" is null
-	at java.io.Writer.write(Writer.java:278) ~[?:?]
-	at jp.co.baobhansith.server.JAXB2.output(JAXB2.java:253) ~[classes/:?]
-	at jp.co.baobhansith.server.JAXB2.convertFormat(JAXB2.java:98) ~[classes/:?]
-	at jp.co.baobhansith.server.DataController.lambda$0(DataController.java:30) ~[classes/:?]
-	at java.lang.Thread.run(Thread.java:1583) [?:?]
-2024-10-29 20:32:26 ERROR JAXB2:258 - Failed to write to fileX00_00_000_1-20241029T203226-00060-localhost.xml
-java.lang.NullPointerException: Cannot invoke "String.length()" because "str" is null
-	at java.io.Writer.write(Writer.java:278) ~[?:?]
-	at jp.co.baobhansith.server.JAXB2.output(JAXB2.java:253) ~[classes/:?]
-	at jp.co.baobhansith.server.JAXB2.convertFormat(JAXB2.java:98) ~[classes/:?]
-	at jp.co.baobhansith.server.DataController.lambda$0(DataController.java:30) ~[classes/:?]
-	at java.lang.Thread.run(Thread.java:1583) [?:?]
-2024-10-29 20:34:52 ERROR JAXB2:235 - XMLのマッピングに失敗しました。X00_00_000_1
-2024-10-29 20:34:52 ERROR JAXB2:235 - XMLのマッピングに失敗しました。X00_00_000_1
-2024-10-29 20:34:52 ERROR JAXB2:235 - XMLのマッピングに失敗しました。X00_00_000_1
-2024-10-29 20:34:52 ERROR JAXB2:235 - XMLのマッピングに失敗しました。X00_00_000_1
-2024-10-29 20:34:52 ERROR JAXB2:235 - XMLのマッピングに失敗しました。X00_00_000_1
-2024-10-29 20:34:52 ERROR JAXB2:235 - XMLのマッピングに失敗しました。X00_00_000_1
-2024-10-29 20:34:52 ERROR JAXB2:235 - XMLのマッピングに失敗しました。X00_00_000_1
-2024-10-29 20:34:52 ERROR JAXB2:235 - XMLのマッピングに失敗しました。X00_00_000_1
-2024-10-29 20:34:52 ERROR JAXB2:235 - XMLのマッピングに失敗しました。X00_00_000_1
-2024-10-29 20:34:52 ERROR JAXB2:235 - XMLのマッピングに失敗しました。X00_00_000_1
-2024-10-29 20:34:52 ERROR JAXB2:258 - Failed to write to fileX00_00_000_1-20241029T203452-00060-localhost.xml
-java.lang.NullPointerException: Cannot invoke "String.length()" because "str" is null
-	at java.io.Writer.write(Writer.java:278) ~[?:?]
-	at jp.co.baobhansith.server.JAXB2.output(JAXB2.java:253) ~[classes/:?]
-	at jp.co.baobhansith.server.JAXB2.convertFormat(JAXB2.java:98) ~[classes/:?]
-	at jp.co.baobhansith.server.DataController.lambda$0(DataController.java:30) ~[classes/:?]
-	at java.lang.Thread.run(Thread.java:1583) [?:?]
-2024-10-29 20:34:52 ERROR JAXB2:258 - Failed to write to fileX00_00_000_1-20241029T203452-00050-localhost.xml
-java.lang.NullPointerException: Cannot invoke "String.length()" because "str" is null
-	at java.io.Writer.write(Writer.java:278) ~[?:?]
-	at jp.co.baobhansith.server.JAXB2.output(JAXB2.java:253) ~[classes/:?]
-	at jp.co.baobhansith.server.JAXB2.convertFormat(JAXB2.java:98) ~[classes/:?]
-	at jp.co.baobhansith.server.DataController.lambda$0(DataController.java:30) ~[classes/:?]
-	at java.lang.Thread.run(Thread.java:1583) [?:?]
-2024-10-29 20:34:52 ERROR JAXB2:258 - Failed to write to fileX00_00_000_1-20241029T203452-00090-localhost.xml
-java.lang.NullPointerException: Cannot invoke "String.length()" because "str" is null
-	at java.io.Writer.write(Writer.java:278) ~[?:?]
-	at jp.co.baobhansith.server.JAXB2.output(JAXB2.java:253) ~[classes/:?]
-	at jp.co.baobhansith.server.JAXB2.convertFormat(JAXB2.java:98) ~[classes/:?]
-	at jp.co.baobhansith.server.DataController.lambda$0(DataController.java:30) ~[classes/:?]
-	at java.lang.Thread.run(Thread.java:1583) [?:?]
-2024-10-29 20:34:52 ERROR JAXB2:258 - Failed to write to fileX00_00_000_1-20241029T203452-00020-localhost.xml
-java.lang.NullPointerException: Cannot invoke "String.length()" because "str" is null
-	at java.io.Writer.write(Writer.java:278) ~[?:?]
-	at jp.co.baobhansith.server.JAXB2.output(JAXB2.java:253) ~[classes/:?]
-	at jp.co.baobhansith.server.JAXB2.convertFormat(JAXB2.java:98) ~[classes/:?]
-	at jp.co.baobhansith.server.DataController.lambda$0(DataController.java:30) ~[classes/:?]
-	at java.lang.Thread.run(Thread.java:1583) [?:?]
-2024-10-29 20:34:52 ERROR JAXB2:258 - Failed to write to fileX00_00_000_1-20241029T203452-00080-localhost.xml
-java.lang.NullPointerException: Cannot invoke "String.length()" because "str" is null
-	at java.io.Writer.write(Writer.java:278) ~[?:?]
-	at jp.co.baobhansith.server.JAXB2.output(JAXB2.java:253) ~[classes/:?]
-	at jp.co.baobhansith.server.JAXB2.convertFormat(JAXB2.java:98) ~[classes/:?]
-	at jp.co.baobhansith.server.DataController.lambda$0(DataController.java:30) ~[classes/:?]
-	at java.lang.Thread.run(Thread.java:1583) [?:?]
-2024-10-29 20:34:52 ERROR JAXB2:258 - Failed to write to fileX00_00_000_1-20241029T203452-00040-localhost.xml
-java.lang.NullPointerException: Cannot invoke "String.length()" because "str" is null
-	at java.io.Writer.write(Writer.java:278) ~[?:?]
-	at jp.co.baobhansith.server.JAXB2.output(JAXB2.java:253) ~[classes/:?]
-	at jp.co.baobhansith.server.JAXB2.convertFormat(JAXB2.java:98) ~[classes/:?]
-	at jp.co.baobhansith.server.DataController.lambda$0(DataController.java:30) ~[classes/:?]
-	at java.lang.Thread.run(Thread.java:1583) [?:?]
-2024-10-29 20:34:52 ERROR JAXB2:258 - Failed to write to fileX00_00_000_1-20241029T203452-00100-localhost.xml
-java.lang.NullPointerException: Cannot invoke "String.length()" because "str" is null
-	at java.io.Writer.write(Writer.java:278) ~[?:?]
-	at jp.co.baobhansith.server.JAXB2.output(JAXB2.java:253) ~[classes/:?]
-	at jp.co.baobhansith.server.JAXB2.convertFormat(JAXB2.java:98) ~[classes/:?]
-	at jp.co.baobhansith.server.DataController.lambda$0(DataController.java:30) ~[classes/:?]
-	at java.lang.Thread.run(Thread.java:1583) [?:?]
-2024-10-29 20:34:52 ERROR JAXB2:258 - Failed to write to fileX00_00_000_1-20241029T203452-00020-localhost.xml
-java.lang.NullPointerException: Cannot invoke "String.length()" because "str" is null
-	at java.io.Writer.write(Writer.java:278) ~[?:?]
-	at jp.co.baobhansith.server.JAXB2.output(JAXB2.java:253) ~[classes/:?]
-	at jp.co.baobhansith.server.JAXB2.convertFormat(JAXB2.java:98) ~[classes/:?]
-	at jp.co.baobhansith.server.DataController.lambda$0(DataController.java:30) ~[classes/:?]
-	at java.lang.Thread.run(Thread.java:1583) [?:?]
-2024-10-29 20:34:52 ERROR JAXB2:258 - Failed to write to fileX00_00_000_1-20241029T203452-00070-localhost.xml
-java.lang.NullPointerException: Cannot invoke "String.length()" because "str" is null
-	at java.io.Writer.write(Writer.java:278) ~[?:?]
-	at jp.co.baobhansith.server.JAXB2.output(JAXB2.java:253) ~[classes/:?]
-	at jp.co.baobhansith.server.JAXB2.convertFormat(JAXB2.java:98) ~[classes/:?]
-	at jp.co.baobhansith.server.DataController.lambda$0(DataController.java:30) ~[classes/:?]
-	at java.lang.Thread.run(Thread.java:1583) [?:?]
-2024-10-29 20:34:52 ERROR JAXB2:258 - Failed to write to fileX00_00_000_1-20241029T203452-00030-localhost.xml
-java.lang.NullPointerException: Cannot invoke "String.length()" because "str" is null
-	at java.io.Writer.write(Writer.java:278) ~[?:?]
-	at jp.co.baobhansith.server.JAXB2.output(JAXB2.java:253) ~[classes/:?]
-	at jp.co.baobhansith.server.JAXB2.convertFormat(JAXB2.java:98) ~[classes/:?]
-	at jp.co.baobhansith.server.DataController.lambda$0(DataController.java:30) ~[classes/:?]
-	at java.lang.Thread.run(Thread.java:1583) [?:?]
-2024-10-29 20:36:57 ERROR JAXB2:235 - XMLのマッピングに失敗しました。X00_00_000_1
-2024-10-29 20:36:57 ERROR JAXB2:235 - XMLのマッピングに失敗しました。X00_00_000_1
-2024-10-29 20:36:57 ERROR JAXB2:235 - XMLのマッピングに失敗しました。X00_00_000_1
-2024-10-29 20:36:57 ERROR JAXB2:235 - XMLのマッピングに失敗しました。X00_00_000_1
-2024-10-29 20:36:57 ERROR JAXB2:235 - XMLのマッピングに失敗しました。X00_00_000_1
-2024-10-29 20:36:57 ERROR JAXB2:235 - XMLのマッピングに失敗しました。X00_00_000_1
-2024-10-29 20:36:57 ERROR JAXB2:235 - XMLのマッピングに失敗しました。X00_00_000_1
-2024-10-29 20:36:57 ERROR JAXB2:235 - XMLのマッピングに失敗しました。X00_00_000_1
-2024-10-29 20:36:57 ERROR JAXB2:235 - XMLのマッピングに失敗しました。X00_00_000_1
-2024-10-29 20:36:57 ERROR JAXB2:235 - XMLのマッピングに失敗しました。X00_00_000_1
-2024-10-29 20:36:57 ERROR JAXB2:258 - Failed to write to fileX00_00_000_1-20241029T203657-00100-localhost.xml
-java.lang.NullPointerException: Cannot invoke "String.length()" because "str" is null
-	at java.io.Writer.write(Writer.java:278) ~[?:?]
-	at jp.co.baobhansith.server.JAXB2.output(JAXB2.java:253) ~[classes/:?]
-	at jp.co.baobhansith.server.JAXB2.convertFormat(JAXB2.java:98) ~[classes/:?]
-	at jp.co.baobhansith.server.DataController.lambda$0(DataController.java:30) ~[classes/:?]
-	at java.lang.Thread.run(Thread.java:1583) [?:?]
-2024-10-29 20:36:57 ERROR JAXB2:258 - Failed to write to fileX00_00_000_1-20241029T203657-00060-localhost.xml
-java.lang.NullPointerException: Cannot invoke "String.length()" because "str" is null
-	at java.io.Writer.write(Writer.java:278) ~[?:?]
-	at jp.co.baobhansith.server.JAXB2.output(JAXB2.java:253) ~[classes/:?]
-	at jp.co.baobhansith.server.JAXB2.convertFormat(JAXB2.java:98) ~[classes/:?]
-	at jp.co.baobhansith.server.DataController.lambda$0(DataController.java:30) ~[classes/:?]
-	at java.lang.Thread.run(Thread.java:1583) [?:?]
-2024-10-29 20:36:57 ERROR JAXB2:258 - Failed to write to fileX00_00_000_1-20241029T203657-00070-localhost.xml
-java.lang.NullPointerException: Cannot invoke "String.length()" because "str" is null
-	at java.io.Writer.write(Writer.java:278) ~[?:?]
-	at jp.co.baobhansith.server.JAXB2.output(JAXB2.java:253) ~[classes/:?]
-	at jp.co.baobhansith.server.JAXB2.convertFormat(JAXB2.java:98) ~[classes/:?]
-	at jp.co.baobhansith.server.DataController.lambda$0(DataController.java:30) ~[classes/:?]
-	at java.lang.Thread.run(Thread.java:1583) [?:?]
-2024-10-29 20:36:57 ERROR JAXB2:258 - Failed to write to fileX00_00_000_1-20241029T203657-00010-localhost.xml
-java.lang.NullPointerException: Cannot invoke "String.length()" because "str" is null
-	at java.io.Writer.write(Writer.java:278) ~[?:?]
-	at jp.co.baobhansith.server.JAXB2.output(JAXB2.java:253) ~[classes/:?]
-	at jp.co.baobhansith.server.JAXB2.convertFormat(JAXB2.java:98) ~[classes/:?]
-	at jp.co.baobhansith.server.DataController.lambda$0(DataController.java:30) ~[classes/:?]
-	at java.lang.Thread.run(Thread.java:1583) [?:?]
-2024-10-29 20:36:57 ERROR JAXB2:258 - Failed to write to fileX00_00_000_1-20241029T203657-00100-localhost.xml
-java.lang.NullPointerException: Cannot invoke "String.length()" because "str" is null
-	at java.io.Writer.write(Writer.java:278) ~[?:?]
-	at jp.co.baobhansith.server.JAXB2.output(JAXB2.java:253) ~[classes/:?]
-	at jp.co.baobhansith.server.JAXB2.convertFormat(JAXB2.java:98) ~[classes/:?]
-	at jp.co.baobhansith.server.DataController.lambda$0(DataController.java:30) ~[classes/:?]
-	at java.lang.Thread.run(Thread.java:1583) [?:?]
-2024-10-29 20:36:57 ERROR JAXB2:258 - Failed to write to fileX00_00_000_1-20241029T203657-00030-localhost.xml
-java.lang.NullPointerException: Cannot invoke "String.length()" because "str" is null
-	at java.io.Writer.write(Writer.java:278) ~[?:?]
-	at jp.co.baobhansith.server.JAXB2.output(JAXB2.java:253) ~[classes/:?]
-	at jp.co.baobhansith.server.JAXB2.convertFormat(JAXB2.java:98) ~[classes/:?]
-	at jp.co.baobhansith.server.DataController.lambda$0(DataController.java:30) ~[classes/:?]
-	at java.lang.Thread.run(Thread.java:1583) [?:?]
-2024-10-29 20:36:57 ERROR JAXB2:258 - Failed to write to fileX00_00_000_1-20241029T203657-00050-localhost.xml
-java.lang.NullPointerException: Cannot invoke "String.length()" because "str" is null
-	at java.io.Writer.write(Writer.java:278) ~[?:?]
-	at jp.co.baobhansith.server.JAXB2.output(JAXB2.java:253) ~[classes/:?]
-	at jp.co.baobhansith.server.JAXB2.convertFormat(JAXB2.java:98) ~[classes/:?]
-	at jp.co.baobhansith.server.DataController.lambda$0(DataController.java:30) ~[classes/:?]
-	at java.lang.Thread.run(Thread.java:1583) [?:?]
-2024-10-29 20:36:57 ERROR JAXB2:258 - Failed to write to fileX00_00_000_1-20241029T203657-00020-localhost.xml
-java.lang.NullPointerException: Cannot invoke "String.length()" because "str" is null
-	at java.io.Writer.write(Writer.java:278) ~[?:?]
-	at jp.co.baobhansith.server.JAXB2.output(JAXB2.java:253) ~[classes/:?]
-	at jp.co.baobhansith.server.JAXB2.convertFormat(JAXB2.java:98) ~[classes/:?]
-	at jp.co.baobhansith.server.DataController.lambda$0(DataController.java:30) ~[classes/:?]
-	at java.lang.Thread.run(Thread.java:1583) [?:?]
-2024-10-29 20:36:57 ERROR JAXB2:258 - Failed to write to fileX00_00_000_1-20241029T203657-00080-localhost.xml
-java.lang.NullPointerException: Cannot invoke "String.length()" because "str" is null
-	at java.io.Writer.write(Writer.java:278) ~[?:?]
-	at jp.co.baobhansith.server.JAXB2.output(JAXB2.java:253) ~[classes/:?]
-	at jp.co.baobhansith.server.JAXB2.convertFormat(JAXB2.java:98) ~[classes/:?]
-	at jp.co.baobhansith.server.DataController.lambda$0(DataController.java:30) ~[classes/:?]
-	at java.lang.Thread.run(Thread.java:1583) [?:?]
-2024-10-29 20:36:57 ERROR JAXB2:258 - Failed to write to fileX00_00_000_1-20241029T203657-00040-localhost.xml
-java.lang.NullPointerException: Cannot invoke "String.length()" because "str" is null
-	at java.io.Writer.write(Writer.java:278) ~[?:?]
-	at jp.co.baobhansith.server.JAXB2.output(JAXB2.java:253) ~[classes/:?]
-	at jp.co.baobhansith.server.JAXB2.convertFormat(JAXB2.java:98) ~[classes/:?]
-	at jp.co.baobhansith.server.DataController.lambda$0(DataController.java:30) ~[classes/:?]
-	at java.lang.Thread.run(Thread.java:1583) [?:?]
-2024-10-29 20:41:23 ERROR JAXB2:235 - XMLのマッピングに失敗しました。X00_00_000_1
-2024-10-29 20:41:23 ERROR JAXB2:235 - XMLのマッピングに失敗しました。X00_00_000_1
-2024-10-29 20:41:23 ERROR JAXB2:235 - XMLのマッピングに失敗しました。X00_00_000_1
-2024-10-29 20:41:23 ERROR JAXB2:235 - XMLのマッピングに失敗しました。X00_00_000_1
-2024-10-29 20:41:23 ERROR JAXB2:235 - XMLのマッピングに失敗しました。X00_00_000_1
-2024-10-29 20:41:23 ERROR JAXB2:235 - XMLのマッピングに失敗しました。X00_00_000_1
-2024-10-29 20:41:23 ERROR JAXB2:235 - XMLのマッピングに失敗しました。X00_00_000_1
-2024-10-29 20:41:23 ERROR JAXB2:235 - XMLのマッピングに失敗しました。X00_00_000_1
-2024-10-29 20:41:23 ERROR JAXB2:235 - XMLのマッピングに失敗しました。X00_00_000_1
-2024-10-29 20:41:23 ERROR JAXB2:235 - XMLのマッピングに失敗しました。X00_00_000_1
-2024-10-29 20:41:23 ERROR JAXB2:258 - Failed to write to fileX00_00_000_1-20241029T204123-00100-localhost.xml
-java.lang.NullPointerException: Cannot invoke "String.length()" because "str" is null
-	at java.io.Writer.write(Writer.java:278) ~[?:?]
-	at jp.co.baobhansith.server.JAXB2.output(JAXB2.java:253) ~[classes/:?]
-	at jp.co.baobhansith.server.JAXB2.convertFormat(JAXB2.java:98) ~[classes/:?]
-	at jp.co.baobhansith.server.DataController.lambda$0(DataController.java:30) ~[classes/:?]
-	at java.lang.Thread.run(Thread.java:1583) [?:?]
-2024-10-29 20:41:23 ERROR JAXB2:258 - Failed to write to fileX00_00_000_1-20241029T204123-00020-localhost.xml
-java.lang.NullPointerException: Cannot invoke "String.length()" because "str" is null
-	at java.io.Writer.write(Writer.java:278) ~[?:?]
-	at jp.co.baobhansith.server.JAXB2.output(JAXB2.java:253) ~[classes/:?]
-	at jp.co.baobhansith.server.JAXB2.convertFormat(JAXB2.java:98) ~[classes/:?]
-	at jp.co.baobhansith.server.DataController.lambda$0(DataController.java:30) ~[classes/:?]
-	at java.lang.Thread.run(Thread.java:1583) [?:?]
-2024-10-29 20:41:23 ERROR JAXB2:258 - Failed to write to fileX00_00_000_1-20241029T204123-00090-localhost.xml
-java.lang.NullPointerException: Cannot invoke "String.length()" because "str" is null
-	at java.io.Writer.write(Writer.java:278) ~[?:?]
-	at jp.co.baobhansith.server.JAXB2.output(JAXB2.java:253) ~[classes/:?]
-	at jp.co.baobhansith.server.JAXB2.convertFormat(JAXB2.java:98) ~[classes/:?]
-	at jp.co.baobhansith.server.DataController.lambda$0(DataController.java:30) ~[classes/:?]
-	at java.lang.Thread.run(Thread.java:1583) [?:?]
-2024-10-29 20:41:23 ERROR JAXB2:258 - Failed to write to fileX00_00_000_1-20241029T204123-00030-localhost.xml
-java.lang.NullPointerException: Cannot invoke "String.length()" because "str" is null
-	at java.io.Writer.write(Writer.java:278) ~[?:?]
-	at jp.co.baobhansith.server.JAXB2.output(JAXB2.java:253) ~[classes/:?]
-	at jp.co.baobhansith.server.JAXB2.convertFormat(JAXB2.java:98) ~[classes/:?]
-	at jp.co.baobhansith.server.DataController.lambda$0(DataController.java:30) ~[classes/:?]
-	at java.lang.Thread.run(Thread.java:1583) [?:?]
-2024-10-29 20:41:23 ERROR JAXB2:258 - Failed to write to fileX00_00_000_1-20241029T204123-00070-localhost.xml
-java.lang.NullPointerException: Cannot invoke "String.length()" because "str" is null
-	at java.io.Writer.write(Writer.java:278) ~[?:?]
-	at jp.co.baobhansith.server.JAXB2.output(JAXB2.java:253) ~[classes/:?]
-	at jp.co.baobhansith.server.JAXB2.convertFormat(JAXB2.java:98) ~[classes/:?]
-	at jp.co.baobhansith.server.DataController.lambda$0(DataController.java:30) ~[classes/:?]
-	at java.lang.Thread.run(Thread.java:1583) [?:?]
-2024-10-29 20:41:23 ERROR JAXB2:258 - Failed to write to fileX00_00_000_1-20241029T204123-00060-localhost.xml
-java.lang.NullPointerException: Cannot invoke "String.length()" because "str" is null
-	at java.io.Writer.write(Writer.java:278) ~[?:?]
-	at jp.co.baobhansith.server.JAXB2.output(JAXB2.java:253) ~[classes/:?]
-	at jp.co.baobhansith.server.JAXB2.convertFormat(JAXB2.java:98) ~[classes/:?]
-	at jp.co.baobhansith.server.DataController.lambda$0(DataController.java:30) ~[classes/:?]
-	at java.lang.Thread.run(Thread.java:1583) [?:?]
-2024-10-29 20:41:23 ERROR JAXB2:258 - Failed to write to fileX00_00_000_1-20241029T204123-00010-localhost.xml
-java.lang.NullPointerException: Cannot invoke "String.length()" because "str" is null
-	at java.io.Writer.write(Writer.java:278) ~[?:?]
-	at jp.co.baobhansith.server.JAXB2.output(JAXB2.java:253) ~[classes/:?]
-	at jp.co.baobhansith.server.JAXB2.convertFormat(JAXB2.java:98) ~[classes/:?]
-	at jp.co.baobhansith.server.DataController.lambda$0(DataController.java:30) ~[classes/:?]
-	at java.lang.Thread.run(Thread.java:1583) [?:?]
-2024-10-29 20:41:23 ERROR JAXB2:258 - Failed to write to fileX00_00_000_1-20241029T204123-00050-localhost.xml
-java.lang.NullPointerException: Cannot invoke "String.length()" because "str" is null
-	at java.io.Writer.write(Writer.java:278) ~[?:?]
-	at jp.co.baobhansith.server.JAXB2.output(JAXB2.java:253) ~[classes/:?]
-	at jp.co.baobhansith.server.JAXB2.convertFormat(JAXB2.java:98) ~[classes/:?]
-	at jp.co.baobhansith.server.DataController.lambda$0(DataController.java:30) ~[classes/:?]
-	at java.lang.Thread.run(Thread.java:1583) [?:?]
-2024-10-29 20:41:23 ERROR JAXB2:258 - Failed to write to fileX00_00_000_1-20241029T204123-00040-localhost.xml
-java.lang.NullPointerException: Cannot invoke "String.length()" because "str" is null
-	at java.io.Writer.write(Writer.java:278) ~[?:?]
-	at jp.co.baobhansith.server.JAXB2.output(JAXB2.java:253) ~[classes/:?]
-	at jp.co.baobhansith.server.JAXB2.convertFormat(JAXB2.java:98) ~[classes/:?]
-	at jp.co.baobhansith.server.DataController.lambda$0(DataController.java:30) ~[classes/:?]
-	at java.lang.Thread.run(Thread.java:1583) [?:?]
-2024-10-29 20:41:23 ERROR JAXB2:258 - Failed to write to fileX00_00_000_1-20241029T204123-00080-localhost.xml
-java.lang.NullPointerException: Cannot invoke "String.length()" because "str" is null
-	at java.io.Writer.write(Writer.java:278) ~[?:?]
-	at jp.co.baobhansith.server.JAXB2.output(JAXB2.java:253) ~[classes/:?]
-	at jp.co.baobhansith.server.JAXB2.convertFormat(JAXB2.java:98) ~[classes/:?]
-	at jp.co.baobhansith.server.DataController.lambda$0(DataController.java:30) ~[classes/:?]
-	at java.lang.Thread.run(Thread.java:1583) [?:?]
+2024-10-30 22:27:54 INFO  DataController:26 - Start writing to file. Thread Name: pool-2-thread-1
+2024-10-30 22:27:54 INFO  DataController:26 - Start writing to file. Thread Name: pool-2-thread-2
+2024-10-30 22:27:54 INFO  DataController:26 - Start writing to file. Thread Name: pool-2-thread-3
+2024-10-30 22:27:54 INFO  DataController:26 - Start writing to file. Thread Name: pool-2-thread-4
+2024-10-30 22:27:54 INFO  DataController:26 - Start writing to file. Thread Name: pool-2-thread-5
+2024-10-30 22:27:54 INFO  DataController:26 - Start writing to file. Thread Name: pool-2-thread-6
+2024-10-30 22:27:54 INFO  DataController:26 - Start writing to file. Thread Name: pool-2-thread-7
+2024-10-30 22:27:54 INFO  DataController:26 - Start writing to file. Thread Name: pool-2-thread-8
+2024-10-30 22:27:54 INFO  DataController:26 - Start writing to file. Thread Name: pool-2-thread-9
+2024-10-30 22:27:54 INFO  DataController:26 - Start writing to file. Thread Name: pool-2-thread-10
+2024-10-30 22:27:54 INFO  DataController:30 - End writing to file. Thread Name: pool-2-thread-3
+2024-10-30 22:27:54 INFO  DataController:30 - End writing to file. Thread Name: pool-2-thread-8
+2024-10-30 22:27:54 INFO  DataController:30 - End writing to file. Thread Name: pool-2-thread-1
+2024-10-30 22:27:54 INFO  DataController:30 - End writing to file. Thread Name: pool-2-thread-5
+2024-10-30 22:27:54 INFO  DataController:30 - End writing to file. Thread Name: pool-2-thread-10
+2024-10-30 22:27:54 INFO  DataController:26 - Start writing to file. Thread Name: pool-2-thread-1
+2024-10-30 22:27:54 INFO  DataController:26 - Start writing to file. Thread Name: pool-2-thread-3
+2024-10-30 22:27:54 INFO  DataController:26 - Start writing to file. Thread Name: pool-2-thread-5
+2024-10-30 22:27:54 INFO  DataController:26 - Start writing to file. Thread Name: pool-2-thread-8
+2024-10-30 22:27:54 INFO  DataController:26 - Start writing to file. Thread Name: pool-2-thread-10
+2024-10-30 22:27:54 INFO  DataController:30 - End writing to file. Thread Name: pool-2-thread-4
+2024-10-30 22:27:54 INFO  DataController:26 - Start writing to file. Thread Name: pool-2-thread-4
+2024-10-30 22:27:54 INFO  DataController:30 - End writing to file. Thread Name: pool-2-thread-9
+2024-10-30 22:27:54 INFO  DataController:26 - Start writing to file. Thread Name: pool-2-thread-9
+2024-10-30 22:27:54 INFO  DataController:30 - End writing to file. Thread Name: pool-2-thread-6
+2024-10-30 22:27:54 INFO  DataController:26 - Start writing to file. Thread Name: pool-2-thread-6
+2024-10-30 22:27:54 INFO  DataController:30 - End writing to file. Thread Name: pool-2-thread-2
+2024-10-30 22:27:54 INFO  DataController:26 - Start writing to file. Thread Name: pool-2-thread-2
+2024-10-30 22:27:54 INFO  DataController:30 - End writing to file. Thread Name: pool-2-thread-7
+2024-10-30 22:27:54 INFO  DataController:26 - Start writing to file. Thread Name: pool-2-thread-7
+2024-10-30 22:27:54 INFO  DataController:30 - End writing to file. Thread Name: pool-2-thread-1
+2024-10-30 22:27:54 INFO  DataController:26 - Start writing to file. Thread Name: pool-2-thread-1
+2024-10-30 22:27:54 INFO  DataController:30 - End writing to file. Thread Name: pool-2-thread-10
+2024-10-30 22:27:54 INFO  DataController:26 - Start writing to file. Thread Name: pool-2-thread-10
+2024-10-30 22:27:54 INFO  DataController:30 - End writing to file. Thread Name: pool-2-thread-3
+2024-10-30 22:27:54 INFO  DataController:26 - Start writing to file. Thread Name: pool-2-thread-3
+2024-10-30 22:27:54 INFO  DataController:30 - End writing to file. Thread Name: pool-2-thread-7
+2024-10-30 22:27:54 INFO  DataController:30 - End writing to file. Thread Name: pool-2-thread-5
+2024-10-30 22:27:54 INFO  DataController:30 - End writing to file. Thread Name: pool-2-thread-4
+2024-10-30 22:27:54 INFO  DataController:26 - Start writing to file. Thread Name: pool-2-thread-7
+2024-10-30 22:27:54 INFO  DataController:26 - Start writing to file. Thread Name: pool-2-thread-5
+2024-10-30 22:27:54 INFO  DataController:26 - Start writing to file. Thread Name: pool-2-thread-4
+2024-10-30 22:27:54 INFO  DataController:30 - End writing to file. Thread Name: pool-2-thread-8
+2024-10-30 22:27:54 INFO  DataController:26 - Start writing to file. Thread Name: pool-2-thread-8
+2024-10-30 22:27:54 INFO  DataController:30 - End writing to file. Thread Name: pool-2-thread-6
+2024-10-30 22:27:54 INFO  DataController:26 - Start writing to file. Thread Name: pool-2-thread-6
+2024-10-30 22:27:54 INFO  DataController:30 - End writing to file. Thread Name: pool-2-thread-9
+2024-10-30 22:27:54 INFO  DataController:26 - Start writing to file. Thread Name: pool-2-thread-9
+2024-10-30 22:27:54 INFO  DataController:30 - End writing to file. Thread Name: pool-2-thread-2
+2024-10-30 22:27:54 INFO  DataController:26 - Start writing to file. Thread Name: pool-2-thread-2
+2024-10-30 22:27:54 INFO  DataController:30 - End writing to file. Thread Name: pool-2-thread-10
+2024-10-30 22:27:54 INFO  DataController:26 - Start writing to file. Thread Name: pool-2-thread-10
+2024-10-30 22:27:54 INFO  DataController:30 - End writing to file. Thread Name: pool-2-thread-5
+2024-10-30 22:27:54 INFO  DataController:26 - Start writing to file. Thread Name: pool-2-thread-5
+2024-10-30 22:27:54 INFO  DataController:30 - End writing to file. Thread Name: pool-2-thread-4
+2024-10-30 22:27:54 INFO  DataController:26 - Start writing to file. Thread Name: pool-2-thread-4
+2024-10-30 22:27:54 INFO  DataController:30 - End writing to file. Thread Name: pool-2-thread-8
+2024-10-30 22:27:54 INFO  DataController:26 - Start writing to file. Thread Name: pool-2-thread-8
+2024-10-30 22:27:54 INFO  DataController:30 - End writing to file. Thread Name: pool-2-thread-1
+2024-10-30 22:27:54 INFO  DataController:26 - Start writing to file. Thread Name: pool-2-thread-1
+2024-10-30 22:27:54 INFO  DataController:30 - End writing to file. Thread Name: pool-2-thread-3
+2024-10-30 22:27:54 INFO  DataController:26 - Start writing to file. Thread Name: pool-2-thread-3
+2024-10-30 22:27:54 INFO  DataController:30 - End writing to file. Thread Name: pool-2-thread-2
+2024-10-30 22:27:54 INFO  DataController:26 - Start writing to file. Thread Name: pool-2-thread-2
+2024-10-30 22:27:54 INFO  DataController:30 - End writing to file. Thread Name: pool-2-thread-9
+2024-10-30 22:27:54 INFO  DataController:26 - Start writing to file. Thread Name: pool-2-thread-9
+2024-10-30 22:27:54 INFO  DataController:30 - End writing to file. Thread Name: pool-2-thread-7
+2024-10-30 22:27:54 INFO  DataController:26 - Start writing to file. Thread Name: pool-2-thread-7
+2024-10-30 22:27:54 INFO  DataController:30 - End writing to file. Thread Name: pool-2-thread-6
+2024-10-30 22:27:54 INFO  DataController:26 - Start writing to file. Thread Name: pool-2-thread-6
+2024-10-30 22:27:54 INFO  DataController:30 - End writing to file. Thread Name: pool-2-thread-10
+2024-10-30 22:27:54 INFO  DataController:26 - Start writing to file. Thread Name: pool-2-thread-10
+2024-10-30 22:27:54 INFO  DataController:30 - End writing to file. Thread Name: pool-2-thread-8
+2024-10-30 22:27:54 INFO  DataController:26 - Start writing to file. Thread Name: pool-2-thread-8
+2024-10-30 22:27:54 INFO  DataController:30 - End writing to file. Thread Name: pool-2-thread-3
+2024-10-30 22:27:54 INFO  DataController:26 - Start writing to file. Thread Name: pool-2-thread-3
+2024-10-30 22:27:54 INFO  DataController:30 - End writing to file. Thread Name: pool-2-thread-5
+2024-10-30 22:27:54 INFO  DataController:26 - Start writing to file. Thread Name: pool-2-thread-5
+2024-10-30 22:27:54 INFO  DataController:30 - End writing to file. Thread Name: pool-2-thread-1
+2024-10-30 22:27:54 INFO  DataController:26 - Start writing to file. Thread Name: pool-2-thread-1
+2024-10-30 22:27:54 INFO  DataController:30 - End writing to file. Thread Name: pool-2-thread-2
+2024-10-30 22:27:54 INFO  DataController:26 - Start writing to file. Thread Name: pool-2-thread-2
+2024-10-30 22:27:54 INFO  DataController:30 - End writing to file. Thread Name: pool-2-thread-9
+2024-10-30 22:27:54 INFO  DataController:26 - Start writing to file. Thread Name: pool-2-thread-9
+2024-10-30 22:27:54 INFO  DataController:30 - End writing to file. Thread Name: pool-2-thread-4
+2024-10-30 22:27:54 INFO  DataController:26 - Start writing to file. Thread Name: pool-2-thread-4
+2024-10-30 22:27:54 INFO  DataController:30 - End writing to file. Thread Name: pool-2-thread-7
+2024-10-30 22:27:54 INFO  DataController:26 - Start writing to file. Thread Name: pool-2-thread-7
+2024-10-30 22:27:54 INFO  DataController:30 - End writing to file. Thread Name: pool-2-thread-6
+2024-10-30 22:27:54 INFO  DataController:26 - Start writing to file. Thread Name: pool-2-thread-6
+2024-10-30 22:27:54 INFO  DataController:30 - End writing to file. Thread Name: pool-2-thread-10
+2024-10-30 22:27:54 INFO  DataController:26 - Start writing to file. Thread Name: pool-2-thread-10
+2024-10-30 22:27:54 INFO  DataController:30 - End writing to file. Thread Name: pool-2-thread-8
+2024-10-30 22:27:54 INFO  DataController:26 - Start writing to file. Thread Name: pool-2-thread-8
+2024-10-30 22:27:54 INFO  DataController:30 - End writing to file. Thread Name: pool-2-thread-4
+2024-10-30 22:27:54 INFO  DataController:26 - Start writing to file. Thread Name: pool-2-thread-4
+2024-10-30 22:27:54 INFO  DataController:30 - End writing to file. Thread Name: pool-2-thread-3
+2024-10-30 22:27:54 INFO  DataController:26 - Start writing to file. Thread Name: pool-2-thread-3
+2024-10-30 22:27:54 INFO  DataController:30 - End writing to file. Thread Name: pool-2-thread-5
+2024-10-30 22:27:54 INFO  DataController:26 - Start writing to file. Thread Name: pool-2-thread-5
+2024-10-30 22:27:54 INFO  DataController:30 - End writing to file. Thread Name: pool-2-thread-1
+2024-10-30 22:27:54 INFO  DataController:26 - Start writing to file. Thread Name: pool-2-thread-1
+2024-10-30 22:27:54 INFO  DataController:30 - End writing to file. Thread Name: pool-2-thread-9
+2024-10-30 22:27:54 INFO  DataController:26 - Start writing to file. Thread Name: pool-2-thread-9
+2024-10-30 22:27:54 INFO  DataController:30 - End writing to file. Thread Name: pool-2-thread-6
+2024-10-30 22:27:54 INFO  DataController:26 - Start writing to file. Thread Name: pool-2-thread-6
+2024-10-30 22:27:54 INFO  DataController:30 - End writing to file. Thread Name: pool-2-thread-7
+2024-10-30 22:27:54 INFO  DataController:26 - Start writing to file. Thread Name: pool-2-thread-7
+2024-10-30 22:27:54 INFO  DataController:30 - End writing to file. Thread Name: pool-2-thread-2
+2024-10-30 22:27:54 INFO  DataController:26 - Start writing to file. Thread Name: pool-2-thread-2
+2024-10-30 22:27:54 INFO  DataController:30 - End writing to file. Thread Name: pool-2-thread-10
+2024-10-30 22:27:54 INFO  DataController:26 - Start writing to file. Thread Name: pool-2-thread-10
+2024-10-30 22:27:55 INFO  DataController:30 - End writing to file. Thread Name: pool-2-thread-8
+2024-10-30 22:27:55 INFO  DataController:26 - Start writing to file. Thread Name: pool-2-thread-8
+2024-10-30 22:27:55 INFO  DataController:30 - End writing to file. Thread Name: pool-2-thread-5
+2024-10-30 22:27:55 INFO  DataController:26 - Start writing to file. Thread Name: pool-2-thread-5
+2024-10-30 22:27:55 INFO  DataController:30 - End writing to file. Thread Name: pool-2-thread-1
+2024-10-30 22:27:55 INFO  DataController:26 - Start writing to file. Thread Name: pool-2-thread-1
+2024-10-30 22:27:55 INFO  DataController:30 - End writing to file. Thread Name: pool-2-thread-6
+2024-10-30 22:27:55 INFO  DataController:26 - Start writing to file. Thread Name: pool-2-thread-6
+2024-10-30 22:27:55 INFO  DataController:30 - End writing to file. Thread Name: pool-2-thread-4
+2024-10-30 22:27:55 INFO  DataController:26 - Start writing to file. Thread Name: pool-2-thread-4
+2024-10-30 22:27:55 INFO  DataController:30 - End writing to file. Thread Name: pool-2-thread-3
+2024-10-30 22:27:55 INFO  DataController:26 - Start writing to file. Thread Name: pool-2-thread-3
+2024-10-30 22:27:55 INFO  DataController:30 - End writing to file. Thread Name: pool-2-thread-9
+2024-10-30 22:27:55 INFO  DataController:26 - Start writing to file. Thread Name: pool-2-thread-9
+2024-10-30 22:27:55 INFO  DataController:30 - End writing to file. Thread Name: pool-2-thread-2
+2024-10-30 22:27:55 INFO  DataController:30 - End writing to file. Thread Name: pool-2-thread-7
+2024-10-30 22:27:55 INFO  DataController:26 - Start writing to file. Thread Name: pool-2-thread-2
+2024-10-30 22:27:55 INFO  DataController:26 - Start writing to file. Thread Name: pool-2-thread-7
+2024-10-30 22:27:55 INFO  DataController:30 - End writing to file. Thread Name: pool-2-thread-10
+2024-10-30 22:27:55 INFO  DataController:26 - Start writing to file. Thread Name: pool-2-thread-10
+2024-10-30 22:27:55 INFO  DataController:30 - End writing to file. Thread Name: pool-2-thread-1
+2024-10-30 22:27:55 INFO  DataController:26 - Start writing to file. Thread Name: pool-2-thread-1
+2024-10-30 22:27:55 INFO  DataController:30 - End writing to file. Thread Name: pool-2-thread-4
+2024-10-30 22:27:55 INFO  DataController:26 - Start writing to file. Thread Name: pool-2-thread-4
+2024-10-30 22:27:55 INFO  DataController:30 - End writing to file. Thread Name: pool-2-thread-8
+2024-10-30 22:27:55 INFO  DataController:26 - Start writing to file. Thread Name: pool-2-thread-8
+2024-10-30 22:27:55 INFO  DataController:30 - End writing to file. Thread Name: pool-2-thread-3
+2024-10-30 22:27:55 INFO  DataController:26 - Start writing to file. Thread Name: pool-2-thread-3
+2024-10-30 22:27:55 INFO  DataController:30 - End writing to file. Thread Name: pool-2-thread-5
+2024-10-30 22:27:55 INFO  DataController:26 - Start writing to file. Thread Name: pool-2-thread-5
+2024-10-30 22:27:55 INFO  DataController:30 - End writing to file. Thread Name: pool-2-thread-6
+2024-10-30 22:27:55 INFO  DataController:26 - Start writing to file. Thread Name: pool-2-thread-6
+2024-10-30 22:27:55 INFO  DataController:30 - End writing to file. Thread Name: pool-2-thread-7
+2024-10-30 22:27:55 INFO  DataController:30 - End writing to file. Thread Name: pool-2-thread-2
+2024-10-30 22:27:55 INFO  DataController:26 - Start writing to file. Thread Name: pool-2-thread-2
+2024-10-30 22:27:55 INFO  DataController:26 - Start writing to file. Thread Name: pool-2-thread-7
+2024-10-30 22:27:55 INFO  DataController:30 - End writing to file. Thread Name: pool-2-thread-9
+2024-10-30 22:27:55 INFO  DataController:26 - Start writing to file. Thread Name: pool-2-thread-9
+2024-10-30 22:27:55 INFO  DataController:30 - End writing to file. Thread Name: pool-2-thread-1
+2024-10-30 22:27:55 INFO  DataController:26 - Start writing to file. Thread Name: pool-2-thread-1
+2024-10-30 22:27:55 INFO  DataController:30 - End writing to file. Thread Name: pool-2-thread-10
+2024-10-30 22:27:55 INFO  DataController:26 - Start writing to file. Thread Name: pool-2-thread-10
+2024-10-30 22:27:55 INFO  DataController:30 - End writing to file. Thread Name: pool-2-thread-3
+2024-10-30 22:27:55 INFO  DataController:26 - Start writing to file. Thread Name: pool-2-thread-3
+2024-10-30 22:27:55 INFO  DataController:30 - End writing to file. Thread Name: pool-2-thread-8
+2024-10-30 22:27:55 INFO  DataController:26 - Start writing to file. Thread Name: pool-2-thread-8
+2024-10-30 22:27:55 INFO  DataController:30 - End writing to file. Thread Name: pool-2-thread-4
+2024-10-30 22:27:55 INFO  DataController:26 - Start writing to file. Thread Name: pool-2-thread-4
+2024-10-30 22:27:55 INFO  DataController:30 - End writing to file. Thread Name: pool-2-thread-6
+2024-10-30 22:27:55 INFO  DataController:26 - Start writing to file. Thread Name: pool-2-thread-6
+2024-10-30 22:27:55 INFO  DataController:30 - End writing to file. Thread Name: pool-2-thread-5
+2024-10-30 22:27:55 INFO  DataController:26 - Start writing to file. Thread Name: pool-2-thread-5
+2024-10-30 22:27:55 INFO  DataController:30 - End writing to file. Thread Name: pool-2-thread-2
+2024-10-30 22:27:55 INFO  DataController:26 - Start writing to file. Thread Name: pool-2-thread-2
+2024-10-30 22:27:55 INFO  DataController:30 - End writing to file. Thread Name: pool-2-thread-1
+2024-10-30 22:27:55 INFO  DataController:26 - Start writing to file. Thread Name: pool-2-thread-1
+2024-10-30 22:27:55 INFO  DataController:30 - End writing to file. Thread Name: pool-2-thread-7
+2024-10-30 22:27:55 INFO  DataController:26 - Start writing to file. Thread Name: pool-2-thread-7
+2024-10-30 22:27:55 INFO  DataController:30 - End writing to file. Thread Name: pool-2-thread-9
+2024-10-30 22:27:55 INFO  DataController:26 - Start writing to file. Thread Name: pool-2-thread-9
+2024-10-30 22:27:55 INFO  DataController:30 - End writing to file. Thread Name: pool-2-thread-10
+2024-10-30 22:27:55 INFO  DataController:26 - Start writing to file. Thread Name: pool-2-thread-10
+2024-10-30 22:27:55 INFO  DataController:30 - End writing to file. Thread Name: pool-2-thread-8
+2024-10-30 22:27:55 INFO  DataController:26 - Start writing to file. Thread Name: pool-2-thread-8
+2024-10-30 22:27:55 INFO  DataController:30 - End writing to file. Thread Name: pool-2-thread-3
+2024-10-30 22:27:55 INFO  DataController:26 - Start writing to file. Thread Name: pool-2-thread-3
+2024-10-30 22:27:55 INFO  DataController:30 - End writing to file. Thread Name: pool-2-thread-6
+2024-10-30 22:27:55 INFO  DataController:26 - Start writing to file. Thread Name: pool-2-thread-6
+2024-10-30 22:27:55 INFO  DataController:30 - End writing to file. Thread Name: pool-2-thread-1
+2024-10-30 22:27:55 INFO  DataController:26 - Start writing to file. Thread Name: pool-2-thread-1
+2024-10-30 22:27:55 INFO  DataController:30 - End writing to file. Thread Name: pool-2-thread-2
+2024-10-30 22:27:55 INFO  DataController:26 - Start writing to file. Thread Name: pool-2-thread-2
+2024-10-30 22:27:55 INFO  DataController:30 - End writing to file. Thread Name: pool-2-thread-7
+2024-10-30 22:27:55 INFO  DataController:26 - Start writing to file. Thread Name: pool-2-thread-7
+2024-10-30 22:27:55 INFO  DataController:30 - End writing to file. Thread Name: pool-2-thread-4
+2024-10-30 22:27:55 INFO  DataController:26 - Start writing to file. Thread Name: pool-2-thread-4
+2024-10-30 22:27:55 INFO  DataController:30 - End writing to file. Thread Name: pool-2-thread-10
+2024-10-30 22:27:55 INFO  DataController:26 - Start writing to file. Thread Name: pool-2-thread-10
+2024-10-30 22:27:55 INFO  DataController:30 - End writing to file. Thread Name: pool-2-thread-5
+2024-10-30 22:27:55 INFO  DataController:30 - End writing to file. Thread Name: pool-2-thread-8
+2024-10-30 22:27:55 INFO  DataController:26 - Start writing to file. Thread Name: pool-2-thread-5
+2024-10-30 22:27:55 INFO  DataController:30 - End writing to file. Thread Name: pool-2-thread-9
+2024-10-30 22:27:55 INFO  DataController:26 - Start writing to file. Thread Name: pool-2-thread-8
+2024-10-30 22:27:55 INFO  DataController:26 - Start writing to file. Thread Name: pool-2-thread-9
+2024-10-30 22:27:55 INFO  DataController:30 - End writing to file. Thread Name: pool-2-thread-6
+2024-10-30 22:27:55 INFO  DataController:26 - Start writing to file. Thread Name: pool-2-thread-6
+2024-10-30 22:27:55 INFO  DataController:30 - End writing to file. Thread Name: pool-2-thread-1
+2024-10-30 22:27:55 INFO  DataController:26 - Start writing to file. Thread Name: pool-2-thread-1
+2024-10-30 22:27:55 INFO  DataController:30 - End writing to file. Thread Name: pool-2-thread-3
+2024-10-30 22:27:55 INFO  DataController:30 - End writing to file. Thread Name: pool-2-thread-7
+2024-10-30 22:27:55 INFO  DataController:26 - Start writing to file. Thread Name: pool-2-thread-7
+2024-10-30 22:27:55 INFO  DataController:26 - Start writing to file. Thread Name: pool-2-thread-3
+2024-10-30 22:27:55 INFO  DataController:30 - End writing to file. Thread Name: pool-2-thread-2
+2024-10-30 22:27:55 INFO  DataController:26 - Start writing to file. Thread Name: pool-2-thread-2
+2024-10-30 22:27:55 INFO  DataController:30 - End writing to file. Thread Name: pool-2-thread-8
+2024-10-30 22:27:55 INFO  DataController:26 - Start writing to file. Thread Name: pool-2-thread-8
+2024-10-30 22:27:55 INFO  DataController:30 - End writing to file. Thread Name: pool-2-thread-4
+2024-10-30 22:27:55 INFO  DataController:26 - Start writing to file. Thread Name: pool-2-thread-4
+2024-10-30 22:27:55 INFO  DataController:30 - End writing to file. Thread Name: pool-2-thread-10
+2024-10-30 22:27:55 INFO  DataController:30 - End writing to file. Thread Name: pool-2-thread-5
+2024-10-30 22:27:55 INFO  DataController:26 - Start writing to file. Thread Name: pool-2-thread-10
+2024-10-30 22:27:55 INFO  DataController:26 - Start writing to file. Thread Name: pool-2-thread-5
+2024-10-30 22:27:55 INFO  DataController:30 - End writing to file. Thread Name: pool-2-thread-9
+2024-10-30 22:27:55 INFO  DataController:26 - Start writing to file. Thread Name: pool-2-thread-9
+2024-10-30 22:27:55 INFO  DataController:30 - End writing to file. Thread Name: pool-2-thread-6
+2024-10-30 22:27:55 INFO  DataController:26 - Start writing to file. Thread Name: pool-2-thread-6
+2024-10-30 22:27:55 INFO  DataController:30 - End writing to file. Thread Name: pool-2-thread-1
+2024-10-30 22:27:55 INFO  DataController:26 - Start writing to file. Thread Name: pool-2-thread-1
+2024-10-30 22:27:55 INFO  DataController:30 - End writing to file. Thread Name: pool-2-thread-3
+2024-10-30 22:27:55 INFO  DataController:26 - Start writing to file. Thread Name: pool-2-thread-3
+2024-10-30 22:27:55 INFO  DataController:30 - End writing to file. Thread Name: pool-2-thread-4
+2024-10-30 22:27:55 INFO  DataController:26 - Start writing to file. Thread Name: pool-2-thread-4
+2024-10-30 22:27:55 INFO  DataController:30 - End writing to file. Thread Name: pool-2-thread-2
+2024-10-30 22:27:55 INFO  DataController:26 - Start writing to file. Thread Name: pool-2-thread-2
+2024-10-30 22:27:55 INFO  DataController:30 - End writing to file. Thread Name: pool-2-thread-5
+2024-10-30 22:27:55 INFO  DataController:26 - Start writing to file. Thread Name: pool-2-thread-5
+2024-10-30 22:27:55 INFO  DataController:30 - End writing to file. Thread Name: pool-2-thread-7
+2024-10-30 22:27:55 INFO  DataController:26 - Start writing to file. Thread Name: pool-2-thread-7
+2024-10-30 22:27:55 INFO  DataController:30 - End writing to file. Thread Name: pool-2-thread-10
+2024-10-30 22:27:55 INFO  DataController:26 - Start writing to file. Thread Name: pool-2-thread-10
+2024-10-30 22:27:55 INFO  DataController:30 - End writing to file. Thread Name: pool-2-thread-8
+2024-10-30 22:27:55 INFO  DataController:26 - Start writing to file. Thread Name: pool-2-thread-8
+2024-10-30 22:27:55 INFO  DataController:30 - End writing to file. Thread Name: pool-2-thread-9
+2024-10-30 22:27:55 INFO  DataController:30 - End writing to file. Thread Name: pool-2-thread-6
+2024-10-30 22:27:55 INFO  DataController:26 - Start writing to file. Thread Name: pool-2-thread-9
+2024-10-30 22:27:55 INFO  DataController:26 - Start writing to file. Thread Name: pool-2-thread-6
+2024-10-30 22:27:55 INFO  DataController:30 - End writing to file. Thread Name: pool-2-thread-1
+2024-10-30 22:27:55 INFO  DataController:26 - Start writing to file. Thread Name: pool-2-thread-1
+2024-10-30 22:27:55 INFO  DataController:30 - End writing to file. Thread Name: pool-2-thread-4
+2024-10-30 22:27:55 INFO  DataController:26 - Start writing to file. Thread Name: pool-2-thread-4
+2024-10-30 22:27:55 INFO  DataController:30 - End writing to file. Thread Name: pool-2-thread-3
+2024-10-30 22:27:55 INFO  DataController:26 - Start writing to file. Thread Name: pool-2-thread-3
+2024-10-30 22:27:55 INFO  DataController:30 - End writing to file. Thread Name: pool-2-thread-5
+2024-10-30 22:27:55 INFO  DataController:30 - End writing to file. Thread Name: pool-2-thread-2
+2024-10-30 22:27:55 INFO  DataController:26 - Start writing to file. Thread Name: pool-2-thread-5
+2024-10-30 22:27:55 INFO  DataController:26 - Start writing to file. Thread Name: pool-2-thread-2
+2024-10-30 22:27:55 INFO  DataController:30 - End writing to file. Thread Name: pool-2-thread-7
+2024-10-30 22:27:55 INFO  DataController:26 - Start writing to file. Thread Name: pool-2-thread-7
+2024-10-30 22:27:55 INFO  DataController:30 - End writing to file. Thread Name: pool-2-thread-10
+2024-10-30 22:27:55 INFO  DataController:26 - Start writing to file. Thread Name: pool-2-thread-10
+2024-10-30 22:27:55 INFO  DataController:30 - End writing to file. Thread Name: pool-2-thread-9
+2024-10-30 22:27:55 INFO  DataController:26 - Start writing to file. Thread Name: pool-2-thread-9
+2024-10-30 22:27:55 INFO  DataController:30 - End writing to file. Thread Name: pool-2-thread-1
+2024-10-30 22:27:55 INFO  DataController:26 - Start writing to file. Thread Name: pool-2-thread-1
+2024-10-30 22:27:55 INFO  DataController:30 - End writing to file. Thread Name: pool-2-thread-8
+2024-10-30 22:27:55 INFO  DataController:26 - Start writing to file. Thread Name: pool-2-thread-8
+2024-10-30 22:27:55 INFO  DataController:30 - End writing to file. Thread Name: pool-2-thread-6
+2024-10-30 22:27:55 INFO  DataController:26 - Start writing to file. Thread Name: pool-2-thread-6
+2024-10-30 22:27:55 INFO  DataController:30 - End writing to file. Thread Name: pool-2-thread-4
+2024-10-30 22:27:55 INFO  DataController:26 - Start writing to file. Thread Name: pool-2-thread-4
+2024-10-30 22:27:55 INFO  DataController:30 - End writing to file. Thread Name: pool-2-thread-3
+2024-10-30 22:27:55 INFO  DataController:26 - Start writing to file. Thread Name: pool-2-thread-3
+2024-10-30 22:27:55 INFO  DataController:30 - End writing to file. Thread Name: pool-2-thread-2
+2024-10-30 22:27:55 INFO  DataController:26 - Start writing to file. Thread Name: pool-2-thread-2
+2024-10-30 22:27:55 INFO  DataController:30 - End writing to file. Thread Name: pool-2-thread-5
+2024-10-30 22:27:55 INFO  DataController:26 - Start writing to file. Thread Name: pool-2-thread-5
+2024-10-30 22:27:55 INFO  DataController:30 - End writing to file. Thread Name: pool-2-thread-9
+2024-10-30 22:27:55 INFO  DataController:26 - Start writing to file. Thread Name: pool-2-thread-9
+2024-10-30 22:27:55 INFO  DataController:30 - End writing to file. Thread Name: pool-2-thread-10
+2024-10-30 22:27:55 INFO  DataController:26 - Start writing to file. Thread Name: pool-2-thread-10
+2024-10-30 22:27:55 INFO  DataController:30 - End writing to file. Thread Name: pool-2-thread-7
+2024-10-30 22:27:55 INFO  DataController:26 - Start writing to file. Thread Name: pool-2-thread-7
+2024-10-30 22:27:55 INFO  DataController:30 - End writing to file. Thread Name: pool-2-thread-6
+2024-10-30 22:27:55 INFO  DataController:26 - Start writing to file. Thread Name: pool-2-thread-6
+2024-10-30 22:27:55 INFO  DataController:30 - End writing to file. Thread Name: pool-2-thread-8
+2024-10-30 22:27:55 INFO  DataController:26 - Start writing to file. Thread Name: pool-2-thread-8
+2024-10-30 22:27:55 INFO  DataController:30 - End writing to file. Thread Name: pool-2-thread-4
+2024-10-30 22:27:55 INFO  DataController:26 - Start writing to file. Thread Name: pool-2-thread-4
+2024-10-30 22:27:55 INFO  DataController:30 - End writing to file. Thread Name: pool-2-thread-1
+2024-10-30 22:27:55 INFO  DataController:26 - Start writing to file. Thread Name: pool-2-thread-1
+2024-10-30 22:27:55 INFO  DataController:30 - End writing to file. Thread Name: pool-2-thread-5
+2024-10-30 22:27:55 INFO  DataController:26 - Start writing to file. Thread Name: pool-2-thread-5
+2024-10-30 22:27:55 INFO  DataController:30 - End writing to file. Thread Name: pool-2-thread-9
+2024-10-30 22:27:55 INFO  DataController:26 - Start writing to file. Thread Name: pool-2-thread-9
+2024-10-30 22:27:55 INFO  DataController:30 - End writing to file. Thread Name: pool-2-thread-2
+2024-10-30 22:27:55 INFO  DataController:26 - Start writing to file. Thread Name: pool-2-thread-2
+2024-10-30 22:27:55 INFO  DataController:30 - End writing to file. Thread Name: pool-2-thread-7
+2024-10-30 22:27:55 INFO  DataController:26 - Start writing to file. Thread Name: pool-2-thread-7
+2024-10-30 22:27:55 INFO  DataController:30 - End writing to file. Thread Name: pool-2-thread-3
+2024-10-30 22:27:55 INFO  DataController:26 - Start writing to file. Thread Name: pool-2-thread-3
+2024-10-30 22:27:55 INFO  DataController:30 - End writing to file. Thread Name: pool-2-thread-10
+2024-10-30 22:27:55 INFO  DataController:26 - Start writing to file. Thread Name: pool-2-thread-10
+2024-10-30 22:27:55 INFO  DataController:30 - End writing to file. Thread Name: pool-2-thread-8
+2024-10-30 22:27:55 INFO  DataController:26 - Start writing to file. Thread Name: pool-2-thread-8
+2024-10-30 22:27:55 INFO  DataController:30 - End writing to file. Thread Name: pool-2-thread-1
+2024-10-30 22:27:55 INFO  DataController:26 - Start writing to file. Thread Name: pool-2-thread-1
+2024-10-30 22:27:55 INFO  DataController:30 - End writing to file. Thread Name: pool-2-thread-6
+2024-10-30 22:27:55 INFO  DataController:26 - Start writing to file. Thread Name: pool-2-thread-6
+2024-10-30 22:27:55 INFO  DataController:30 - End writing to file. Thread Name: pool-2-thread-4
+2024-10-30 22:27:55 INFO  DataController:26 - Start writing to file. Thread Name: pool-2-thread-4
+2024-10-30 22:27:55 INFO  DataController:30 - End writing to file. Thread Name: pool-2-thread-9
+2024-10-30 22:27:55 INFO  DataController:26 - Start writing to file. Thread Name: pool-2-thread-9
+2024-10-30 22:27:55 INFO  DataController:30 - End writing to file. Thread Name: pool-2-thread-2
+2024-10-30 22:27:55 INFO  DataController:26 - Start writing to file. Thread Name: pool-2-thread-2
+2024-10-30 22:27:55 INFO  DataController:30 - End writing to file. Thread Name: pool-2-thread-7
+2024-10-30 22:27:55 INFO  DataController:26 - Start writing to file. Thread Name: pool-2-thread-7
+2024-10-30 22:27:55 INFO  DataController:30 - End writing to file. Thread Name: pool-2-thread-5
+2024-10-30 22:27:55 INFO  DataController:26 - Start writing to file. Thread Name: pool-2-thread-5
+2024-10-30 22:27:55 INFO  DataController:30 - End writing to file. Thread Name: pool-2-thread-8
+2024-10-30 22:27:55 INFO  DataController:26 - Start writing to file. Thread Name: pool-2-thread-8
+2024-10-30 22:27:55 INFO  DataController:30 - End writing to file. Thread Name: pool-2-thread-10
+2024-10-30 22:27:55 INFO  DataController:26 - Start writing to file. Thread Name: pool-2-thread-10
+2024-10-30 22:27:55 INFO  DataController:30 - End writing to file. Thread Name: pool-2-thread-1
+2024-10-30 22:27:55 INFO  DataController:26 - Start writing to file. Thread Name: pool-2-thread-1
+2024-10-30 22:27:55 INFO  DataController:30 - End writing to file. Thread Name: pool-2-thread-3
+2024-10-30 22:27:55 INFO  DataController:26 - Start writing to file. Thread Name: pool-2-thread-3
+2024-10-30 22:27:55 INFO  DataController:30 - End writing to file. Thread Name: pool-2-thread-6
+2024-10-30 22:27:55 INFO  DataController:26 - Start writing to file. Thread Name: pool-2-thread-6
+2024-10-30 22:27:55 INFO  DataController:30 - End writing to file. Thread Name: pool-2-thread-7
+2024-10-30 22:27:55 INFO  DataController:26 - Start writing to file. Thread Name: pool-2-thread-7
+2024-10-30 22:27:55 INFO  DataController:30 - End writing to file. Thread Name: pool-2-thread-9
+2024-10-30 22:27:55 INFO  DataController:26 - Start writing to file. Thread Name: pool-2-thread-9
+2024-10-30 22:27:55 INFO  DataController:30 - End writing to file. Thread Name: pool-2-thread-2
+2024-10-30 22:27:55 INFO  DataController:30 - End writing to file. Thread Name: pool-2-thread-4
+2024-10-30 22:27:55 INFO  DataController:26 - Start writing to file. Thread Name: pool-2-thread-2
+2024-10-30 22:27:55 INFO  DataController:26 - Start writing to file. Thread Name: pool-2-thread-4
+2024-10-30 22:27:55 INFO  DataController:30 - End writing to file. Thread Name: pool-2-thread-5
+2024-10-30 22:27:55 INFO  DataController:26 - Start writing to file. Thread Name: pool-2-thread-5
+2024-10-30 22:27:55 INFO  DataController:30 - End writing to file. Thread Name: pool-2-thread-10
+2024-10-30 22:27:55 INFO  DataController:26 - Start writing to file. Thread Name: pool-2-thread-10
+2024-10-30 22:27:55 INFO  DataController:30 - End writing to file. Thread Name: pool-2-thread-3
+2024-10-30 22:27:55 INFO  DataController:26 - Start writing to file. Thread Name: pool-2-thread-3
+2024-10-30 22:27:55 INFO  DataController:30 - End writing to file. Thread Name: pool-2-thread-8
+2024-10-30 22:27:55 INFO  DataController:26 - Start writing to file. Thread Name: pool-2-thread-8
+2024-10-30 22:27:55 INFO  DataController:30 - End writing to file. Thread Name: pool-2-thread-1
+2024-10-30 22:27:55 INFO  DataController:26 - Start writing to file. Thread Name: pool-2-thread-1
+2024-10-30 22:27:55 INFO  DataController:30 - End writing to file. Thread Name: pool-2-thread-6
+2024-10-30 22:27:55 INFO  DataController:26 - Start writing to file. Thread Name: pool-2-thread-6
+2024-10-30 22:27:55 INFO  DataController:30 - End writing to file. Thread Name: pool-2-thread-4
+2024-10-30 22:27:55 INFO  DataController:30 - End writing to file. Thread Name: pool-2-thread-5
+2024-10-30 22:27:55 INFO  DataController:26 - Start writing to file. Thread Name: pool-2-thread-4
+2024-10-30 22:27:55 INFO  DataController:26 - Start writing to file. Thread Name: pool-2-thread-5
+2024-10-30 22:27:55 INFO  DataController:30 - End writing to file. Thread Name: pool-2-thread-2
+2024-10-30 22:27:55 INFO  DataController:26 - Start writing to file. Thread Name: pool-2-thread-2
+2024-10-30 22:27:55 INFO  DataController:30 - End writing to file. Thread Name: pool-2-thread-7
+2024-10-30 22:27:55 INFO  DataController:26 - Start writing to file. Thread Name: pool-2-thread-7
+2024-10-30 22:27:55 INFO  DataController:30 - End writing to file. Thread Name: pool-2-thread-9
+2024-10-30 22:27:55 INFO  DataController:26 - Start writing to file. Thread Name: pool-2-thread-9
+2024-10-30 22:27:55 INFO  DataController:30 - End writing to file. Thread Name: pool-2-thread-8
+2024-10-30 22:27:55 INFO  DataController:26 - Start writing to file. Thread Name: pool-2-thread-8
+2024-10-30 22:27:55 INFO  DataController:30 - End writing to file. Thread Name: pool-2-thread-10
+2024-10-30 22:27:55 INFO  DataController:26 - Start writing to file. Thread Name: pool-2-thread-10
+2024-10-30 22:27:55 INFO  DataController:30 - End writing to file. Thread Name: pool-2-thread-3
+2024-10-30 22:27:55 INFO  DataController:26 - Start writing to file. Thread Name: pool-2-thread-3
+2024-10-30 22:27:55 INFO  DataController:30 - End writing to file. Thread Name: pool-2-thread-1
+2024-10-30 22:27:55 INFO  DataController:26 - Start writing to file. Thread Name: pool-2-thread-1
+2024-10-30 22:27:55 INFO  DataController:30 - End writing to file. Thread Name: pool-2-thread-6
+2024-10-30 22:27:55 INFO  DataController:26 - Start writing to file. Thread Name: pool-2-thread-6
+2024-10-30 22:27:55 INFO  DataController:30 - End writing to file. Thread Name: pool-2-thread-7
+2024-10-30 22:27:55 INFO  DataController:26 - Start writing to file. Thread Name: pool-2-thread-7
+2024-10-30 22:27:55 INFO  DataController:30 - End writing to file. Thread Name: pool-2-thread-4
+2024-10-30 22:27:55 INFO  DataController:26 - Start writing to file. Thread Name: pool-2-thread-4
+2024-10-30 22:27:55 INFO  DataController:30 - End writing to file. Thread Name: pool-2-thread-5
+2024-10-30 22:27:55 INFO  DataController:26 - Start writing to file. Thread Name: pool-2-thread-5
+2024-10-30 22:27:55 INFO  DataController:30 - End writing to file. Thread Name: pool-2-thread-2
+2024-10-30 22:27:55 INFO  DataController:26 - Start writing to file. Thread Name: pool-2-thread-2
+2024-10-30 22:27:55 INFO  DataController:30 - End writing to file. Thread Name: pool-2-thread-10
+2024-10-30 22:27:55 INFO  DataController:26 - Start writing to file. Thread Name: pool-2-thread-10
+2024-10-30 22:27:55 INFO  DataController:30 - End writing to file. Thread Name: pool-2-thread-9
+2024-10-30 22:27:55 INFO  DataController:26 - Start writing to file. Thread Name: pool-2-thread-9
+2024-10-30 22:27:55 INFO  DataController:30 - End writing to file. Thread Name: pool-2-thread-8
+2024-10-30 22:27:55 INFO  DataController:26 - Start writing to file. Thread Name: pool-2-thread-8
+2024-10-30 22:27:55 INFO  DataController:30 - End writing to file. Thread Name: pool-2-thread-3
+2024-10-30 22:27:55 INFO  DataController:26 - Start writing to file. Thread Name: pool-2-thread-3
+2024-10-30 22:27:55 INFO  DataController:30 - End writing to file. Thread Name: pool-2-thread-1
+2024-10-30 22:27:55 INFO  DataController:26 - Start writing to file. Thread Name: pool-2-thread-1
+2024-10-30 22:27:55 INFO  DataController:30 - End writing to file. Thread Name: pool-2-thread-7
+2024-10-30 22:27:55 INFO  DataController:26 - Start writing to file. Thread Name: pool-2-thread-7
+2024-10-30 22:27:55 INFO  DataController:30 - End writing to file. Thread Name: pool-2-thread-4
+2024-10-30 22:27:55 INFO  DataController:26 - Start writing to file. Thread Name: pool-2-thread-4
+2024-10-30 22:27:55 INFO  DataController:30 - End writing to file. Thread Name: pool-2-thread-6
+2024-10-30 22:27:55 INFO  DataController:26 - Start writing to file. Thread Name: pool-2-thread-6
+2024-10-30 22:27:55 INFO  DataController:30 - End writing to file. Thread Name: pool-2-thread-2
+2024-10-30 22:27:55 INFO  DataController:26 - Start writing to file. Thread Name: pool-2-thread-2
+2024-10-30 22:27:55 INFO  DataController:30 - End writing to file. Thread Name: pool-2-thread-8
+2024-10-30 22:27:55 INFO  DataController:26 - Start writing to file. Thread Name: pool-2-thread-8
+2024-10-30 22:27:55 INFO  DataController:30 - End writing to file. Thread Name: pool-2-thread-5
+2024-10-30 22:27:55 INFO  DataController:26 - Start writing to file. Thread Name: pool-2-thread-5
+2024-10-30 22:27:55 INFO  DataController:30 - End writing to file. Thread Name: pool-2-thread-3
+2024-10-30 22:27:55 INFO  DataController:26 - Start writing to file. Thread Name: pool-2-thread-3
+2024-10-30 22:27:55 INFO  DataController:30 - End writing to file. Thread Name: pool-2-thread-9
+2024-10-30 22:27:55 INFO  DataController:26 - Start writing to file. Thread Name: pool-2-thread-9
+2024-10-30 22:27:55 INFO  DataController:30 - End writing to file. Thread Name: pool-2-thread-10
+2024-10-30 22:27:55 INFO  DataController:26 - Start writing to file. Thread Name: pool-2-thread-10
+2024-10-30 22:27:55 INFO  DataController:30 - End writing to file. Thread Name: pool-2-thread-4
+2024-10-30 22:27:55 INFO  DataController:26 - Start writing to file. Thread Name: pool-2-thread-4
+2024-10-30 22:27:55 INFO  DataController:30 - End writing to file. Thread Name: pool-2-thread-1
+2024-10-30 22:27:55 INFO  DataController:26 - Start writing to file. Thread Name: pool-2-thread-1
+2024-10-30 22:27:55 INFO  DataController:30 - End writing to file. Thread Name: pool-2-thread-7
+2024-10-30 22:27:55 INFO  DataController:26 - Start writing to file. Thread Name: pool-2-thread-7
+2024-10-30 22:27:55 INFO  DataController:30 - End writing to file. Thread Name: pool-2-thread-3
+2024-10-30 22:27:55 INFO  DataController:26 - Start writing to file. Thread Name: pool-2-thread-3
+2024-10-30 22:27:55 INFO  DataController:30 - End writing to file. Thread Name: pool-2-thread-8
+2024-10-30 22:27:55 INFO  DataController:26 - Start writing to file. Thread Name: pool-2-thread-8
+2024-10-30 22:27:55 INFO  DataController:30 - End writing to file. Thread Name: pool-2-thread-9
+2024-10-30 22:27:55 INFO  DataController:26 - Start writing to file. Thread Name: pool-2-thread-9
+2024-10-30 22:27:56 INFO  DataController:30 - End writing to file. Thread Name: pool-2-thread-2
+2024-10-30 22:27:56 INFO  DataController:26 - Start writing to file. Thread Name: pool-2-thread-2
+2024-10-30 22:27:56 INFO  DataController:30 - End writing to file. Thread Name: pool-2-thread-5
+2024-10-30 22:27:56 INFO  DataController:26 - Start writing to file. Thread Name: pool-2-thread-5
+2024-10-30 22:27:56 INFO  DataController:30 - End writing to file. Thread Name: pool-2-thread-6
+2024-10-30 22:27:56 INFO  DataController:26 - Start writing to file. Thread Name: pool-2-thread-6
+2024-10-30 22:27:56 INFO  DataController:30 - End writing to file. Thread Name: pool-2-thread-10
+2024-10-30 22:27:56 INFO  DataController:26 - Start writing to file. Thread Name: pool-2-thread-10
+2024-10-30 22:27:56 INFO  DataController:30 - End writing to file. Thread Name: pool-2-thread-4
+2024-10-30 22:27:56 INFO  DataController:26 - Start writing to file. Thread Name: pool-2-thread-4
+2024-10-30 22:27:56 INFO  DataController:30 - End writing to file. Thread Name: pool-2-thread-1
+2024-10-30 22:27:56 INFO  DataController:26 - Start writing to file. Thread Name: pool-2-thread-1
+2024-10-30 22:27:56 INFO  DataController:30 - End writing to file. Thread Name: pool-2-thread-7
+2024-10-30 22:27:56 INFO  DataController:26 - Start writing to file. Thread Name: pool-2-thread-7
+2024-10-30 22:27:56 INFO  DataController:30 - End writing to file. Thread Name: pool-2-thread-3
+2024-10-30 22:27:56 INFO  DataController:26 - Start writing to file. Thread Name: pool-2-thread-3
+2024-10-30 22:27:56 INFO  DataController:30 - End writing to file. Thread Name: pool-2-thread-8
+2024-10-30 22:27:56 INFO  DataController:26 - Start writing to file. Thread Name: pool-2-thread-8
+2024-10-30 22:27:56 INFO  DataController:30 - End writing to file. Thread Name: pool-2-thread-2
+2024-10-30 22:27:56 INFO  DataController:26 - Start writing to file. Thread Name: pool-2-thread-2
+2024-10-30 22:27:56 INFO  DataController:30 - End writing to file. Thread Name: pool-2-thread-10
+2024-10-30 22:27:56 INFO  DataController:26 - Start writing to file. Thread Name: pool-2-thread-10
+2024-10-30 22:27:56 INFO  DataController:30 - End writing to file. Thread Name: pool-2-thread-9
+2024-10-30 22:27:56 INFO  DataController:26 - Start writing to file. Thread Name: pool-2-thread-9
+2024-10-30 22:27:56 INFO  DataController:30 - End writing to file. Thread Name: pool-2-thread-5
+2024-10-30 22:27:56 INFO  DataController:26 - Start writing to file. Thread Name: pool-2-thread-5
+2024-10-30 22:27:56 INFO  DataController:30 - End writing to file. Thread Name: pool-2-thread-6
+2024-10-30 22:27:56 INFO  DataController:26 - Start writing to file. Thread Name: pool-2-thread-6
+2024-10-30 22:27:56 INFO  DataController:30 - End writing to file. Thread Name: pool-2-thread-4
+2024-10-30 22:27:56 INFO  DataController:26 - Start writing to file. Thread Name: pool-2-thread-4
+2024-10-30 22:27:56 INFO  DataController:30 - End writing to file. Thread Name: pool-2-thread-1
+2024-10-30 22:27:56 INFO  DataController:26 - Start writing to file. Thread Name: pool-2-thread-1
+2024-10-30 22:27:56 INFO  DataController:30 - End writing to file. Thread Name: pool-2-thread-7
+2024-10-30 22:27:56 INFO  DataController:26 - Start writing to file. Thread Name: pool-2-thread-7
+2024-10-30 22:27:56 INFO  DataController:30 - End writing to file. Thread Name: pool-2-thread-2
+2024-10-30 22:27:56 INFO  DataController:26 - Start writing to file. Thread Name: pool-2-thread-2
+2024-10-30 22:27:56 INFO  DataController:30 - End writing to file. Thread Name: pool-2-thread-8
+2024-10-30 22:27:56 INFO  DataController:26 - Start writing to file. Thread Name: pool-2-thread-8
+2024-10-30 22:27:56 INFO  DataController:30 - End writing to file. Thread Name: pool-2-thread-3
+2024-10-30 22:27:56 INFO  DataController:26 - Start writing to file. Thread Name: pool-2-thread-3
+2024-10-30 22:27:56 INFO  DataController:30 - End writing to file. Thread Name: pool-2-thread-9
+2024-10-30 22:27:56 INFO  DataController:26 - Start writing to file. Thread Name: pool-2-thread-9
+2024-10-30 22:27:56 INFO  DataController:30 - End writing to file. Thread Name: pool-2-thread-5
+2024-10-30 22:27:56 INFO  DataController:26 - Start writing to file. Thread Name: pool-2-thread-5
+2024-10-30 22:27:56 INFO  DataController:30 - End writing to file. Thread Name: pool-2-thread-6
+2024-10-30 22:27:56 INFO  DataController:26 - Start writing to file. Thread Name: pool-2-thread-6
+2024-10-30 22:27:56 INFO  DataController:30 - End writing to file. Thread Name: pool-2-thread-10
+2024-10-30 22:27:56 INFO  DataController:26 - Start writing to file. Thread Name: pool-2-thread-10
+2024-10-30 22:27:56 INFO  DataController:30 - End writing to file. Thread Name: pool-2-thread-4
+2024-10-30 22:27:56 INFO  DataController:26 - Start writing to file. Thread Name: pool-2-thread-4
+2024-10-30 22:27:56 INFO  DataController:30 - End writing to file. Thread Name: pool-2-thread-1
+2024-10-30 22:27:56 INFO  DataController:26 - Start writing to file. Thread Name: pool-2-thread-1
+2024-10-30 22:27:56 INFO  DataController:30 - End writing to file. Thread Name: pool-2-thread-8
+2024-10-30 22:27:56 INFO  DataController:26 - Start writing to file. Thread Name: pool-2-thread-8
+2024-10-30 22:27:56 INFO  DataController:30 - End writing to file. Thread Name: pool-2-thread-7
+2024-10-30 22:27:56 INFO  DataController:26 - Start writing to file. Thread Name: pool-2-thread-7
+2024-10-30 22:27:56 INFO  DataController:30 - End writing to file. Thread Name: pool-2-thread-3
+2024-10-30 22:27:56 INFO  DataController:26 - Start writing to file. Thread Name: pool-2-thread-3
+2024-10-30 22:27:56 INFO  DataController:30 - End writing to file. Thread Name: pool-2-thread-2
+2024-10-30 22:27:56 INFO  DataController:26 - Start writing to file. Thread Name: pool-2-thread-2
+2024-10-30 22:27:56 INFO  DataController:30 - End writing to file. Thread Name: pool-2-thread-9
+2024-10-30 22:27:56 INFO  DataController:26 - Start writing to file. Thread Name: pool-2-thread-9
+2024-10-30 22:27:56 INFO  DataController:30 - End writing to file. Thread Name: pool-2-thread-10
+2024-10-30 22:27:56 INFO  DataController:26 - Start writing to file. Thread Name: pool-2-thread-10
+2024-10-30 22:27:56 INFO  DataController:30 - End writing to file. Thread Name: pool-2-thread-5
+2024-10-30 22:27:56 INFO  DataController:26 - Start writing to file. Thread Name: pool-2-thread-5
+2024-10-30 22:27:56 INFO  DataController:30 - End writing to file. Thread Name: pool-2-thread-6
+2024-10-30 22:27:56 INFO  DataController:26 - Start writing to file. Thread Name: pool-2-thread-6
+2024-10-30 22:27:56 INFO  DataController:30 - End writing to file. Thread Name: pool-2-thread-4
+2024-10-30 22:27:56 INFO  DataController:26 - Start writing to file. Thread Name: pool-2-thread-4
+2024-10-30 22:27:56 INFO  DataController:30 - End writing to file. Thread Name: pool-2-thread-1
+2024-10-30 22:27:56 INFO  DataController:26 - Start writing to file. Thread Name: pool-2-thread-1
+2024-10-30 22:27:56 INFO  DataController:30 - End writing to file. Thread Name: pool-2-thread-7
+2024-10-30 22:27:56 INFO  DataController:26 - Start writing to file. Thread Name: pool-2-thread-7
+2024-10-30 22:27:56 INFO  DataController:30 - End writing to file. Thread Name: pool-2-thread-3
+2024-10-30 22:27:56 INFO  DataController:26 - Start writing to file. Thread Name: pool-2-thread-3
+2024-10-30 22:27:56 INFO  DataController:30 - End writing to file. Thread Name: pool-2-thread-2
+2024-10-30 22:27:56 INFO  DataController:26 - Start writing to file. Thread Name: pool-2-thread-2
+2024-10-30 22:27:56 INFO  DataController:30 - End writing to file. Thread Name: pool-2-thread-8
+2024-10-30 22:27:56 INFO  DataController:26 - Start writing to file. Thread Name: pool-2-thread-8
+2024-10-30 22:27:56 INFO  DataController:30 - End writing to file. Thread Name: pool-2-thread-10
+2024-10-30 22:27:56 INFO  DataController:26 - Start writing to file. Thread Name: pool-2-thread-10
+2024-10-30 22:27:56 INFO  DataController:30 - End writing to file. Thread Name: pool-2-thread-1
+2024-10-30 22:27:56 INFO  DataController:26 - Start writing to file. Thread Name: pool-2-thread-1
+2024-10-30 22:27:56 INFO  DataController:30 - End writing to file. Thread Name: pool-2-thread-5
+2024-10-30 22:27:56 INFO  DataController:26 - Start writing to file. Thread Name: pool-2-thread-5
+2024-10-30 22:27:56 INFO  DataController:30 - End writing to file. Thread Name: pool-2-thread-4
+2024-10-30 22:27:56 INFO  DataController:26 - Start writing to file. Thread Name: pool-2-thread-4
+2024-10-30 22:27:56 INFO  DataController:30 - End writing to file. Thread Name: pool-2-thread-6
+2024-10-30 22:27:56 INFO  DataController:26 - Start writing to file. Thread Name: pool-2-thread-6
+2024-10-30 22:27:56 INFO  DataController:30 - End writing to file. Thread Name: pool-2-thread-9
+2024-10-30 22:27:56 INFO  DataController:26 - Start writing to file. Thread Name: pool-2-thread-9
+2024-10-30 22:27:56 INFO  DataController:30 - End writing to file. Thread Name: pool-2-thread-7
+2024-10-30 22:27:56 INFO  DataController:26 - Start writing to file. Thread Name: pool-2-thread-7
+2024-10-30 22:27:56 INFO  DataController:30 - End writing to file. Thread Name: pool-2-thread-8
+2024-10-30 22:27:56 INFO  DataController:26 - Start writing to file. Thread Name: pool-2-thread-8
+2024-10-30 22:27:56 INFO  DataController:30 - End writing to file. Thread Name: pool-2-thread-3
+2024-10-30 22:27:56 INFO  DataController:26 - Start writing to file. Thread Name: pool-2-thread-3
+2024-10-30 22:27:56 INFO  DataController:30 - End writing to file. Thread Name: pool-2-thread-2
+2024-10-30 22:27:56 INFO  DataController:26 - Start writing to file. Thread Name: pool-2-thread-2
+2024-10-30 22:27:56 INFO  DataController:30 - End writing to file. Thread Name: pool-2-thread-10
+2024-10-30 22:27:56 INFO  DataController:30 - End writing to file. Thread Name: pool-2-thread-1
+2024-10-30 22:27:56 INFO  DataController:26 - Start writing to file. Thread Name: pool-2-thread-10
+2024-10-30 22:27:56 INFO  DataController:26 - Start writing to file. Thread Name: pool-2-thread-1
+2024-10-30 22:27:56 INFO  DataController:30 - End writing to file. Thread Name: pool-2-thread-4
+2024-10-30 22:27:56 INFO  DataController:26 - Start writing to file. Thread Name: pool-2-thread-4
+2024-10-30 22:27:56 INFO  DataController:30 - End writing to file. Thread Name: pool-2-thread-5
+2024-10-30 22:27:56 INFO  DataController:26 - Start writing to file. Thread Name: pool-2-thread-5
+2024-10-30 22:27:56 INFO  DataController:30 - End writing to file. Thread Name: pool-2-thread-6
+2024-10-30 22:27:56 INFO  DataController:26 - Start writing to file. Thread Name: pool-2-thread-6
+2024-10-30 22:27:56 INFO  DataController:30 - End writing to file. Thread Name: pool-2-thread-7
+2024-10-30 22:27:56 INFO  DataController:26 - Start writing to file. Thread Name: pool-2-thread-7
+2024-10-30 22:27:56 INFO  DataController:30 - End writing to file. Thread Name: pool-2-thread-9
+2024-10-30 22:27:56 INFO  DataController:26 - Start writing to file. Thread Name: pool-2-thread-9
+2024-10-30 22:27:56 INFO  DataController:30 - End writing to file. Thread Name: pool-2-thread-3
+2024-10-30 22:27:56 INFO  DataController:26 - Start writing to file. Thread Name: pool-2-thread-3
+2024-10-30 22:27:56 INFO  DataController:30 - End writing to file. Thread Name: pool-2-thread-8
+2024-10-30 22:27:56 INFO  DataController:26 - Start writing to file. Thread Name: pool-2-thread-8
+2024-10-30 22:27:56 INFO  DataController:30 - End writing to file. Thread Name: pool-2-thread-10
+2024-10-30 22:27:56 INFO  DataController:26 - Start writing to file. Thread Name: pool-2-thread-10
+2024-10-30 22:27:56 INFO  DataController:30 - End writing to file. Thread Name: pool-2-thread-2
+2024-10-30 22:27:56 INFO  DataController:26 - Start writing to file. Thread Name: pool-2-thread-2
+2024-10-30 22:27:56 INFO  DataController:30 - End writing to file. Thread Name: pool-2-thread-1
+2024-10-30 22:27:56 INFO  DataController:26 - Start writing to file. Thread Name: pool-2-thread-1
+2024-10-30 22:27:56 INFO  DataController:30 - End writing to file. Thread Name: pool-2-thread-5
+2024-10-30 22:27:56 INFO  DataController:26 - Start writing to file. Thread Name: pool-2-thread-5
+2024-10-30 22:27:56 INFO  DataController:30 - End writing to file. Thread Name: pool-2-thread-6
+2024-10-30 22:27:56 INFO  DataController:26 - Start writing to file. Thread Name: pool-2-thread-6
+2024-10-30 22:27:56 INFO  DataController:30 - End writing to file. Thread Name: pool-2-thread-7
+2024-10-30 22:27:56 INFO  DataController:26 - Start writing to file. Thread Name: pool-2-thread-7
+2024-10-30 22:27:56 INFO  DataController:30 - End writing to file. Thread Name: pool-2-thread-9
+2024-10-30 22:27:56 INFO  DataController:26 - Start writing to file. Thread Name: pool-2-thread-9
+2024-10-30 22:27:56 INFO  DataController:30 - End writing to file. Thread Name: pool-2-thread-4
+2024-10-30 22:27:56 INFO  DataController:26 - Start writing to file. Thread Name: pool-2-thread-4
+2024-10-30 22:27:56 INFO  DataController:30 - End writing to file. Thread Name: pool-2-thread-10
+2024-10-30 22:27:56 INFO  DataController:26 - Start writing to file. Thread Name: pool-2-thread-10
+2024-10-30 22:27:56 INFO  DataController:30 - End writing to file. Thread Name: pool-2-thread-1
+2024-10-30 22:27:56 INFO  DataController:26 - Start writing to file. Thread Name: pool-2-thread-1
+2024-10-30 22:27:56 INFO  DataController:30 - End writing to file. Thread Name: pool-2-thread-2
+2024-10-30 22:27:56 INFO  DataController:26 - Start writing to file. Thread Name: pool-2-thread-2
+2024-10-30 22:27:56 INFO  DataController:30 - End writing to file. Thread Name: pool-2-thread-3
+2024-10-30 22:27:56 INFO  DataController:26 - Start writing to file. Thread Name: pool-2-thread-3
+2024-10-30 22:27:56 INFO  DataController:30 - End writing to file. Thread Name: pool-2-thread-6
+2024-10-30 22:27:56 INFO  DataController:26 - Start writing to file. Thread Name: pool-2-thread-6
+2024-10-30 22:27:56 INFO  DataController:30 - End writing to file. Thread Name: pool-2-thread-8
+2024-10-30 22:27:56 INFO  DataController:26 - Start writing to file. Thread Name: pool-2-thread-8
+2024-10-30 22:27:56 INFO  DataController:30 - End writing to file. Thread Name: pool-2-thread-5
+2024-10-30 22:27:56 INFO  DataController:26 - Start writing to file. Thread Name: pool-2-thread-5
+2024-10-30 22:27:56 INFO  DataController:30 - End writing to file. Thread Name: pool-2-thread-9
+2024-10-30 22:27:56 INFO  DataController:26 - Start writing to file. Thread Name: pool-2-thread-9
+2024-10-30 22:27:56 INFO  DataController:30 - End writing to file. Thread Name: pool-2-thread-7
+2024-10-30 22:27:56 INFO  DataController:26 - Start writing to file. Thread Name: pool-2-thread-7
+2024-10-30 22:27:56 INFO  DataController:30 - End writing to file. Thread Name: pool-2-thread-4
+2024-10-30 22:27:56 INFO  DataController:26 - Start writing to file. Thread Name: pool-2-thread-4
+2024-10-30 22:27:56 INFO  DataController:30 - End writing to file. Thread Name: pool-2-thread-10
+2024-10-30 22:27:56 INFO  DataController:26 - Start writing to file. Thread Name: pool-2-thread-10
+2024-10-30 22:27:56 INFO  DataController:30 - End writing to file. Thread Name: pool-2-thread-1
+2024-10-30 22:27:56 INFO  DataController:26 - Start writing to file. Thread Name: pool-2-thread-1
+2024-10-30 22:27:56 INFO  DataController:30 - End writing to file. Thread Name: pool-2-thread-3
+2024-10-30 22:27:56 INFO  DataController:26 - Start writing to file. Thread Name: pool-2-thread-3
+2024-10-30 22:27:56 INFO  DataController:30 - End writing to file. Thread Name: pool-2-thread-2
+2024-10-30 22:27:56 INFO  DataController:26 - Start writing to file. Thread Name: pool-2-thread-2
+2024-10-30 22:27:56 INFO  DataController:30 - End writing to file. Thread Name: pool-2-thread-6
+2024-10-30 22:27:56 INFO  DataController:26 - Start writing to file. Thread Name: pool-2-thread-6
+2024-10-30 22:27:56 INFO  DataController:30 - End writing to file. Thread Name: pool-2-thread-8
+2024-10-30 22:27:56 INFO  DataController:26 - Start writing to file. Thread Name: pool-2-thread-8
+2024-10-30 22:27:56 INFO  DataController:30 - End writing to file. Thread Name: pool-2-thread-5
+2024-10-30 22:27:56 INFO  DataController:26 - Start writing to file. Thread Name: pool-2-thread-5
+2024-10-30 22:27:56 INFO  DataController:30 - End writing to file. Thread Name: pool-2-thread-9
+2024-10-30 22:27:56 INFO  DataController:26 - Start writing to file. Thread Name: pool-2-thread-9
+2024-10-30 22:27:56 INFO  DataController:30 - End writing to file. Thread Name: pool-2-thread-4
+2024-10-30 22:27:56 INFO  DataController:26 - Start writing to file. Thread Name: pool-2-thread-4
+2024-10-30 22:27:56 INFO  DataController:30 - End writing to file. Thread Name: pool-2-thread-2
+2024-10-30 22:27:56 INFO  DataController:26 - Start writing to file. Thread Name: pool-2-thread-2
+2024-10-30 22:27:56 INFO  DataController:30 - End writing to file. Thread Name: pool-2-thread-7
+2024-10-30 22:27:56 INFO  DataController:26 - Start writing to file. Thread Name: pool-2-thread-7
+2024-10-30 22:27:56 INFO  DataController:30 - End writing to file. Thread Name: pool-2-thread-10
+2024-10-30 22:27:56 INFO  DataController:26 - Start writing to file. Thread Name: pool-2-thread-10
+2024-10-30 22:27:56 INFO  DataController:30 - End writing to file. Thread Name: pool-2-thread-3
+2024-10-30 22:27:56 INFO  DataController:26 - Start writing to file. Thread Name: pool-2-thread-3
+2024-10-30 22:27:56 INFO  DataController:30 - End writing to file. Thread Name: pool-2-thread-1
+2024-10-30 22:27:56 INFO  DataController:26 - Start writing to file. Thread Name: pool-2-thread-1
+2024-10-30 22:27:56 INFO  DataController:30 - End writing to file. Thread Name: pool-2-thread-5
+2024-10-30 22:27:56 INFO  DataController:30 - End writing to file. Thread Name: pool-2-thread-6
+2024-10-30 22:27:56 INFO  DataController:30 - End writing to file. Thread Name: pool-2-thread-8
+2024-10-30 22:27:56 INFO  DataController:30 - End writing to file. Thread Name: pool-2-thread-9
+2024-10-30 22:27:56 INFO  DataController:30 - End writing to file. Thread Name: pool-2-thread-4
+2024-10-30 22:27:56 INFO  DataController:30 - End writing to file. Thread Name: pool-2-thread-3
+2024-10-30 22:27:56 INFO  DataController:30 - End writing to file. Thread Name: pool-2-thread-10
+2024-10-30 22:27:56 INFO  DataController:30 - End writing to file. Thread Name: pool-2-thread-2
+2024-10-30 22:27:56 INFO  DataController:30 - End writing to file. Thread Name: pool-2-thread-7
+2024-10-30 22:27:56 INFO  DataController:30 - End writing to file. Thread Name: pool-2-thread-1

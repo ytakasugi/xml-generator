@@ -1,8 +1,8 @@
 package jp.co.baobhansith.server;
 
-import java.sql.Timestamp;
-import java.util.concurrent.ConcurrentHashMap;
-import java.util.concurrent.atomic.AtomicInteger;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+import java.util.concurrent.TimeUnit;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -12,28 +12,40 @@ import jp.co.baobhansith.server.common.bean.CommonBean;
 public class DataController {
     private static final Logger logger = LogManager.getLogger(DataController.class);
 
-    private static final int INIT_FILE_SEQUENCE = 0;
-    private static ConcurrentHashMap<String, AtomicInteger> seqMap = new ConcurrentHashMap<>();
+    private static final int THREAD_POOL_SIZE = 10;
+    private final ExecutorService executorService = Executors.newFixedThreadPool(THREAD_POOL_SIZE);
 
     public DataController() {
     }
 
     public void processData(CommonBean bean) {
-        new Thread(() -> {
-            bean.setCreated(new Timestamp(System.currentTimeMillis()));
-            AtomicInteger seq = seqMap.computeIfAbsent(bean.getId(), k -> new AtomicInteger(INIT_FILE_SEQUENCE));
-            bean.setSeq(String.format("%04d", seq.incrementAndGet()));
-
+        executorService.submit(() -> {
             // JAXB2クラスに引き渡してXML化
             JAXB2 jaxb2 = new JAXB2(bean);
             try {
+                logger.info("Start writing to file. Thread Name: " + Thread.currentThread().getName());
                 if (!jaxb2.convertFormat()) {
                     logger.error("Failed to write to file");
                 }
-                ;
+                logger.info("End writing to file. Thread Name: " + Thread.currentThread().getName());
             } catch (Exception e) {
-                e.printStackTrace();
+                logger.error(e.getMessage());
             }
-        }).start();
+        });
+    }
+
+    public void shutdown() {
+        executorService.shutdown();
+        try {
+            if (!executorService.awaitTermination(60, TimeUnit.SECONDS)) {
+                executorService.shutdownNow();
+                if (!executorService.awaitTermination(60, TimeUnit.SECONDS)) {
+                    logger.error("ExecutorService did not terminate");
+                }
+            }
+        } catch (InterruptedException ie) {
+            executorService.shutdownNow();
+            Thread.currentThread().interrupt();
+        }
     }
 }

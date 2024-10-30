@@ -12,6 +12,8 @@ public class AppXmlGenerator {
         List<DataBean> dataList = generateData(3000000);
         List<LinkingBean> linkingBeanList = new ArrayList<>();
         List<String> csvRecords = new ArrayList<>();
+        // JAXB2クラスに引き渡してXML化
+        DataController controller = new DataController();
         int batchSize = 10000;
 
         for (DataBean data : dataList) {
@@ -41,8 +43,6 @@ public class AppXmlGenerator {
                 commonBean.setDataList(csvRecords.toArray(new String[0]));
                 commonBean.setId("X00_00_000_1");
 
-                // JAXB2クラスに引き渡してXML化
-                DataController controller = new DataController();
                 controller.processData(commonBean);
 
                 // リストをクリア
@@ -69,10 +69,9 @@ public class AppXmlGenerator {
             commonBean.setDataList(csvRecords.toArray(new String[0]));
             commonBean.setId("0000_00_000_1");
 
-            // JAXB2クラスに引き渡してXML化
-            DataController controller = new DataController();
             controller.processData(commonBean);
         }
+        controller.shutdown();
     }
 
     private static List<DataBean> generateData(int num) {
