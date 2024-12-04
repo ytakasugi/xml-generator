@@ -9,12 +9,12 @@ import jp.co.baobhansith.server.common.bean.CommonBean;
 
 public class AppXmlGenerator {
     public static void main(String[] args) {
-        List<DataBean> dataList = generateData(3000000);
+        List<DataBean> dataList = generateData(300);
         List<LinkingBean> linkingBeanList = new ArrayList<>();
         List<String> csvRecords = new ArrayList<>();
         // JAXB2クラスに引き渡してXML化
         DataController controller = new DataController();
-        int batchSize = 10000;
+        int batchSize = 10;
 
         for (DataBean data : dataList) {
             LinkingBean linkingBean = new LinkingBean();
