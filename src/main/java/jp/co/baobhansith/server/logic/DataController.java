@@ -1,4 +1,4 @@
-package jp.co.baobhansith.server;
+package jp.co.baobhansith.server.logic;
 
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;

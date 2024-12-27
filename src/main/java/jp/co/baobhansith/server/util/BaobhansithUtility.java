@@ -11,12 +11,34 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
+import java.util.stream.Stream;
 
 import org.apache.commons.lang3.StringUtils;
 
 import jp.co.baobhansith.server.bean.FileSettingBean;
 
 public class BaobhansithUtility {
+    /**
+     * <dd>指定されたディレクトリ内のファイルの絶対パスを取得する
+     * 
+     * @param directory
+     * @return List<Path>
+     * @throws BaobhansithException
+     */
+    public static List<Path> getFileList(Path directory) throws BaobhansithException {
+        List<Path> fileList = new ArrayList<>();
+
+        // 指定されたディレクトリ直下のファイルの絶対パスを取得
+        try (Stream<Path> paths = Files.list(directory)) {
+            fileList = paths.filter(Files::isRegularFile)
+                    .map(Path::toAbsolutePath)
+                    .collect(Collectors.toList());
+        } catch (IOException e) {
+            throw new BaobhansithException("Failed to get file list", e);
+        }
+        return fileList;
+    }
+
     /**
      * 指定されたCSVファイルを読み込み、指定されたキーに一致する値を返却するメソッド
      * 

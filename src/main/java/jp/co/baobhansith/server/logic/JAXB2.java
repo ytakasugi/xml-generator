@@ -1,4 +1,4 @@
-package jp.co.baobhansith.server;
+package jp.co.baobhansith.server.logic;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;

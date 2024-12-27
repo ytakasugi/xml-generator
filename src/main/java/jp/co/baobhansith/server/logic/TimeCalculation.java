@@ -1,4 +1,4 @@
-package jp.co.baobhansith.server;
+package jp.co.baobhansith.server.logic;
 
 import java.io.IOException;
 import java.nio.file.Files;

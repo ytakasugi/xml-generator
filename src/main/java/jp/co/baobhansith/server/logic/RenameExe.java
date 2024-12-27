@@ -1,4 +1,4 @@
-package jp.co.baobhansith.server;
+package jp.co.baobhansith.server.logic;
 
 import java.io.IOException;
 import java.nio.file.Files;
@@ -10,8 +10,6 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
 import org.apache.commons.collections4.CollectionUtils;
 import org.apache.logging.log4j.LogManager;
@@ -71,7 +69,7 @@ public class RenameExe {
             // ----------------------------------------------------------
             // ファイルリストの取得
             // ----------------------------------------------------------
-            List<Path> fileList = getFileList(sourceDirectory);
+            List<Path> fileList = BaobhansithUtility.getFileList(sourceDirectory);
 
             // ファイルリストが空の場合
             if (CollectionUtils.isEmpty(fileList)) {
@@ -113,27 +111,6 @@ public class RenameExe {
         pathArray = BaobhansithUtility.getDirectoryPathArray(record);
 
         return pathArray;
-    }
-
-    /**
-     * <dd>指定されたディレクトリ内のファイルの絶対パスを取得する
-     * 
-     * @param directory
-     * @return List<Path>
-     * @throws BaobhansithException
-     */
-    public static List<Path> getFileList(Path directory) throws BaobhansithException {
-        List<Path> fileList = new ArrayList<>();
-
-        // 指定されたディレクトリ直下のファイルの絶対パスを取得
-        try (Stream<Path> paths = Files.list(directory)) {
-            fileList = paths.filter(Files::isRegularFile)
-                    .map(Path::toAbsolutePath)
-                    .collect(Collectors.toList());
-        } catch (IOException e) {
-            throw new BaobhansithException("Failed to get file list", e);
-        }
-        return fileList;
     }
 
     /**
