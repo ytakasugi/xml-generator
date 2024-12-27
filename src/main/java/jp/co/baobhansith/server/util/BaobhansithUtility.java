@@ -2,6 +2,8 @@ package jp.co.baobhansith.server.util;
 
 import java.io.BufferedReader;
 import java.io.IOException;
+import java.net.InetAddress;
+import java.net.UnknownHostException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -318,6 +320,13 @@ public class BaobhansithUtility {
                 .allMatch(path -> Files.exists(path) && Files.isDirectory(path));
     }
 
+    /**
+     * 
+     * @param filePath
+     * @param key
+     * @return
+     * @throws IOException
+     */
     public static List<FileSettingBean> getFileSetting(String filePath, String key) throws IOException {
         Path path = Paths.get(filePath);
         List<FileSettingBean> rows = new ArrayList<>();
@@ -338,5 +347,20 @@ public class BaobhansithUtility {
             e.printStackTrace();
         }
         return rows;
+    }
+
+    /**
+     * ホスト名を取得するメソッド
+     * 
+     * @return ホスト名
+     * @throws UnknownHostException ホスト名が取得できない場合
+     */
+    public static String getHostName() throws BaobhansithException {
+        try{
+            InetAddress inetAddress = InetAddress.getLocalHost();
+            return inetAddress.getHostName();
+        } catch (UnknownHostException e) {
+            throw new BaobhansithException(e);
+        }
     }
 }
