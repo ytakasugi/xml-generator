@@ -17,9 +17,11 @@ import java.util.stream.Stream;
 
 import org.apache.commons.lang3.StringUtils;
 
-import jp.co.baobhansith.server.bean.FileSettingBean;
-
 public class BaobhansithUtility {
+    private static final String FILE_NAME_ZERO_PADDING = "0";
+    private static final String HOST_NAME = "localhost";
+    private static final String HYPYEN = "-";
+
     /**
      * <dd>指定されたディレクトリ内のファイルの絶対パスを取得する
      * 
@@ -50,6 +52,28 @@ public class BaobhansithUtility {
      * @return
      * @throws IOException
      */
+    // public static String getValueByKey(String filePath, String key, int index)
+    // throws IOException {
+    // Path path = Paths.get(filePath);
+    // String value = StringUtils.EMPTY;
+
+    // try (BufferedReader br = Files.newBufferedReader(path)) {
+    // String line;
+    // while ((line = br.readLine()) != null) {
+    // // CSVの行をカンマで分割
+    // String[] columns = line.split(",", -1);
+
+    // // 最初のカラムがキーと一致するか確認
+    // if (columns[0].equals(key)) {
+    // value = columns[index];
+    // break;
+    // }
+    // }
+    // } catch (IOException e) {
+    // e.printStackTrace();
+    // }
+    // return value;
+    // }
     public static String getValueByKey(String filePath, String key, int index) throws IOException {
         Path path = Paths.get(filePath);
 
@@ -321,46 +345,48 @@ public class BaobhansithUtility {
     }
 
     /**
-     * 
-     * @param filePath
-     * @param key
-     * @return
-     * @throws IOException
-     */
-    public static List<FileSettingBean> getFileSetting(String filePath, String key) throws IOException {
-        Path path = Paths.get(filePath);
-        List<FileSettingBean> rows = new ArrayList<>();
-
-        try (BufferedReader br = Files.newBufferedReader(path)) {
-            String line;
-            while ((line = br.readLine()) != null) {
-                // CSVの行をカンマで分割
-                String[] columns = line.split(",", -1);
-
-                String id = columns[0].trim();
-                String tag = columns[1].trim();
-                String prefix = columns[2].trim();
-                String namespace = columns[3].trim();
-                rows.add(new FileSettingBean(id, tag, prefix, namespace));
-            }
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        return rows;
-    }
-
-    /**
      * ホスト名を取得するメソッド
      * 
      * @return ホスト名
      * @throws UnknownHostException ホスト名が取得できない場合
      */
     public static String getHostName() throws BaobhansithException {
-        try{
+        try {
             InetAddress inetAddress = InetAddress.getLocalHost();
             return inetAddress.getHostName();
         } catch (UnknownHostException e) {
             throw new BaobhansithException(e);
         }
+    }
+
+    /**
+     * ファイル名を生成するメソッド
+     * 
+     * @param id
+     * @param convertTime
+     * @param sequence
+     * @return
+     */
+    public static String generateOutputFileName(String id, String convertTime, String sequence) {
+        StringBuffer outputFileName = new StringBuffer();
+
+        outputFileName.append(id);
+        outputFileName.append(HYPYEN);
+        outputFileName.append(convertTime);
+        outputFileName.append(HYPYEN);
+        if (StringUtils.isNotEmpty(sequence)) {
+            if (sequence.length() == 5) {
+                outputFileName.append(sequence);
+                outputFileName.append(HYPYEN);
+            } else {
+                outputFileName.append(sequence);
+                outputFileName.append(FILE_NAME_ZERO_PADDING);
+                outputFileName.append(HYPYEN);
+            }
+        }
+        outputFileName.append(HOST_NAME);
+        outputFileName.append(".xml");
+
+        return outputFileName.toString();
     }
 }
