@@ -355,7 +355,7 @@ public class BaobhansithUtility {
             InetAddress inetAddress = InetAddress.getLocalHost();
             return inetAddress.getHostName();
         } catch (UnknownHostException e) {
-            throw new BaobhansithException(e);
+            throw new BaobhansithException("ホスト名取得に失敗しました。", e);
         }
     }
 

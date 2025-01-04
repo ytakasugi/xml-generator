@@ -131,11 +131,13 @@ public class BaobhansithUtilityTest {
     public void testGetHostName_Exception() {
         try (MockedStatic<InetAddress> mockedInetAddress = mockStatic(InetAddress.class)) {
             // InetAddress.getLocalHost()をモックして例外をスローさせる
-            mockedInetAddress.when(InetAddress::getLocalHost).thenThrow(new UnknownHostException("テスト用の例外"));
+            mockedInetAddress.when(InetAddress::getLocalHost).thenThrow(new UnknownHostException());
 
             // BaobhansithUtility.getHostName()を呼び出して例外がスローされることを確認
             Executable executable = () -> BaobhansithUtility.getHostName();
-            assertThrows(BaobhansithException.class, executable, "UnknownHostExceptionがスローされることを期待します");
+            BaobhansithException exception = assertThrows(BaobhansithException.class, executable);
+            assertEquals("ホスト名取得に失敗しました。", exception.getMessage());
+            assertEquals(UnknownHostException.class, exception.getCause().getClass());
         } catch (Exception e) {
             fail("予期しない例外が発生しました: " + e.getMessage());
         }
